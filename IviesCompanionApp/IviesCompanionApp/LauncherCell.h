@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LauncherCell.h
 //  IviesCompanionApp
 //
 //  Created by Connor Smith on 4/3/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface LauncherCell : UICollectionViewCell
 
 @end
