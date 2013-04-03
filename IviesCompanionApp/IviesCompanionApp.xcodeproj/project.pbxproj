@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6AE54CCC170CC95E0073A194 /* Ivies2011-123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6AE54CCB170CC95E0073A194 /* Ivies2011-123.jpg */; };
 		B3880F8A170CA64000032F40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F89170CA64000032F40 /* UIKit.framework */; };
 		B3880F8C170CA64000032F40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F8B170CA64000032F40 /* Foundation.framework */; };
 		B3880F8E170CA64000032F40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F8D170CA64000032F40 /* CoreGraphics.framework */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6AE54CCB170CC95E0073A194 /* Ivies2011-123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Ivies2011-123.jpg"; sourceTree = "<group>"; };
 		B3880F86170CA64000032F40 /* IviesCompanionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IviesCompanionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3880F89170CA64000032F40 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B3880F8B170CA64000032F40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,6 +92,7 @@
 		B3880F8F170CA64000032F40 /* IviesCompanionApp */ = {
 			isa = PBXGroup;
 			children = (
+				6AE54CCB170CC95E0073A194 /* Ivies2011-123.jpg */,
 				B3880F98170CA64000032F40 /* AppDelegate.h */,
 				B3880F99170CA64000032F40 /* AppDelegate.m */,
 				B3880FA1170CA64000032F40 /* MainViewController.h */,
@@ -176,6 +179,7 @@
 				B3880FA6170CA64000032F40 /* ViewController_iPhone.xib in Resources */,
 				B3880FA9170CA64000032F40 /* ViewController_iPad.xib in Resources */,
 				B3880FB8170CAAE500032F40 /* LauncherCell.xib in Resources */,
+				6AE54CCC170CC95E0073A194 /* Ivies2011-123.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +326,7 @@
 				B3880FAE170CA64000032F40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

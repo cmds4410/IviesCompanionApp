@@ -53,9 +53,27 @@
     NSLog(@"Selected Item at index: %d", indexPath.row);
     if (indexPath.row == 0)
     {
+        NSLog(@"Camera selected, Instantiating imagePicker");
+        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
         
+        
+        if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            NSLog(@"Camera not available, setting sourceType to photoLibrary");
+            [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        }
+        else {
+            NSLog(@"Camera available, setting it to sourceType and modifying properties.");
+            picker.showsCameraControls = NO;
+            picker.navigationBarHidden = NO;
+            picker.toolbarHidden = YES;
+            
+            [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        }
+        
+    [self presentViewController:picker animated:YES completion:nil];
     }
-    
+
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -77,5 +95,10 @@
     return UIEdgeInsetsMake(20, 20, 20, 20);
 }
 
+#pragma - UIPickerDelegate
+
+-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+}
 
 @end
