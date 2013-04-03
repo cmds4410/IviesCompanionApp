@@ -16,9 +16,11 @@
 		B3880F9C170CA64000032F40 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B3880F9B170CA64000032F40 /* Default.png */; };
 		B3880F9E170CA64000032F40 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3880F9D170CA64000032F40 /* Default@2x.png */; };
 		B3880FA0170CA64000032F40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3880F9F170CA64000032F40 /* Default-568h@2x.png */; };
-		B3880FA3170CA64000032F40 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3880FA2170CA64000032F40 /* ViewController.m */; };
+		B3880FA3170CA64000032F40 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3880FA2170CA64000032F40 /* MainViewController.m */; };
 		B3880FA6170CA64000032F40 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3880FA4170CA64000032F40 /* ViewController_iPhone.xib */; };
 		B3880FA9170CA64000032F40 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3880FA7170CA64000032F40 /* ViewController_iPad.xib */; };
+		B3880FB2170CA97400032F40 /* LauncherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3880FB1170CA97400032F40 /* LauncherCell.m */; };
+		B3880FB8170CAAE500032F40 /* LauncherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3880FB7170CAAE500032F40 /* LauncherCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,10 +37,13 @@
 		B3880F9B170CA64000032F40 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B3880F9D170CA64000032F40 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B3880F9F170CA64000032F40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		B3880FA1170CA64000032F40 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B3880FA2170CA64000032F40 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B3880FA1170CA64000032F40 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		B3880FA2170CA64000032F40 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B3880FA5170CA64000032F40 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		B3880FA8170CA64000032F40 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		B3880FB0170CA97400032F40 /* LauncherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LauncherCell.h; sourceTree = "<group>"; };
+		B3880FB1170CA97400032F40 /* LauncherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LauncherCell.m; sourceTree = "<group>"; };
+		B3880FB7170CAAE500032F40 /* LauncherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LauncherCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +92,13 @@
 			children = (
 				B3880F98170CA64000032F40 /* AppDelegate.h */,
 				B3880F99170CA64000032F40 /* AppDelegate.m */,
-				B3880FA1170CA64000032F40 /* ViewController.h */,
-				B3880FA2170CA64000032F40 /* ViewController.m */,
+				B3880FA1170CA64000032F40 /* MainViewController.h */,
+				B3880FA2170CA64000032F40 /* MainViewController.m */,
 				B3880FA4170CA64000032F40 /* ViewController_iPhone.xib */,
 				B3880FA7170CA64000032F40 /* ViewController_iPad.xib */,
+				B3880FB0170CA97400032F40 /* LauncherCell.h */,
+				B3880FB1170CA97400032F40 /* LauncherCell.m */,
+				B3880FB7170CAAE500032F40 /* LauncherCell.xib */,
 				B3880F90170CA64000032F40 /* Supporting Files */,
 			);
 			path = IviesCompanionApp;
@@ -167,6 +175,7 @@
 				B3880FA0170CA64000032F40 /* Default-568h@2x.png in Resources */,
 				B3880FA6170CA64000032F40 /* ViewController_iPhone.xib in Resources */,
 				B3880FA9170CA64000032F40 /* ViewController_iPad.xib in Resources */,
+				B3880FB8170CAAE500032F40 /* LauncherCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +188,8 @@
 			files = (
 				B3880F96170CA64000032F40 /* main.m in Sources */,
 				B3880F9A170CA64000032F40 /* AppDelegate.m in Sources */,
-				B3880FA3170CA64000032F40 /* ViewController.m in Sources */,
+				B3880FA3170CA64000032F40 /* MainViewController.m in Sources */,
+				B3880FB2170CA97400032F40 /* LauncherCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
