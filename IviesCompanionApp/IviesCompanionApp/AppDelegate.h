@@ -17,4 +17,6 @@
 
 @property (strong, nonatomic) MainViewController *viewController;
 
+@property (strong, nonatomic) UINavigationController* navController;
+
 @end
