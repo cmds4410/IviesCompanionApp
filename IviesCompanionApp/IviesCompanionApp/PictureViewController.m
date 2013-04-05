@@ -53,6 +53,8 @@ const float WATERMARK_ALPHA = .75;
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UIActionSheetDelegate
+
 #pragma - mark UIActionSheetDelegate
 //Maybe add checks to make sure camera is available?
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
