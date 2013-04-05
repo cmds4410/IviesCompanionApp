@@ -13,6 +13,7 @@
 		6AC9E7F1170E703000E7427F /* FoodCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC9E7F0170E703000E7427F /* FoodCellView.xib */; };
 		B33EF137170E4E7500874419 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EF135170E4E7500874419 /* PictureViewController.m */; };
 		B33EF138170E4E7500874419 /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33EF136170E4E7500874419 /* PictureViewController.xib */; };
+		B33EF13A170E6E7700874419 /* overlay1.png in Resources */ = {isa = PBXBuildFile; fileRef = B33EF139170E6E7700874419 /* overlay1.png */; };
 		B3880F8A170CA64000032F40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F89170CA64000032F40 /* UIKit.framework */; };
 		B3880F8C170CA64000032F40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F8B170CA64000032F40 /* Foundation.framework */; };
 		B3880F8E170CA64000032F40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F8D170CA64000032F40 /* CoreGraphics.framework */; };
@@ -39,6 +40,7 @@
 		B33EF134170E4E7500874419 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
 		B33EF135170E4E7500874419 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
 		B33EF136170E4E7500874419 /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
+		B33EF139170E6E7700874419 /* overlay1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlay1.png; sourceTree = "<group>"; };
 		B3880F86170CA64000032F40 /* IviesCompanionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IviesCompanionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3880F89170CA64000032F40 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B3880F8B170CA64000032F40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -105,6 +107,7 @@
 		B3880F8F170CA64000032F40 /* IviesCompanionApp */ = {
 			isa = PBXGroup;
 			children = (
+				B33EF139170E6E7700874419 /* overlay1.png */,
 				B3880F98170CA64000032F40 /* AppDelegate.h */,
 				B3880F99170CA64000032F40 /* AppDelegate.m */,
 				B3880FA1170CA64000032F40 /* MainViewController.h */,
@@ -201,6 +204,7 @@
 				B3880FA9170CA64000032F40 /* ViewController_iPad.xib in Resources */,
 				B3880FB8170CAAE500032F40 /* LauncherCell.xib in Resources */,
 				B33EF138170E4E7500874419 /* PictureViewController.xib in Resources */,
+				B33EF13A170E6E7700874419 /* overlay1.png in Resources */,
 				6A2F0E7F170E5E2C0069161C /* FoodViewController.xib in Resources */,
 				6AC9E7F1170E703000E7427F /* FoodCellView.xib in Resources */,
 			);
