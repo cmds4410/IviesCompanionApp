@@ -46,7 +46,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma - mark UIActionSheetDelegate
+#pragma mark - UIActionSheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A2F0E7F170E5E2C0069161C /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */; };
+		6A2F0E82170E61D00069161C /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E81170E61D00069161C /* FoodCell.m */; };
+		6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E86170E6D150069161C /* FoodViewController.m */; };
+		6AC9E7F1170E703000E7427F /* FoodCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC9E7F0170E703000E7427F /* FoodCellView.xib */; };
 		B33EF137170E4E7500874419 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EF135170E4E7500874419 /* PictureViewController.m */; };
 		B33EF138170E4E7500874419 /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33EF136170E4E7500874419 /* PictureViewController.xib */; };
 		B3880F8A170CA64000032F40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F89170CA64000032F40 /* UIKit.framework */; };
@@ -26,6 +30,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
+		6A2F0E80170E61D00069161C /* FoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCell.h; sourceTree = "<group>"; };
+		6A2F0E81170E61D00069161C /* FoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCell.m; sourceTree = "<group>"; };
+		6A2F0E85170E6D150069161C /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
+		6A2F0E86170E6D150069161C /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
+		6AC9E7F0170E703000E7427F /* FoodCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCellView.xib; sourceTree = "<group>"; };
 		B33EF134170E4E7500874419 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
 		B33EF135170E4E7500874419 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
 		B33EF136170E4E7500874419 /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
@@ -99,6 +109,12 @@
 				B3880F99170CA64000032F40 /* AppDelegate.m */,
 				B3880FA1170CA64000032F40 /* MainViewController.h */,
 				B3880FA2170CA64000032F40 /* MainViewController.m */,
+				6A2F0E85170E6D150069161C /* FoodViewController.h */,
+				6A2F0E86170E6D150069161C /* FoodViewController.m */,
+				6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */,
+				6A2F0E80170E61D00069161C /* FoodCell.h */,
+				6A2F0E81170E61D00069161C /* FoodCell.m */,
+				6AC9E7F0170E703000E7427F /* FoodCellView.xib */,
 				B3880FA4170CA64000032F40 /* ViewController_iPhone.xib */,
 				B3880FA7170CA64000032F40 /* ViewController_iPad.xib */,
 				B3880FB0170CA97400032F40 /* LauncherCell.h */,
@@ -185,6 +201,8 @@
 				B3880FA9170CA64000032F40 /* ViewController_iPad.xib in Resources */,
 				B3880FB8170CAAE500032F40 /* LauncherCell.xib in Resources */,
 				B33EF138170E4E7500874419 /* PictureViewController.xib in Resources */,
+				6A2F0E7F170E5E2C0069161C /* FoodViewController.xib in Resources */,
+				6AC9E7F1170E703000E7427F /* FoodCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +218,8 @@
 				B3880FA3170CA64000032F40 /* MainViewController.m in Sources */,
 				B3880FB2170CA97400032F40 /* LauncherCell.m in Sources */,
 				B33EF137170E4E7500874419 /* PictureViewController.m in Sources */,
+				6A2F0E82170E61D00069161C /* FoodCell.m in Sources */,
+				6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
