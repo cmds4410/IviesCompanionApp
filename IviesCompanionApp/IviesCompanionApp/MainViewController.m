@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "LauncherCell.h"
 #import "PictureViewController.h"
+#import "FoodViewController.h"
 
 #define LAUNCHER @"LauncherCell"
 
@@ -39,7 +40,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 8;
+    return 6;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,6 +63,12 @@
         
 //        [self presentViewController:picker animated:YES completion:nil];
         [self.navigationController pushViewController:pictureViewController animated:YES];
+    }
+    else if(indexPath.row == 1)
+    {
+        FoodViewController* foodVC = [[FoodViewController alloc] init];
+        
+        [self.navigationController pushViewController:foodVC animated:YES];
     }
     
 }
