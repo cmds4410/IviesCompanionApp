@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B33EF137170E4E7500874419 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EF135170E4E7500874419 /* PictureViewController.m */; };
+		B33EF138170E4E7500874419 /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33EF136170E4E7500874419 /* PictureViewController.xib */; };
 		B3880F8A170CA64000032F40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F89170CA64000032F40 /* UIKit.framework */; };
 		B3880F8C170CA64000032F40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F8B170CA64000032F40 /* Foundation.framework */; };
 		B3880F8E170CA64000032F40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F8D170CA64000032F40 /* CoreGraphics.framework */; };
@@ -24,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B33EF134170E4E7500874419 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
+		B33EF135170E4E7500874419 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
+		B33EF136170E4E7500874419 /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
 		B3880F86170CA64000032F40 /* IviesCompanionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IviesCompanionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3880F89170CA64000032F40 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B3880F8B170CA64000032F40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,6 +104,9 @@
 				B3880FB0170CA97400032F40 /* LauncherCell.h */,
 				B3880FB1170CA97400032F40 /* LauncherCell.m */,
 				B3880FB7170CAAE500032F40 /* LauncherCell.xib */,
+				B33EF134170E4E7500874419 /* PictureViewController.h */,
+				B33EF135170E4E7500874419 /* PictureViewController.m */,
+				B33EF136170E4E7500874419 /* PictureViewController.xib */,
 				B3880F90170CA64000032F40 /* Supporting Files */,
 			);
 			path = IviesCompanionApp;
@@ -176,6 +184,7 @@
 				B3880FA6170CA64000032F40 /* ViewController_iPhone.xib in Resources */,
 				B3880FA9170CA64000032F40 /* ViewController_iPad.xib in Resources */,
 				B3880FB8170CAAE500032F40 /* LauncherCell.xib in Resources */,
+				B33EF138170E4E7500874419 /* PictureViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +199,7 @@
 				B3880F9A170CA64000032F40 /* AppDelegate.m in Sources */,
 				B3880FA3170CA64000032F40 /* MainViewController.m in Sources */,
 				B3880FB2170CA97400032F40 /* LauncherCell.m in Sources */,
+				B33EF137170E4E7500874419 /* PictureViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,10 +294,14 @@
 		B3880FAD170CA64000032F40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Connor Smith (NHN86X7388)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Connor Smith (NHN86X7388)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IviesCompanionApp/IviesCompanionApp-Prefix.pch";
 				INFOPLIST_FILE = "IviesCompanionApp/IviesCompanionApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "732B363B-E22F-43AA-85DC-6B0570C6B5A9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "732B363B-E22F-43AA-85DC-6B0570C6B5A9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -295,10 +309,14 @@
 		B3880FAE170CA64000032F40 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Connor Smith (NHN86X7388)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Connor Smith (NHN86X7388)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IviesCompanionApp/IviesCompanionApp-Prefix.pch";
 				INFOPLIST_FILE = "IviesCompanionApp/IviesCompanionApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "732B363B-E22F-43AA-85DC-6B0570C6B5A9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "732B363B-E22F-43AA-85DC-6B0570C6B5A9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -322,6 +340,7 @@
 				B3880FAE170CA64000032F40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
