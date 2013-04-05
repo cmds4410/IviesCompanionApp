@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "LauncherCell.h"
+#import "PictureViewController.h"
 
 #define LAUNCHER @"LauncherCell"
 
@@ -53,7 +54,14 @@
     NSLog(@"Selected Item at index: %d", indexPath.row);
     if (indexPath.row == 0)
     {
+        //MainViewController* m = [[MainViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
+//        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+//        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        PictureViewController* pictureViewController = [[PictureViewController alloc] init];
         
+        
+//        [self presentViewController:picker animated:YES completion:nil];
+        [self.navigationController pushViewController:pictureViewController animated:YES];
     }
     
 }
