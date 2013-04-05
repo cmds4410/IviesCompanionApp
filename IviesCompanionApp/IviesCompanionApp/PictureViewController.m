@@ -38,7 +38,7 @@ const float WATERMARK_ALPHA = .75;
 
 -(void) viewWillAppear:(BOOL)animated {
     if(!self.imageView.image) {
-        UIActionSheet* photoActionSheet = [[UIActionSheet alloc] initWithTitle:@"PictureSource" delegate:self cancelButtonTitle:@"finish" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photos", nil];
+        UIActionSheet* photoActionSheet = [[UIActionSheet alloc] initWithTitle:@"PictureSource" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photos", nil];
         //    photoActionSheet.actionSheetStyle
         
         // Show the sheet
@@ -54,7 +54,7 @@ const float WATERMARK_ALPHA = .75;
 }
 
 #pragma - mark UIActionSheetDelegate
-
+//Maybe add checks to make sure camera is available?
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     UIImagePickerController* picker = [[UIImagePickerController alloc] init];
@@ -64,6 +64,14 @@ const float WATERMARK_ALPHA = .75;
     {
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:picker animated:YES completion:nil];
+        // This block of code is only needed in case you want your watermark to be displayed also during the shooting process
+        UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+        anImageView.alpha = WATERMARK_ALPHA;
+        anImageView.contentMode = UIViewContentModeTopLeft;
+        anImageView.frame = picker.view.frame;
+        picker.cameraOverlayView = anImageView;
+        
+        
     }
     else if (buttonIndex == 1 && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
@@ -90,7 +98,6 @@ const float WATERMARK_ALPHA = .75;
     // This is where we resize captured image
     [(UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage] drawInRect:CGRectMake(0, 0, 320, 480)];
     // And add the watermark on top of it
-    //[[UIImage imageNamed:@"overlay1.png"] drawAtPoint:CGPointMake(0, 0) blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
     [[UIImage imageNamed:@"overlay1.png"] drawInRect:CGRectMake(0, 0, 320, 100) blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
     // Save the results directly to the image view property
     self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
