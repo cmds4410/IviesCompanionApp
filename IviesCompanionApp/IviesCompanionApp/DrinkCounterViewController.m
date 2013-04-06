@@ -92,6 +92,7 @@
     pickerView.delegate = self.bacActionSheet;
     pickerView.dataSource = self;
     pickerView.showsSelectionIndicator = YES;
+    pickerView.tag = 100;
          
     //Add picker to action sheet
     [self.bacActionSheet addSubview:pickerView];
@@ -101,6 +102,23 @@
     
     [[subviews objectAtIndex:0] setFrame:CGRectMake(20, 266, 280, 46)];
     [[subviews objectAtIndex:1] setFrame:CGRectMake(20, 317, 280, 46)];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    int genderIndex = [self.bacDetailsPicker selectedRowInComponent:0];
+    if(genderIndex == 0) {
+        self.bacActionSheet.gender = @"Male";
+    }
+    else if(genderIndex == 1) {
+        self.bacActionSheet.gender = @"Female";
+    }
+    else
+        self.bacActionSheet.gender = @"N/A";
+    
+    int weightIndex = [self.bacDetailsPicker selectedRowInComponent:1];
+    self.bacActionSheet.weight = 100 + 25 * weightIndex;
+    
+    self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.bacActionSheet.gender, [NSString stringWithFormat:@"%i", self.bacActionSheet.weight]];
 }
 
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender {
