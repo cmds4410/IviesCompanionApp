@@ -39,8 +39,6 @@ const float WATERMARK_ALPHA = .75;
 -(void) viewWillAppear:(BOOL)animated {
     if(!self.imageView.image) {
         UIActionSheet* photoActionSheet = [[UIActionSheet alloc] initWithTitle:@"PictureSource" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photos", nil];
-        //    photoActionSheet.actionSheetStyle
-        
         // Show the sheet
         [photoActionSheet showInView:self.view];
     }
@@ -67,7 +65,7 @@ const float WATERMARK_ALPHA = .75;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:picker animated:YES completion:nil];
         // This block of code is only needed in case you want your watermark to be displayed also during the shooting process
-        UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+        UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1.png"]];
         anImageView.alpha = WATERMARK_ALPHA;
         anImageView.contentMode = UIViewContentModeTopLeft;
         anImageView.frame = picker.view.frame;
@@ -81,16 +79,29 @@ const float WATERMARK_ALPHA = .75;
         [self presentViewController:picker animated:YES completion:nil];
     }
     
-    else
-    {
+    else if (buttonIndex == 2) {
         [self.navigationController popViewControllerAnimated:YES];
     }
+    
+    else
+    {
+        UIAlertView * noCameraAlertView = [[UIAlertView alloc] initWithTitle:@"Camera Problem" message:@"Sorry, your camera fucked up though" delegate:self cancelButtonTitle:@"Back to home screen" otherButtonTitles:nil];
+        [noCameraAlertView show];
+    }
+    
         
 }
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma - mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 #pragma - mark UIImagePickerControllerDelegate

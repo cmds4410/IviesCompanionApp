@@ -11,6 +11,8 @@
 		6A2F0E82170E61D00069161C /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E81170E61D00069161C /* FoodCell.m */; };
 		6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E86170E6D150069161C /* FoodViewController.m */; };
 		6AC9E7F1170E703000E7427F /* FoodCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC9E7F0170E703000E7427F /* FoodCellView.xib */; };
+		6ADB9007170FC38E005C90A8 /* DrinkCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADB9005170FC38E005C90A8 /* DrinkCounterViewController.m */; };
+		6ADB9008170FC38E005C90A8 /* DrinkCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ADB9006170FC38E005C90A8 /* DrinkCounterViewController.xib */; };
 		B33EF137170E4E7500874419 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EF135170E4E7500874419 /* PictureViewController.m */; };
 		B33EF138170E4E7500874419 /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33EF136170E4E7500874419 /* PictureViewController.xib */; };
 		B33EF13A170E6E7700874419 /* overlay1.png in Resources */ = {isa = PBXBuildFile; fileRef = B33EF139170E6E7700874419 /* overlay1.png */; };
@@ -37,6 +39,9 @@
 		6A2F0E85170E6D150069161C /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
 		6A2F0E86170E6D150069161C /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		6AC9E7F0170E703000E7427F /* FoodCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCellView.xib; sourceTree = "<group>"; };
+		6ADB9004170FC38E005C90A8 /* DrinkCounterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkCounterViewController.h; sourceTree = "<group>"; };
+		6ADB9005170FC38E005C90A8 /* DrinkCounterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkCounterViewController.m; sourceTree = "<group>"; };
+		6ADB9006170FC38E005C90A8 /* DrinkCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrinkCounterViewController.xib; sourceTree = "<group>"; };
 		B33EF134170E4E7500874419 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
 		B33EF135170E4E7500874419 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
 		B33EF136170E4E7500874419 /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
@@ -126,6 +131,9 @@
 				B33EF134170E4E7500874419 /* PictureViewController.h */,
 				B33EF135170E4E7500874419 /* PictureViewController.m */,
 				B33EF136170E4E7500874419 /* PictureViewController.xib */,
+				6ADB9004170FC38E005C90A8 /* DrinkCounterViewController.h */,
+				6ADB9005170FC38E005C90A8 /* DrinkCounterViewController.m */,
+				6ADB9006170FC38E005C90A8 /* DrinkCounterViewController.xib */,
 				B3880F90170CA64000032F40 /* Supporting Files */,
 			);
 			path = IviesCompanionApp;
@@ -207,6 +215,7 @@
 				B33EF13A170E6E7700874419 /* overlay1.png in Resources */,
 				6A2F0E7F170E5E2C0069161C /* FoodViewController.xib in Resources */,
 				6AC9E7F1170E703000E7427F /* FoodCellView.xib in Resources */,
+				6ADB9008170FC38E005C90A8 /* DrinkCounterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +233,7 @@
 				B33EF137170E4E7500874419 /* PictureViewController.m in Sources */,
 				6A2F0E82170E61D00069161C /* FoodCell.m in Sources */,
 				6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */,
+				6ADB9007170FC38E005C90A8 /* DrinkCounterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

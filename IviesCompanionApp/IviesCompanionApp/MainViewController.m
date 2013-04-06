@@ -10,6 +10,7 @@
 #import "LauncherCell.h"
 #import "PictureViewController.h"
 #import "FoodViewController.h"
+#import "DrinkCounterViewController.h"
 
 #define LAUNCHER @"LauncherCell"
 
@@ -55,13 +56,7 @@
     NSLog(@"Selected Item at index: %d", indexPath.row);
     if (indexPath.row == 0)
     {
-        //MainViewController* m = [[MainViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-//        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-//        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         PictureViewController* pictureViewController = [[PictureViewController alloc] init];
-        
-        
-//        [self presentViewController:picker animated:YES completion:nil];
         [self.navigationController pushViewController:pictureViewController animated:YES];
     }
     else if(indexPath.row == 1)
@@ -69,6 +64,10 @@
         FoodViewController* foodVC = [[FoodViewController alloc] init];
         
         [self.navigationController pushViewController:foodVC animated:YES];
+    }
+    else if(indexPath.row == 5) {
+        DrinkCounterViewController* drinkCounterVC = [[DrinkCounterViewController alloc] init];
+        [self.navigationController pushViewController:drinkCounterVC animated:YES];
     }
     
 }

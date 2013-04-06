@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PictureViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface PictureViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
