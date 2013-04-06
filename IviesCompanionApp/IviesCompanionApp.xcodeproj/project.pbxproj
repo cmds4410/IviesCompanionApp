@@ -10,6 +10,7 @@
 		6A2F0E7F170E5E2C0069161C /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */; };
 		6A2F0E82170E61D00069161C /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E81170E61D00069161C /* FoodCell.m */; };
 		6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E86170E6D150069161C /* FoodViewController.m */; };
+		6A83F73C1710CBC900EAD1CA /* bacActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A83F73B1710CBC900EAD1CA /* bacActionSheet.m */; };
 		6AC9E7F1170E703000E7427F /* FoodCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC9E7F0170E703000E7427F /* FoodCellView.xib */; };
 		6ADB9007170FC38E005C90A8 /* DrinkCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADB9005170FC38E005C90A8 /* DrinkCounterViewController.m */; };
 		6ADB9008170FC38E005C90A8 /* DrinkCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ADB9006170FC38E005C90A8 /* DrinkCounterViewController.xib */; };
@@ -38,6 +39,8 @@
 		6A2F0E81170E61D00069161C /* FoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCell.m; sourceTree = "<group>"; };
 		6A2F0E85170E6D150069161C /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
 		6A2F0E86170E6D150069161C /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
+		6A83F73A1710CBC900EAD1CA /* bacActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bacActionSheet.h; sourceTree = "<group>"; };
+		6A83F73B1710CBC900EAD1CA /* bacActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bacActionSheet.m; sourceTree = "<group>"; };
 		6AC9E7F0170E703000E7427F /* FoodCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCellView.xib; sourceTree = "<group>"; };
 		6ADB9004170FC38E005C90A8 /* DrinkCounterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkCounterViewController.h; sourceTree = "<group>"; };
 		6ADB9005170FC38E005C90A8 /* DrinkCounterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkCounterViewController.m; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				B33EF134170E4E7500874419 /* PictureViewController.h */,
 				B33EF135170E4E7500874419 /* PictureViewController.m */,
 				B33EF136170E4E7500874419 /* PictureViewController.xib */,
+				6A83F73A1710CBC900EAD1CA /* bacActionSheet.h */,
+				6A83F73B1710CBC900EAD1CA /* bacActionSheet.m */,
 				6ADB9004170FC38E005C90A8 /* DrinkCounterViewController.h */,
 				6ADB9005170FC38E005C90A8 /* DrinkCounterViewController.m */,
 				6ADB9006170FC38E005C90A8 /* DrinkCounterViewController.xib */,
@@ -234,6 +239,7 @@
 				6A2F0E82170E61D00069161C /* FoodCell.m in Sources */,
 				6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */,
 				6ADB9007170FC38E005C90A8 /* DrinkCounterViewController.m in Sources */,
+				6A83F73C1710CBC900EAD1CA /* bacActionSheet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
