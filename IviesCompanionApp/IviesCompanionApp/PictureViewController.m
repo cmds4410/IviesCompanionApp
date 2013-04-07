@@ -7,6 +7,7 @@
 //
 
 #import "PictureViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 const float WATERMARK_ALPHA = .75;
 
@@ -20,7 +21,6 @@ const float WATERMARK_ALPHA = .75;
 
 @synthesize imageView = _imageView;
 @synthesize scrollView = _scrollView;
-@synthesize shareButton = _shareButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +38,8 @@ const float WATERMARK_ALPHA = .75;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButton)];
     
+    self.scrollView.delegate = self;
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -51,11 +53,31 @@ const float WATERMARK_ALPHA = .75;
     
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void) addGestureRecognizers
+{
+    self.imageView.userInteractionEnabled = YES;
+    UIPinchGestureRecognizer *pgr = [[UIPinchGestureRecognizer alloc]
+                                     initWithTarget:self action:@selector(scalePiece:)];
+    pgr.delegate = self;
+    [self.imageView addGestureRecognizer:pgr];
+    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panPiece:)];
+    [panGesture setMaximumNumberOfTouches:2];
+    [panGesture setDelegate:self];
+    [self.imageView addGestureRecognizer:panGesture];
+}
+
 - (void)actionButton
 {
     NSString *textToShare = kHashtag;
     UIImage *imageToShare = self.imageView.image;
-//    NSURL *url = [NSURL URLWithString:@"http://www.yashesh87.wordpress.com"];
+    //    NSURL *url = [NSURL URLWithString:@"http://www.yashesh87.wordpress.com"];
     NSArray *activityItems = [[NSArray alloc]  initWithObjects:textToShare, imageToShare,nil];
     
     UIActivity *activity = [[UIActivity alloc] init];
@@ -65,12 +87,6 @@ const float WATERMARK_ALPHA = .75;
     [[UIActivityViewController alloc] initWithActivityItems:activityItems
                                       applicationActivities:applicationActivities];
     [self presentViewController:activityVC animated:YES completion:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -141,7 +157,9 @@ const float WATERMARK_ALPHA = .75;
 #pragma - mark UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIGraphicsBeginImageContext(CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height));
+    
+    // supports retina
+    UIGraphicsBeginImageContextWithOptions(self.view.frame.size, NO, 0.0);
 
     // This is where we resize captured image
     [(UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
@@ -150,13 +168,17 @@ const float WATERMARK_ALPHA = .75;
     
     // you may notice that the height of this frame is larger than the height of the imageview used over the camera
     // this is because the size of the frame we are "painting" the image into is a bit smaller because of the navigation bar
-    NSLog(@"navbar height: %f", self.navigationController.navigationBar.bounds.size.height/2);
     anImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 135);
     anImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.imageView addSubview:anImageView];
+    anImageView.alpha = WATERMARK_ALPHA;
+//    [self.imageView addSubview:anImageView];
     //[[UIImage imageNamed:@"overlay1.png"] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, 100) blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
+//    [anImageView.image drawInRect:anImageView.frame blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
+    [anImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
     // Save the results directly to the image view property
     self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+//    [self.scrollView addSubview:self.imageView];
     
     UIGraphicsEndImageContext();
     
@@ -168,6 +190,13 @@ const float WATERMARK_ALPHA = .75;
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
     
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
 }
 
 @end
