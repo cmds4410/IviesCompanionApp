@@ -11,5 +11,6 @@
 @interface MainViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+- (IBAction)isItIvies:(UIButton *)sender;
 
 @end

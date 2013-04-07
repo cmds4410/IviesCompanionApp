@@ -37,6 +37,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)isItIvies:(UIButton *)sender {
+    UIViewController *iviesImageVC = [[UIViewController alloc] init];
+    [self.navigationController pushViewController:iviesImageVC animated:YES];
+}
+
+
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -46,14 +52,12 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LauncherCell *cell = [cv dequeueReusableCellWithReuseIdentifier:LAUNCHER forIndexPath:indexPath];
-    
     return cell;
 }
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Selected Item at index: %d", indexPath.row);
     if (indexPath.row == 0)
     {
         PictureViewController* pictureViewController = [[PictureViewController alloc] init];
@@ -90,6 +94,5 @@
 {
     return UIEdgeInsetsMake(20, 20, 20, 20);
 }
-
 
 @end

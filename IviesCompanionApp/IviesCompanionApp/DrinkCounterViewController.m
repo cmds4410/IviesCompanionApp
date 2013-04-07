@@ -63,65 +63,32 @@
 
 
 - (IBAction)clearPressed:(UIButton *)sender {
-    NSLog(@"drinkCounter text: %@, stepper value: %.f, BAC text: %@", self.drinkCounter.text, self.stepper.value, self.BAC.text);
+    if(self.bacActionSheet) {
+        return;
+    }
     if(![self.drinkCounter.text isEqualToString:@"0"]) {
         self.BAC.text = @"Sobered up, huh?";
     }
+    else
+        self.BAC.text = @"0.0";
     self.drinkCounter.text = @"0";
     self.stepper.value = 0;
-    NSLog(@"drinkCounter text: %@, stepper value: %.f, BAC text: %@", self.drinkCounter.text, self.stepper.value, self.BAC.text);
 }
 
 - (IBAction)bacDetailsPressed:(UIButton *)sender {
     
-    self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"BAC Details" delegate:self cancelButtonTitle:@"Done" destructiveButtonTitle:nil otherButtonTitles:nil];
+    self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"BAC Details" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"done" otherButtonTitles:nil];
     [self.bacActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    [self.bacActionSheet showInView:self.view];
     CGPoint bacActionSheetOrigin = CGPointMake(0, self.drinkCounterView.frame.size.height / 4);
     CGRect bacActionSheetFrame = CGRectMake(0,bacActionSheetOrigin.y, self.drinkCounterView.frame.size.width, self.drinkCounterView.frame.size.height);
     [self.bacActionSheet setFrame:bacActionSheetFrame];
-    
-    
-}
-#pragma - mark UIActionSheetDegate
-
-- (void) willPresentActionSheet:(UIActionSheet *)actionSheet {
-    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 40, 320, 216)];
-    
-    //Configure picker...
-    pickerView.delegate = self.bacActionSheet;
-    pickerView.dataSource = self;
-    pickerView.showsSelectionIndicator = YES;
-    pickerView.tag = 100;
-         
-    //Add picker to action sheet
-    [self.bacActionSheet addSubview:pickerView];
-        
-    //Gets an array af all of the subviews of our actionSheet
-    NSArray *subviews = [actionSheet subviews];
-    
-    [[subviews objectAtIndex:0] setFrame:CGRectMake(20, 266, 280, 46)];
-    [[subviews objectAtIndex:1] setFrame:CGRectMake(20, 317, 280, 46)];
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    int genderIndex = [self.bacDetailsPicker selectedRowInComponent:0];
-    if(genderIndex == 0) {
-        self.bacActionSheet.gender = @"Male";
-    }
-    else if(genderIndex == 1) {
-        self.bacActionSheet.gender = @"Female";
-    }
-    else
-        self.bacActionSheet.gender = @"N/A";
-    
-    int weightIndex = [self.bacDetailsPicker selectedRowInComponent:1];
-    self.bacActionSheet.weight = 100 + 25 * weightIndex;
-    
-    self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.bacActionSheet.gender, [NSString stringWithFormat:@"%i", self.bacActionSheet.weight]];
+    [self.drinkCounterView addSubview:self.bacActionSheet];
 }
 
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender {
+    if(self.bacActionSheet) {
+        return;
+    }
     self.drinkCounter.text = [NSString stringWithFormat:@"%.f", self.stepper.value];
     if([self.BAC.text isEqualToString:@"Sobered up, huh?"]) {
         [self.BAC setText:@"Back at it. Nice."];
@@ -143,22 +110,23 @@
     }
 }
 
-#pragma - mark UIPickerViewDataSource
+#pragma - mark UIActionSheetDegate
 
--(int) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
     
-    return NUMBEROFCOMPONENTS;
-    
-}
-
--(int) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    if (component == 0) {
-        return 2;
+    int genderIndex = [self.bacDetailsPicker selectedRowInComponent:0];
+    if(genderIndex == 0) {
+        self.bacActionSheet.gender = @"Male";
+    }
+    else if(genderIndex == 1) {
+        self.bacActionSheet.gender = @"Female";
     }
     else
-        return NUMBEROFWEIGHTS;
+        self.bacActionSheet.gender = @"N/A";
+    
+    int weightIndex = [self.bacDetailsPicker selectedRowInComponent:1];
+    self.bacActionSheet.weight = 100 + 25 * weightIndex;
+    
+    self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.bacActionSheet.gender, [NSString stringWithFormat:@"%i", self.bacActionSheet.weight]];
 }
-
-
-
 @end

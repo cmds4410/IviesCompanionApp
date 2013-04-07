@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "bacActionSheet.h"
 
-@interface DrinkCounterViewController : UIViewController <UIActionSheetDelegate, UIPickerViewDataSource>
+@interface DrinkCounterViewController : UIViewController <UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIView *drinkCounterView;
 @property (weak, nonatomic) IBOutlet UILabel *drinkCounter;
 @property (weak, nonatomic) IBOutlet UIStepper * stepper;
@@ -22,6 +22,3 @@
 - (IBAction)bacDetailsPressed:(UIButton *)sender;
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender;
 @end
-
-#define NUMBEROFCOMPONENTS 2;
-#define NUMBEROFWEIGHTS 20;
