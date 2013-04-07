@@ -14,9 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *drinkCounter;
 @property (weak, nonatomic) IBOutlet UIStepper * stepper;
 @property (weak, nonatomic) IBOutlet UILabel *BAC;
-
 @property (strong, nonatomic) bacActionSheet *bacActionSheet;
-@property (strong, nonatomic) UIPickerView *bacDetailsPicker;
 
 - (IBAction)clearPressed:(UIButton *)sender;
 - (IBAction)bacDetailsPressed:(UIButton *)sender;

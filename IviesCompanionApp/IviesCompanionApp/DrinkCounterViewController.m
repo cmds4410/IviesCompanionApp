@@ -18,7 +18,7 @@
 @synthesize stepper = _stepper;
 @synthesize drinkCounter = _drinkCounter;
 @synthesize bacActionSheet = _bacActionSheet;
-@synthesize bacDetailsPicker = _bacDetailsPicker;
+@synthesize BAC = _BAC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,16 +63,15 @@
 
 
 - (IBAction)clearPressed:(UIButton *)sender {
-    if(self.bacActionSheet) {
-        return;
+    if(!self.bacActionSheet) {
+        if(![self.drinkCounter.text isEqualToString:@"0"]) {
+            self.BAC.text = @"Sobered up, huh?";
+        }
+        else
+            self.BAC.text = @"0.0";
+        self.drinkCounter.text = @"0";
+        self.stepper.value = 0;
     }
-    if(![self.drinkCounter.text isEqualToString:@"0"]) {
-        self.BAC.text = @"Sobered up, huh?";
-    }
-    else
-        self.BAC.text = @"0.0";
-    self.drinkCounter.text = @"0";
-    self.stepper.value = 0;
 }
 
 - (IBAction)bacDetailsPressed:(UIButton *)sender {
@@ -86,27 +85,26 @@
 }
 
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender {
-    if(self.bacActionSheet) {
-        return;
-    }
-    self.drinkCounter.text = [NSString stringWithFormat:@"%.f", self.stepper.value];
-    if([self.BAC.text isEqualToString:@"Sobered up, huh?"]) {
-        [self.BAC setText:@"Back at it. Nice."];
-    }
-    if (self.stepper.value >= 5) {
-        if(self.stepper.value >= 10) {
-            if(self.stepper.value >= 15) {
-                if(self.stepper.value == 25) {
-                    self.BAC.text = @"You're probably dead dude";
+    if(!self.bacActionSheet) {
+        self.drinkCounter.text = [NSString stringWithFormat:@"%.f", self.stepper.value];
+        if([self.BAC.text isEqualToString:@"Sobered up, huh?"]) {
+            [self.BAC setText:@"Back at it. Nice."];
+        }
+        if (self.stepper.value >= 5) {
+            if(self.stepper.value >= 10) {
+                if(self.stepper.value >= 15) {
+                    if(self.stepper.value == 25) {
+                        self.BAC.text = @"You're probably dead dude";
+                    }
+                    else
+                        self.BAC.text = @"Kid's blackout";
                 }
                 else
-                    self.BAC.text = @"Kid's blackout";
+                    self.BAC.text = @"Kid's hammered";
             }
             else
-                self.BAC.text = @"Kid's hammered";
+                self.BAC.text = @"Kid's buzzed";
         }
-        else
-            self.BAC.text = @"Kid's buzzed";
     }
 }
 

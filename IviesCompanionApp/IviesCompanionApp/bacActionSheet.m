@@ -15,6 +15,8 @@
 @synthesize weight = _weight;
 @synthesize baseWeight = _baseWeight;
 @synthesize baseDate = _baseDate;
+@synthesize timeFormat = _timeFormat;
+@synthesize bacDetailsPicker = _bacDetailsPicker;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -32,17 +34,19 @@
     self = [super initWithTitle:title delegate:delegate cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitles, nil];
     if(self) {
         self.weight = 0;
-        self.gender = @"";
+        self.gender = @"N/A";
         self.baseWeight = 75;
-        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         self.baseDate = [[NSDateComponents alloc] init];
-        [self.baseDate setCalendar:gregorian];
-        [self.baseDate setHour:0];
-        [self.baseDate setMinute:0];
+        [self.baseDate setHour:12];
+        [self.baseDate setMinute:00];
+
+        self.timeFormat = [[NSDateFormatter alloc] init];
+        [self.timeFormat setDateFormat:@"HH:mm"];
+        
         
         UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(20, self.superview.frame.origin.y + 30, 280, 46)];
-        
-        //Configure picker...
+
+        //Configure picker
         pickerView.delegate = self;
         pickerView.dataSource = self;
         pickerView.showsSelectionIndicator = YES;
@@ -77,12 +81,12 @@
         return [NSString stringWithFormat:@"%i", weight];
     }
     else if (component == 2) {
-        NSDateComponents *tempDate = [[NSDateComponents alloc] init];
-        [tempDate setMinute:self.baseDate.minute + 15 * row];
-        if(row % 4 == 0) {
-            [tempDate setHour:self.baseDate.hour + 1];
-        }
-        return [NSString stringWithFormat:@"%i:%i", self.baseDate.hour, self.baseDate.minute];
+        NSDateComponents *tempDateComponents = [[NSDateComponents alloc] init];
+        [tempDateComponents setHour:self.baseDate.hour + (row / 2)];
+        [tempDateComponents setMinute:30*(row % 2)];
+        
+//        NSString *dateString = [NSString alloc] initWithFormat:(NSString *) arguments:<#(va_list)#>
+        return nil;
     }
     else {
         NSLog(@"Something wrong with picker");
@@ -103,8 +107,11 @@
     if (component == 0) {
         return 2;
     }
-    else
+    else if (component == 1) {
         return NUMBEROFWEIGHTS;
+    }
+    else
+        return 49;
 }
 
 

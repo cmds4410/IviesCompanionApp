@@ -39,6 +39,11 @@
 
 - (IBAction)isItIvies:(UIButton *)sender {
     UIViewController *iviesImageVC = [[UIViewController alloc] init];
+    UIImage *iviesImage = [[UIImage alloc] init];
+    iviesImage = [UIImage imageWithContentsOfFile:@"overlay1.png"];
+    UIImageView *iviesImageView = [[UIImageView alloc] initWithImage:iviesImage];
+    iviesImageVC.view = iviesImageView;
+    
     [self.navigationController pushViewController:iviesImageVC animated:YES];
 }
 
@@ -47,7 +52,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 6;
+    return 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,16 +68,12 @@
         PictureViewController* pictureViewController = [[PictureViewController alloc] init];
         [self.navigationController pushViewController:pictureViewController animated:YES];
     }
-    else if(indexPath.row == 1)
-    {
-        FoodViewController* foodVC = [[FoodViewController alloc] init];
-        
-        [self.navigationController pushViewController:foodVC animated:YES];
-    }
-    else if(indexPath.row == 5) {
+    else if(indexPath.row == 1) {
         DrinkCounterViewController* drinkCounterVC = [[DrinkCounterViewController alloc] init];
         [self.navigationController pushViewController:drinkCounterVC animated:YES];
     }
+    else
+        NSLog(@"Something's amiss with the collectionview");
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath

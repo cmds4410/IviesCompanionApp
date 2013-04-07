@@ -18,7 +18,6 @@ const float WATERMARK_ALPHA = .75;
 
 @synthesize imageView = _imageView;
 @synthesize scrollView = _scrollView;
-@synthesize shareButton = _shareButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,8 +50,6 @@ const float WATERMARK_ALPHA = .75;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UIActionSheetDelegate
-
 #pragma - mark UIActionSheetDelegate
 //Maybe add checks to make sure camera is available?
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -64,7 +61,7 @@ const float WATERMARK_ALPHA = .75;
     {
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:picker animated:YES completion:nil];
-        // This block of code is only needed in case you want your watermark to be displayed also during the shooting process
+        //Realtime overlay
         UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1.png"]];
         anImageView.alpha = WATERMARK_ALPHA;
         anImageView.contentMode = UIViewContentModeTopLeft;

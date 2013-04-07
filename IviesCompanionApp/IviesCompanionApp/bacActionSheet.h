@@ -14,6 +14,8 @@
 @property (weak, nonatomic) NSString *gender;
 @property (nonatomic) int baseWeight;
 @property (strong, nonatomic) NSDateComponents *baseDate;
+@property (strong, nonatomic) NSDateFormatter *timeFormat;
+@property (strong, nonatomic) UIPickerView *bacDetailsPicker;
 
 
 @end
