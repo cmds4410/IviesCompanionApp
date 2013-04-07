@@ -10,8 +10,10 @@
 
 const float WATERMARK_ALPHA = .75;
 
-@interface PictureViewController ()
+#define kHashtag @"#IVIES2013 #IVIESCOMPANIONAPP"
 
+@interface PictureViewController ()
+- (void)actionButton;
 @end
 
 @implementation PictureViewController
@@ -34,6 +36,8 @@ const float WATERMARK_ALPHA = .75;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButton)];
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -45,6 +49,22 @@ const float WATERMARK_ALPHA = .75;
         [photoActionSheet showInView:self.view];
     }
     
+}
+
+- (void)actionButton
+{
+    NSString *textToShare = kHashtag;
+    UIImage *imageToShare = self.imageView.image;
+//    NSURL *url = [NSURL URLWithString:@"http://www.yashesh87.wordpress.com"];
+    NSArray *activityItems = [[NSArray alloc]  initWithObjects:textToShare, imageToShare,nil];
+    
+    UIActivity *activity = [[UIActivity alloc] init];
+    
+    NSArray *applicationActivities = [[NSArray alloc] initWithObjects:activity, nil];
+    UIActivityViewController *activityVC =
+    [[UIActivityViewController alloc] initWithActivityItems:activityItems
+                                      applicationActivities:applicationActivities];
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,7 +105,7 @@ const float WATERMARK_ALPHA = .75;
                 anImageView.alpha = WATERMARK_ALPHA;
                 anImageView.contentMode = UIViewContentModeScaleAspectFit;
                 
-                anImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 100);;
+                anImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 100);
                 [awesomeView addSubview:anImageView];
                 
                 [scrollView addSubview:awesomeView];
@@ -121,15 +141,23 @@ const float WATERMARK_ALPHA = .75;
 #pragma - mark UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-//    UIGraphicsBeginImageContext(CGSizeMake(320, 480));
     UIGraphicsBeginImageContext(CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height));
 
     // This is where we resize captured image
     [(UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     // And add the watermark on top of it
-    [[UIImage imageNamed:@"overlay1.png"] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, 100) blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
+    UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+    
+    // you may notice that the height of this frame is larger than the height of the imageview used over the camera
+    // this is because the size of the frame we are "painting" the image into is a bit smaller because of the navigation bar
+    NSLog(@"navbar height: %f", self.navigationController.navigationBar.bounds.size.height/2);
+    anImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 135);
+    anImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.imageView addSubview:anImageView];
+    //[[UIImage imageNamed:@"overlay1.png"] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, 100) blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
     // Save the results directly to the image view property
     self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    
     UIGraphicsEndImageContext();
     
     // Dismiss the image picker controller and look at the results
