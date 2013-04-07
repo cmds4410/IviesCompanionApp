@@ -28,6 +28,8 @@
 		B3880FA9170CA64000032F40 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3880FA7170CA64000032F40 /* ViewController_iPad.xib */; };
 		B3880FB2170CA97400032F40 /* LauncherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3880FB1170CA97400032F40 /* LauncherCell.m */; };
 		B3880FB8170CAAE500032F40 /* LauncherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3880FB7170CAAE500032F40 /* LauncherCell.xib */; };
+		B3D21E33171224F000A040C6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D21E32171224F000A040C6 /* Social.framework */; };
+		B3D21E35171224F600A040C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D21E34171224F600A040C6 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		B3880FB0170CA97400032F40 /* LauncherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LauncherCell.h; sourceTree = "<group>"; };
 		B3880FB1170CA97400032F40 /* LauncherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LauncherCell.m; sourceTree = "<group>"; };
 		B3880FB7170CAAE500032F40 /* LauncherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LauncherCell.xib; sourceTree = "<group>"; };
+		B3D21E32171224F000A040C6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B3D21E34171224F600A040C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D21E35171224F600A040C6 /* QuartzCore.framework in Frameworks */,
+				B3D21E33171224F000A040C6 /* Social.framework in Frameworks */,
 				B3880F8A170CA64000032F40 /* UIKit.framework in Frameworks */,
 				B3880F8C170CA64000032F40 /* Foundation.framework in Frameworks */,
 				B3880F8E170CA64000032F40 /* CoreGraphics.framework in Frameworks */,
@@ -97,6 +103,8 @@
 		B3880F88170CA64000032F40 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3D21E34171224F600A040C6 /* QuartzCore.framework */,
+				B3D21E32171224F000A040C6 /* Social.framework */,
 				B3880F89170CA64000032F40 /* UIKit.framework */,
 				B3880F8B170CA64000032F40 /* Foundation.framework */,
 				B3880F8D170CA64000032F40 /* CoreGraphics.framework */,
