@@ -40,6 +40,7 @@
 #pragma - mark UIPickerViewDelegate
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSLog(@"row: %d", row);
     if(component == 0) {
         if (row == 0) {
             return @"Female";
@@ -47,8 +48,8 @@
         return @"Male";
     }
     else if (component == 1) {
-        self.baseWeight = self.baseWeight + WEIGHTINCREMENT;
-        return [NSString stringWithFormat:@"%i", self.baseWeight];
+        int weight = self.baseWeight + row * WEIGHTINCREMENT;
+        return [NSString stringWithFormat:@"%i", weight];
     }
     else {
         NSLog(@"Something wrong with pickerRowLabels");
