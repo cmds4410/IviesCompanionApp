@@ -9,7 +9,7 @@
 #import "PictureViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-const float WATERMARK_ALPHA = .75;
+const float WATERMARK_ALPHA = 1;
 
 #define kHashtag @"#IVIES2013 #IVIESCOMPANIONAPP"
 
@@ -41,11 +41,23 @@ const float WATERMARK_ALPHA = .75;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.wantsFullScreenLayout = YES;
+    [self.navigationController.navigationBar setTranslucent:YES];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButton)];
     
     self.scrollView.delegate = self;
     
-    self.overlays = [NSArray arrayWithObjects:@"overlay1.png", @"overlay-certified.png", @"overlay-wasted.png", nil];
+    // Path to the plist (in the application bundle)
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"Overlays" ofType:@"plist"];
+    
+    // Build the array from the plist
+    self.overlays = [NSArray arrayWithContentsOfFile:path];
+    
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    
+    [self.view addGestureRecognizer:tap];
     
 }
 
@@ -57,6 +69,25 @@ const float WATERMARK_ALPHA = .75;
         // Show the sheet
         [photoActionSheet showInView:self.view];
     }
+    
+//    [self.navigationController.navigationBar setHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.imageView.alpha = 0;
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.imageView.alpha = 0;
+    
+    [UIView animateWithDuration:4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        self.imageView.alpha = 1;
+        
+    } completion:^(BOOL finished)
+     {
+         // add instructions for sharing
+     }];
     
 }
 
@@ -80,6 +111,18 @@ const float WATERMARK_ALPHA = .75;
     [[UIActivityViewController alloc] initWithActivityItems:activityItems
                                       applicationActivities:applicationActivities];
     [self presentViewController:activityVC animated:YES completion:nil];
+}
+
+- (void)tap:(UITapGestureRecognizer*)gesture
+{
+    if (self.navigationController.navigationBarHidden)
+    {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    }
+    else
+    {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
 }
 
 #pragma mark - UIActionSheetDelegate

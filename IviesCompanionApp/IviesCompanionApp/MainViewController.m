@@ -14,12 +14,13 @@
 #define LAUNCHER @"LauncherCell"
 
 @interface MainViewController ()
-
+@property (nonatomic) UIImageView* homeScreenImageView;
 @end
 
 @implementation MainViewController
 
 @synthesize collectionView = _collectionView;
+@synthesize homeScreenImageView = _homeScreenImageView;
 
 - (void)viewDidLoad
 {
@@ -28,6 +29,30 @@
     self.title = @"Ivies Companion";
     [self.collectionView registerClass:[LauncherCell class] forCellWithReuseIdentifier:LAUNCHER];
     [self.collectionView reloadData];
+    self.homeScreenImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    [self.homeScreenImageView setImage:[UIImage imageNamed:@"launch-short3.png"]];
+    self.homeScreenImageView.alpha = 1;
+    [self.view addSubview:self.homeScreenImageView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (self.navigationController.navigationBar.isHidden)
+    {
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [UIView animateWithDuration:3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        self.homeScreenImageView.alpha = 0;
+        
+    } completion:^(BOOL finished){
+    
+        [self.homeScreenImageView removeFromSuperview];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,7 +106,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGSize size = CGSizeMake(125, 125);
+    CGSize size = CGSizeMake(300, 200);
     
     return size;
 }
@@ -89,7 +114,7 @@
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(20, 20, 20, 20);
+    return UIEdgeInsetsMake(20, 0, 40, 0);
 }
 
 
