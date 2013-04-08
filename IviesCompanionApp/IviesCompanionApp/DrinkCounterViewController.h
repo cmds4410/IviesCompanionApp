@@ -25,9 +25,11 @@
 @property (strong, nonatomic) bacActionSheet *bacActionSheet;
 @property (nonatomic) int weight;
 @property (weak, nonatomic) NSString *gender;
+@property (nonatomic) float bacConst;
+@property (weak, nonatomic) id <DrinkCounterDelegate> delegate;
 
-- (void)presentBACActionSheet;
+-(void)presentActionSheet;
 - (IBAction)clearPressed:(UIButton *)sender;
-- (IBAction)reenterDetailsPressed:(UIButton *)sender;
+- (IBAction)detailsPressed:(UIButton *)sender;
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender;
 @end

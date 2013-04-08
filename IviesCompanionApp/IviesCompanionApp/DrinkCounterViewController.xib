@@ -125,7 +125,7 @@
 								<string key="NSFrame">{{85, 281}, {150, 150}}</string>
 								<reference key="NSSuperview" ref="385110566"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="913441677"/>
+								<reference key="NSNextKeyView" ref="486526811"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -184,19 +184,20 @@
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
-							<object class="IBUIButton" id="913441677">
+							<object class="IBUIButton" id="486526811">
 								<reference key="NSNextResponder" ref="385110566"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{124, 439}, {72, 44}}</string>
+								<string key="NSFrame">{{123, 439}, {74, 44}}</string>
 								<reference key="NSSuperview" ref="385110566"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<int key="IBUIButtonType">1</int>
-								<string key="IBUINormalTitle">details</string>
+								<string key="IBUINormalTitle">Details</string>
 								<reference key="IBUIHighlightedTitleColor" ref="767733988"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
 									<int key="NSColorSpace">1</int>
@@ -310,12 +311,12 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">reenterDetailsPressed:</string>
-						<reference key="source" ref="913441677"/>
+						<string key="label">detailsPressed:</string>
+						<reference key="source" ref="486526811"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">334</int>
+					<int key="connectionID">340</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -414,7 +415,7 @@
 						<reference key="object" ref="385110566"/>
 						<array class="NSMutableArray" key="children">
 							<object class="IBNSLayoutConstraint" id="1014248513">
-								<reference key="firstItem" ref="913441677"/>
+								<reference key="firstItem" ref="486526811"/>
 								<int key="firstAttribute">3</int>
 								<int key="relation">0</int>
 								<reference key="secondItem" ref="685439462"/>
@@ -430,7 +431,7 @@
 								<int key="contentType">3</int>
 							</object>
 							<object class="IBNSLayoutConstraint" id="147110347">
-								<reference key="firstItem" ref="913441677"/>
+								<reference key="firstItem" ref="486526811"/>
 								<int key="firstAttribute">9</int>
 								<int key="relation">0</int>
 								<reference key="secondItem" ref="685439462"/>
@@ -674,7 +675,7 @@
 							<reference ref="230921887"/>
 							<reference ref="1054480018"/>
 							<reference ref="685439462"/>
-							<reference ref="913441677"/>
+							<reference ref="486526811"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -909,17 +910,17 @@
 						<reference key="parent" ref="685439462"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">330</int>
-						<reference key="object" ref="913441677"/>
+						<int key="objectID">337</int>
+						<reference key="object" ref="486526811"/>
 						<reference key="parent" ref="385110566"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">331</int>
+						<int key="objectID">338</int>
 						<reference key="object" ref="147110347"/>
 						<reference key="parent" ref="385110566"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">332</int>
+						<int key="objectID">339</int>
 						<reference key="object" ref="1014248513"/>
 						<reference key="parent" ref="385110566"/>
 					</object>
@@ -997,10 +998,10 @@
 				<string key="322.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="324.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="325.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="330.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<boolean value="NO" key="330.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
-				<string key="331.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="332.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="337.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<boolean value="NO" key="337.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
+				<string key="338.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="339.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="79.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<array key="79.IBViewMetadataConstraints">
 					<reference ref="898644287"/>
@@ -1014,7 +1015,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">334</int>
+			<int key="maxID">340</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1023,21 +1024,21 @@
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="clearPressed:">UIButton</string>
+						<string key="detailsPressed:">UIButton</string>
 						<string key="incrementedDrinkCounter:">UIStepper</string>
-						<string key="reenterDetailsPressed:">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="clearPressed:">
 							<string key="name">clearPressed:</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
+						<object class="IBActionInfo" key="detailsPressed:">
+							<string key="name">detailsPressed:</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBActionInfo" key="incrementedDrinkCounter:">
 							<string key="name">incrementedDrinkCounter:</string>
 							<string key="candidateClassName">UIStepper</string>
-						</object>
-						<object class="IBActionInfo" key="reenterDetailsPressed:">
-							<string key="name">reenterDetailsPressed:</string>
-							<string key="candidateClassName">UIButton</string>
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">

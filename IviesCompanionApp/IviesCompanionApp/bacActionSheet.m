@@ -12,8 +12,7 @@
 @implementation bacActionSheet
 
 @synthesize baseWeight = _baseWeight;
-@synthesize baseDate = _baseDate;
-@synthesize timeFormat = _timeFormat;
+@synthesize dateStartedDrinking = _dateStartedDrinking;
 @synthesize bacDetailsPicker = _bacDetailsPicker;
 
 - (id)initWithFrame:(CGRect)frame
@@ -32,23 +31,12 @@
     self = [super initWithTitle:title delegate:delegate cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitles, nil];
     if(self) {
         self.baseWeight = BASEWEIGHT;
-        self.baseDate = [[NSDateComponents alloc] init];
-        [self.baseDate setHour:12];
-        [self.baseDate setMinute:00];
-
-        self.timeFormat = [[NSDateFormatter alloc] init];
-        [self.timeFormat setDateFormat:@"HH:mm"];
+        self.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        self.bacDetailsPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 100, 320, 162)];
+        self.bacDetailsPicker.delegate = self;
+        self.bacDetailsPicker.showsSelectionIndicator = YES;
+        [self addSubview:self.bacDetailsPicker];
         
-        
-        UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(20, self.superview.frame.origin.y + 30, 280, 46)];
-
-        //Configure picker
-        pickerView.delegate = self;
-        pickerView.dataSource = self;
-        pickerView.showsSelectionIndicator = YES;
-        
-        //Add picker to action sheet
-        [self addSubview:pickerView];
     }
     return self;
 }
@@ -65,7 +53,6 @@
 #pragma - mark UIPickerViewDelegate
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSLog(@"row: %d", row);
     if(component == 0) {
         if (row == 0) {
             return @"Female";
@@ -76,19 +63,10 @@
         int weight = self.baseWeight + row * WEIGHTINCREMENT;
         return [NSString stringWithFormat:@"%i", weight];
     }
-    else if (component == 2) {
-        NSDateComponents *tempDateComponents = [[NSDateComponents alloc] init];
-        [tempDateComponents setHour:self.baseDate.hour + (row / 2)];
-        [tempDateComponents setMinute:30*(row % 2)];
-        
-//        NSString *dateString = [NSString alloc] initWithFormat:(NSString *) arguments:<#(va_list)#>
-        return nil;
-    }
     else {
         NSLog(@"Something wrong with picker");
         return @"N/A";
     }
-    return @"N/A";
 }
 
 #pragma - mark UIPickerViewDataSource
@@ -107,8 +85,7 @@
         return NUMBEROFWEIGHTS;
     }
     else
-        return 49;
+        return 0;
 }
-
 
 @end

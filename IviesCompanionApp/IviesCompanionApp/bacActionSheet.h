@@ -11,8 +11,7 @@
 @interface bacActionSheet : UIActionSheet <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic) int baseWeight;
-@property (strong, nonatomic) NSDateComponents *baseDate;
-@property (strong, nonatomic) NSDateFormatter *timeFormat;
+@property (weak, nonatomic) NSData *dateStartedDrinking;
 @property (strong, nonatomic) UIPickerView *bacDetailsPicker;
 
 
@@ -20,5 +19,5 @@
 
 #define BASEWEIGHT 75;
 #define WEIGHTINCREMENT 25;
-#define NUMBEROFWEIGHTS 20;
-#define NUMBEROFCOMPONENTS 3;
+#define NUMBEROFWEIGHTS 10;
+#define NUMBEROFCOMPONENTS 2;

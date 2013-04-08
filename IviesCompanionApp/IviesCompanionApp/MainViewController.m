@@ -92,7 +92,7 @@
 -(void)userDidPressStartDrinking {
     
     self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
-    [self.drinkCounterVC presentBACActionSheet];
+    self.drinkCounterVC.delegate = self;
     [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
     
 }
