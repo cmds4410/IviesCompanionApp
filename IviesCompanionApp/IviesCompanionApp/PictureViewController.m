@@ -41,10 +41,12 @@ const float WATERMARK_ALPHA = 1;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkgd-green-short.png"]];
+    
     self.wantsFullScreenLayout = YES;
     [self.navigationController.navigationBar setTranslucent:YES];
     
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24 green:156 blue:254 alpha:0.3]];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButton)];
     
@@ -73,22 +75,25 @@ const float WATERMARK_ALPHA = 1;
     }
     
 //    [self.navigationController.navigationBar setHidden:YES];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+//    [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.imageView.alpha = 0;
     
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
     self.imageView.alpha = 0;
     
-    [UIView animateWithDuration:4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    [UIView animateWithDuration:3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         
         self.imageView.alpha = 1;
         
     } completion:^(BOOL finished)
      {
          // add instructions for sharing
+         [self.navigationController setNavigationBarHidden:NO animated:YES];
      }];
     
 }
