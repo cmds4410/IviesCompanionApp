@@ -10,11 +10,14 @@
 #import "LauncherCell.h"
 #import "PictureViewController.h"
 #import "FoodViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "ModalViewController.h"
 
 #define LAUNCHER @"LauncherCell"
 
 @interface MainViewController ()
 @property (nonatomic) UIImageView* homeScreenImageView;
+- (void)modal;
 @end
 
 @implementation MainViewController
@@ -25,8 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-//    self.title = @"Ivies Companion";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navicon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(modal)];
     
     // TODO: Add support for 4 inch screen
 
@@ -52,7 +55,7 @@
 {
     if (self.navigationController.navigationBar.isHidden)
     {
-        [self.navigationController setNavigationBarHidden:NO animated:NO];
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
     [self.navigationController.navigationBar setTranslucent:NO];
 }
@@ -75,6 +78,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)modal
+{
+    ModalViewController* modalVC = [[ModalViewController alloc] init];
+    modalVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    //modalVC.modalTransitionStyle = UIModalTransitionStylePartialCurl;
+    [self presentViewController:modalVC animated:YES completion:nil];
 }
 
 #pragma mark - UICollectionView Datasource
@@ -103,6 +114,14 @@
         [imageView setImage:image];
         [cell addSubview:imageView];
     }
+    
+//    cell.layer.shadowColor = [UIColor blackColor].CGColor;
+//    cell.layer.shadowOffset = CGSizeMake(0, 3);
+//    cell.layer.shadowRadius = 10.0;
+//    cell.layer.shadowOpacity = 0.8;
+//    cell.layer.cornerRadius = 10.0;
+//    self.activityBackgroundView.layer.borderColor = [UIColor blackColor].CGColor;
+//    self.invitationView.layer.borderWidth = 2.0;
     
     return cell;
 }
@@ -147,7 +166,7 @@
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(20, 0, 100, 0);
+    return UIEdgeInsetsMake(50, 0, 50, 0);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section

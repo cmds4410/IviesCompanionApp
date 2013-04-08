@@ -60,6 +60,8 @@
 		B3D21EC21713411700A040C6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D21EC11713411500A040C6 /* Default.png */; };
 		B3D21EC41713414900A040C6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D21EC31713414600A040C6 /* icon@2x.png */; };
 		B3D21EC61713415E00A040C6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D21EC51713415D00A040C6 /* icon.png */; };
+		B3D21ECB1713830E00A040C6 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D21EC91713830800A040C6 /* ModalViewController.m */; };
+		B3D21ECC1713830E00A040C6 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3D21ECA1713830B00A040C6 /* ModalViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +75,7 @@
 		B33EF135170E4E7500874419 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
 		B33EF136170E4E7500874419 /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
 		B33EF139170E6E7700874419 /* overlay1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlay1.png; sourceTree = "<group>"; };
-		B3880F86170CA64000032F40 /* IviesCompanionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IviesCompanionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3880F86170CA64000032F40 /* Ivies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ivies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3880F89170CA64000032F40 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B3880F8B170CA64000032F40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3880F8D170CA64000032F40 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,6 +127,9 @@
 		B3D21EC11713411500A040C6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		B3D21EC31713414600A040C6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		B3D21EC51713415D00A040C6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		B3D21EC81713830700A040C6 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
+		B3D21EC91713830800A040C6 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		B3D21ECA1713830B00A040C6 /* ModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +160,7 @@
 		B3880F87170CA64000032F40 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B3880F86170CA64000032F40 /* IviesCompanionApp.app */,
+				B3880F86170CA64000032F40 /* Ivies.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +189,9 @@
 				B3880FB0170CA97400032F40 /* LauncherCell.h */,
 				B3880FB1170CA97400032F40 /* LauncherCell.m */,
 				B3880FB7170CAAE500032F40 /* LauncherCell.xib */,
+				B3D21EC81713830700A040C6 /* ModalViewController.h */,
+				B3D21EC91713830800A040C6 /* ModalViewController.m */,
+				B3D21ECA1713830B00A040C6 /* ModalViewController.xib */,
 				6A2F0E85170E6D150069161C /* FoodViewController.h */,
 				6A2F0E86170E6D150069161C /* FoodViewController.m */,
 				6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */,
@@ -268,7 +276,7 @@
 			);
 			name = IviesCompanionApp;
 			productName = IviesCompanionApp;
-			productReference = B3880F86170CA64000032F40 /* IviesCompanionApp.app */;
+			productReference = B3880F86170CA64000032F40 /* Ivies.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -343,6 +351,7 @@
 				B3D21EC21713411700A040C6 /* Default.png in Resources */,
 				B3D21EC41713414900A040C6 /* icon@2x.png in Resources */,
 				B3D21EC61713415E00A040C6 /* icon.png in Resources */,
+				B3D21ECC1713830E00A040C6 /* ModalViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +369,7 @@
 				B33EF137170E4E7500874419 /* PictureViewController.m in Sources */,
 				6A2F0E82170E61D00069161C /* FoodCell.m in Sources */,
 				6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */,
+				B3D21ECB1713830E00A040C6 /* ModalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +469,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IviesCompanionApp/IviesCompanionApp-Prefix.pch";
 				INFOPLIST_FILE = "IviesCompanionApp/IviesCompanionApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Ivies;
 				PROVISIONING_PROFILE = "732B363B-E22F-43AA-85DC-6B0570C6B5A9";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "732B363B-E22F-43AA-85DC-6B0570C6B5A9";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -475,7 +485,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IviesCompanionApp/IviesCompanionApp-Prefix.pch";
 				INFOPLIST_FILE = "IviesCompanionApp/IviesCompanionApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Ivies;
 				PROVISIONING_PROFILE = "732B363B-E22F-43AA-85DC-6B0570C6B5A9";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "732B363B-E22F-43AA-85DC-6B0570C6B5A9";
 				TARGETED_DEVICE_FAMILY = 1;
