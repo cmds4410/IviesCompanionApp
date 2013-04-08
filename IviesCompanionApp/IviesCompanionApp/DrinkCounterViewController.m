@@ -19,6 +19,8 @@
 @synthesize drinkCounter = _drinkCounter;
 @synthesize bacActionSheet = _bacActionSheet;
 @synthesize BAC = _BAC;
+@synthesize gender = _gender;
+@synthesize weight = _weight;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,8 +28,6 @@
     if (self) {
         // Custom initialization
     }
-    
-
 
     return self;
 }
@@ -64,7 +64,6 @@
 
 
 - (IBAction)clearPressed:(UIButton *)sender {
-    if(!self.bacActionSheet) {
         if(![self.drinkCounter.text isEqualToString:@"0"]) {
             self.BAC.text = @"Sobered up, huh?";
         }
@@ -72,21 +71,14 @@
             self.BAC.text = @"0.0";
         self.drinkCounter.text = @"0";
         self.stepper.value = 0;
-    }
 }
 
 - (IBAction)reenterDetailsPressed:(UIButton *)sender {
-    
-    self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"BAC Details" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"done" otherButtonTitles:nil];
-    [self.bacActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    CGPoint bacActionSheetOrigin = CGPointMake(0, self.drinkCounterView.frame.size.height / 4);
-    CGRect bacActionSheetFrame = CGRectMake(0,bacActionSheetOrigin.y, self.drinkCounterView.frame.size.width, self.drinkCounterView.frame.size.height);
-    [self.bacActionSheet setFrame:bacActionSheetFrame];
-    [self.drinkCounterView addSubview:self.bacActionSheet];
+    [self presentBACActionSheet];
 }
 
+
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender {
-    if(!self.bacActionSheet) {
         self.drinkCounter.text = [NSString stringWithFormat:@"%.f", self.stepper.value];
         if([self.BAC.text isEqualToString:@"Sobered up, huh?"]) {
             [self.BAC setText:@"Back at it. Nice."];
@@ -106,7 +98,6 @@
             else
                 self.BAC.text = @"Kid's buzzed";
         }
-    }
 }
 
 #pragma - mark UIActionSheetDegate
@@ -115,17 +106,32 @@
     
     int genderIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:0];
     if(genderIndex == 0) {
-        self.bacActionSheet.gender = @"Male";
+        self.gender = @"Male";
     }
     else if(genderIndex == 1) {
-        self.bacActionSheet.gender = @"Female";
+        self.gender = @"Female";
     }
     else
-        self.bacActionSheet.gender = @"N/A";
+        self.gender = @"N/A";
     
     int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
-    self.bacActionSheet.weight = 100 + 25 * weightIndex;
+    self.weight = 100 + 25 * weightIndex;
     
-    self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.bacActionSheet.gender, [NSString stringWithFormat:@"%i", self.bacActionSheet.weight]];
+    self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
+}
+
+- (void) presentBACActionSheet {
+    
+    if(!self.bacActionSheet) {
+        self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"BAC Details" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"done" otherButtonTitles:nil];
+        [self.bacActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+        //CGPoint bacActionSheetOrigin = CGPointMake(0, self.drinkCounterView.frame.size.height / 4);
+        //CGRect bacActionSheetFrame = CGRectMake(0,bacActionSheetOrigin.y, self.drinkCounterView.frame.size.width, self.drinkCounterView.frame.size.height);
+        [self.drinkCounterView addSubview:self.bacActionSheet];
+    }
+    else {
+        [self.drinkCounter addSubview:self.bacActionSheet];
+    }
+
 }
 @end

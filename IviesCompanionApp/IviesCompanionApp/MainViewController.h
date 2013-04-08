@@ -13,10 +13,13 @@
 #import "PictureViewController.h"
 #import "LauncherCell.h"
 
-@interface MainViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDelegate, initialDrinkingDelegate>
+@interface MainViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, initialDrinkingDelegate, DrinkCounterDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) initialDrinkingViewController *initialDrinkingVC;
 @property (strong, nonatomic) DrinkCounterViewController *drinkCounterVC;
+@property (nonatomic) int storedDrinkCount;
+@property (nonatomic) float storedBAC;
+
 
 @end

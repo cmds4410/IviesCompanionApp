@@ -11,8 +11,6 @@
 
 @implementation bacActionSheet
 
-@synthesize gender = _gender;
-@synthesize weight = _weight;
 @synthesize baseWeight = _baseWeight;
 @synthesize baseDate = _baseDate;
 @synthesize timeFormat = _timeFormat;
@@ -33,9 +31,7 @@
     
     self = [super initWithTitle:title delegate:delegate cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitles, nil];
     if(self) {
-        self.weight = 0;
-        self.gender = @"N/A";
-        self.baseWeight = 75;
+        self.baseWeight = BASEWEIGHT;
         self.baseDate = [[NSDateComponents alloc] init];
         [self.baseDate setHour:12];
         [self.baseDate setMinute:00];

@@ -19,6 +19,8 @@
 @synthesize collectionView = _collectionView;
 @synthesize initialDrinkingVC = _initialDrinkingVC;
 @synthesize drinkCounterVC = _drinkCounterVC;
+@synthesize storedDrinkCount = _storedDrinkCount;
+@synthesize storedBAC = _storedBAC;
 
 - (void)viewDidLoad
 {
@@ -57,7 +59,6 @@
     }
     else if(indexPath.row == 1) {
         
-        self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
         self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
         self.initialDrinkingVC.delegate = self;
         [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
@@ -89,10 +90,27 @@
 #pragma mark - initialDrinkingDelegate
 
 -(void)userDidPressStartDrinking {
+    
+    self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
+    [self.drinkCounterVC presentBACActionSheet];
     [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
+    
 }
 
 -(void)userDidPressKeepDrinking {
+    if(self.drinkCounterVC) {
+        self.drinkCounterVC.drinkCounter.text = [NSString stringWithFormat:@"%i",self.storedDrinkCount];
+        self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%.f", self.storedBAC];
+        [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
+    }
+    
+}
+
+#pragma mark - DrinkCounterDelegate 
+
+-(void) drinkCounterWillDisappear {
+    self.storedDrinkCount = [self.drinkCounterVC.drinkCounter.text intValue];
+    self.storedBAC = [self.drinkCounterVC.BAC.text floatValue];
 }
 
 
