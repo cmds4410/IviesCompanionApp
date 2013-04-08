@@ -30,6 +30,8 @@
 		B3880FB8170CAAE500032F40 /* LauncherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3880FB7170CAAE500032F40 /* LauncherCell.xib */; };
 		B3D21E33171224F000A040C6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D21E32171224F000A040C6 /* Social.framework */; };
 		B3D21E35171224F600A040C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D21E34171224F600A040C6 /* QuartzCore.framework */; };
+		B3D21E3817124D1400A040C6 /* overlay-certified.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D21E3617124D1400A040C6 /* overlay-certified.png */; };
+		B3D21E3917124D1400A040C6 /* overlay-wasted.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D21E3717124D1400A040C6 /* overlay-wasted.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		B3880FB7170CAAE500032F40 /* LauncherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LauncherCell.xib; sourceTree = "<group>"; };
 		B3D21E32171224F000A040C6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		B3D21E34171224F600A040C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B3D21E3617124D1400A040C6 /* overlay-certified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay-certified.png"; sourceTree = "<group>"; };
+		B3D21E3717124D1400A040C6 /* overlay-wasted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay-wasted.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +119,6 @@
 		B3880F8F170CA64000032F40 /* IviesCompanionApp */ = {
 			isa = PBXGroup;
 			children = (
-				B33EF139170E6E7700874419 /* overlay1.png */,
 				B3880F98170CA64000032F40 /* AppDelegate.h */,
 				B3880F99170CA64000032F40 /* AppDelegate.m */,
 				B3880FA1170CA64000032F40 /* MainViewController.h */,
@@ -134,6 +137,7 @@
 				B33EF134170E4E7500874419 /* PictureViewController.h */,
 				B33EF135170E4E7500874419 /* PictureViewController.m */,
 				B33EF136170E4E7500874419 /* PictureViewController.xib */,
+				B3D21E3A17124D2E00A040C6 /* Pictures */,
 				B3880F90170CA64000032F40 /* Supporting Files */,
 			);
 			path = IviesCompanionApp;
@@ -151,6 +155,16 @@
 				B3880F9F170CA64000032F40 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3D21E3A17124D2E00A040C6 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				B3D21E3617124D1400A040C6 /* overlay-certified.png */,
+				B3D21E3717124D1400A040C6 /* overlay-wasted.png */,
+				B33EF139170E6E7700874419 /* overlay1.png */,
+			);
+			name = Pictures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +229,8 @@
 				B33EF13A170E6E7700874419 /* overlay1.png in Resources */,
 				6A2F0E7F170E5E2C0069161C /* FoodViewController.xib in Resources */,
 				6AC9E7F1170E703000E7427F /* FoodCellView.xib in Resources */,
+				B3D21E3817124D1400A040C6 /* overlay-certified.png in Resources */,
+				B3D21E3917124D1400A040C6 /* overlay-wasted.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

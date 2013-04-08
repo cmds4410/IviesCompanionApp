@@ -15,12 +15,17 @@ const float WATERMARK_ALPHA = .75;
 
 @interface PictureViewController ()
 - (void)actionButton;
+@property (nonatomic, strong) NSArray* overlays;
+@property (nonatomic, strong) UIScrollView* cameraScrollView;
 @end
 
 @implementation PictureViewController
 
 @synthesize imageView = _imageView;
 @synthesize scrollView = _scrollView;
+@synthesize cameraScrollView = _cameraScrollView;
+
+@synthesize overlays = _overlays;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +45,8 @@ const float WATERMARK_ALPHA = .75;
     
     self.scrollView.delegate = self;
     
+    self.overlays = [NSArray arrayWithObjects:@"overlay1.png", @"overlay-certified.png", @"overlay-wasted.png", nil];
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -57,20 +64,6 @@ const float WATERMARK_ALPHA = .75;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void) addGestureRecognizers
-{
-    self.imageView.userInteractionEnabled = YES;
-    UIPinchGestureRecognizer *pgr = [[UIPinchGestureRecognizer alloc]
-                                     initWithTarget:self action:@selector(scalePiece:)];
-    pgr.delegate = self;
-    [self.imageView addGestureRecognizer:pgr];
-    
-    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panPiece:)];
-    [panGesture setMaximumNumberOfTouches:2];
-    [panGesture setDelegate:self];
-    [self.imageView addGestureRecognizer:panGesture];
 }
 
 - (void)actionButton
@@ -103,35 +96,37 @@ const float WATERMARK_ALPHA = .75;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:picker animated:YES completion:^{
             // This block of code is only needed in case you want your watermark to be displayed also during the shooting process
-            UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
-            anImageView.alpha = WATERMARK_ALPHA;
-            anImageView.contentMode = UIViewContentModeScaleAspectFit;
+//            UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+//            anImageView.alpha = WATERMARK_ALPHA;
+//            anImageView.contentMode = UIViewContentModeScaleAspectFit;
+//            
+//            anImageView.frame = CGRectMake(0, 20, self.view.bounds.size.width, 100);
             
-            anImageView.frame = CGRectMake(0, 20, self.view.bounds.size.width, 100);
-            
-            UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, 100)];
-            scrollView.pagingEnabled = YES;
+            self.cameraScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, 100)];
+            self.cameraScrollView.delegate = self;
+            self.cameraScrollView.pagingEnabled = YES;
             int numberOfViews = 3;
             for (int i = 0; i < numberOfViews; i++)
             {
                 CGFloat xOrigin = i * self.view.frame.size.width;
                 UIView *awesomeView = [[UIView alloc] initWithFrame:CGRectMake(xOrigin, 0, self.view.frame.size.width, self.view.frame.size.height)];
                 //awesomeView.backgroundColor = [UIColor colorWithRed:0.5/i green:0.5 blue:0.5 alpha:1];
-                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+//                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1.png"]];
+                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:i]]];
                 anImageView.alpha = WATERMARK_ALPHA;
                 anImageView.contentMode = UIViewContentModeScaleAspectFit;
                 
                 anImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 100);
                 [awesomeView addSubview:anImageView];
                 
-                [scrollView addSubview:awesomeView];
+                [self.cameraScrollView addSubview:awesomeView];
             }
-            scrollView.contentSize = CGSizeMake(self.view.frame.size.width * numberOfViews, scrollView.frame.size.height);
+            self.cameraScrollView.contentSize = CGSizeMake(self.view.frame.size.width * numberOfViews, self.cameraScrollView.frame.size.height);
             //        scrollView.showsHorizontalScrollIndicator = NO;
             
-            picker.cameraOverlayView = scrollView;
+            picker.cameraOverlayView = self.cameraScrollView;
             
-            [scrollView flashScrollIndicators];
+            [self.cameraScrollView flashScrollIndicators];
         }];
         
         
@@ -163,8 +158,12 @@ const float WATERMARK_ALPHA = .75;
 
     // This is where we resize captured image
     [(UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    
+    //calculate the current page of the scrollview
+    int page = (int) (self.cameraScrollView.contentOffset.x / self.cameraScrollView.frame.size.width);
+    
     // And add the watermark on top of it
-    UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+    UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:page]]];
     
     // you may notice that the height of this frame is larger than the height of the imageview used over the camera
     // this is because the size of the frame we are "painting" the image into is a bit smaller because of the navigation bar
@@ -197,6 +196,13 @@ const float WATERMARK_ALPHA = .75;
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     return self.imageView;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+//    NSLog(@"Scroll Offset: %f", scrollView.contentOffset.x);
+//    int page = (int) (scrollView.contentOffset.x / scrollView.frame.size.width);
+//    NSLog(@"width: %d", page);
 }
 
 @end
