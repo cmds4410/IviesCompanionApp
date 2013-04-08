@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "bacActionSheet.h"
 
+@protocol DrinkCounterProtocol <NSObject>
+
+@end
+
 @interface DrinkCounterViewController : UIViewController <UIActionSheetDelegate>
+
+
 @property (weak, nonatomic) IBOutlet UIView *drinkCounterView;
 @property (weak, nonatomic) IBOutlet UILabel *drinkCounter;
 @property (weak, nonatomic) IBOutlet UIStepper * stepper;
@@ -17,6 +23,6 @@
 @property (strong, nonatomic) bacActionSheet *bacActionSheet;
 
 - (IBAction)clearPressed:(UIButton *)sender;
-- (IBAction)bacDetailsPressed:(UIButton *)sender;
+- (IBAction)reenterDetailsPressed:(UIButton *)sender;
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender;
 @end

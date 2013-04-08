@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "initialDrinkingViewController.h"
+#import "DrinkCounterViewController.h"
+#import "FoodViewController.h"
+#import "PictureViewController.h"
+#import "LauncherCell.h"
 
-@interface MainViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDelegate>
+@interface MainViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDelegate, initialDrinkingDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-- (IBAction)isItIvies:(UIButton *)sender;
+@property (strong, nonatomic) initialDrinkingViewController *initialDrinkingVC;
+@property (strong, nonatomic) DrinkCounterViewController *drinkCounterVC;
 
 @end

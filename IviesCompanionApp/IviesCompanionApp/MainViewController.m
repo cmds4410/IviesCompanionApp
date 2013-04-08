@@ -7,10 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "LauncherCell.h"
-#import "PictureViewController.h"
-#import "FoodViewController.h"
-#import "DrinkCounterViewController.h"
 
 #define LAUNCHER @"LauncherCell"
 
@@ -21,6 +17,8 @@
 @implementation MainViewController
 
 @synthesize collectionView = _collectionView;
+@synthesize initialDrinkingVC = _initialDrinkingVC;
+@synthesize drinkCounterVC = _drinkCounterVC;
 
 - (void)viewDidLoad
 {
@@ -36,17 +34,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (IBAction)isItIvies:(UIButton *)sender {
-    UIViewController *iviesImageVC = [[UIViewController alloc] init];
-    UIImage *iviesImage = [[UIImage alloc] init];
-    iviesImage = [UIImage imageWithContentsOfFile:@"overlay1.png"];
-    UIImageView *iviesImageView = [[UIImageView alloc] initWithImage:iviesImage];
-    iviesImageVC.view = iviesImageView;
-    
-    [self.navigationController pushViewController:iviesImageVC animated:YES];
-}
-
 
 #pragma mark - UICollectionView Datasource
 
@@ -69,8 +56,11 @@
         [self.navigationController pushViewController:pictureViewController animated:YES];
     }
     else if(indexPath.row == 1) {
-        DrinkCounterViewController* drinkCounterVC = [[DrinkCounterViewController alloc] init];
-        [self.navigationController pushViewController:drinkCounterVC animated:YES];
+        
+        self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
+        self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
+        self.initialDrinkingVC.delegate = self;
+        [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
     }
     else
         NSLog(@"Something's amiss with the collectionview");
@@ -95,5 +85,15 @@
 {
     return UIEdgeInsetsMake(20, 20, 20, 20);
 }
+
+#pragma mark - initialDrinkingDelegate
+
+-(void)userDidPressStartDrinking {
+    [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
+}
+
+-(void)userDidPressKeepDrinking {
+}
+
 
 @end

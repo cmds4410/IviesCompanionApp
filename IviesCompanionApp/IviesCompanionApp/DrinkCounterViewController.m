@@ -45,6 +45,7 @@
     self.drinkCounter.text = [NSString stringWithFormat:@"%i", (int)self.stepper.value];
     self.drinkCounter.textAlignment = 1;
     self.BAC.numberOfLines = 1;
+    self.BAC.lineBreakMode = 0;
     self.BAC.adjustsFontSizeToFitWidth = YES;
     self.BAC.textAlignment = 1;
 
@@ -74,7 +75,7 @@
     }
 }
 
-- (IBAction)bacDetailsPressed:(UIButton *)sender {
+- (IBAction)reenterDetailsPressed:(UIButton *)sender {
     
     self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"BAC Details" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"done" otherButtonTitles:nil];
     [self.bacActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
@@ -112,7 +113,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
     
-    int genderIndex = [self.bacDetailsPicker selectedRowInComponent:0];
+    int genderIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:0];
     if(genderIndex == 0) {
         self.bacActionSheet.gender = @"Male";
     }
@@ -122,7 +123,7 @@
     else
         self.bacActionSheet.gender = @"N/A";
     
-    int weightIndex = [self.bacDetailsPicker selectedRowInComponent:1];
+    int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
     self.bacActionSheet.weight = 100 + 25 * weightIndex;
     
     self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.bacActionSheet.gender, [NSString stringWithFormat:@"%i", self.bacActionSheet.weight]];
