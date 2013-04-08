@@ -44,6 +44,8 @@ const float WATERMARK_ALPHA = 1;
     self.wantsFullScreenLayout = YES;
     [self.navigationController.navigationBar setTranslucent:YES];
     
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24 green:156 blue:254 alpha:0.3]];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButton)];
     
     self.scrollView.delegate = self;

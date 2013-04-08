@@ -26,13 +26,26 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.title = @"Ivies Companion";
+//    self.title = @"Ivies Companion";
+    
+    // TODO: Add support for 4 inch screen
+
+    self.collectionView.backgroundColor = nil;
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkgd-blue-short.png"]];
+    
     [self.collectionView registerClass:[LauncherCell class] forCellWithReuseIdentifier:LAUNCHER];
-    [self.collectionView reloadData];
+//    [self.collectionView reloadData];
+    
+    /*
     self.homeScreenImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
     [self.homeScreenImageView setImage:[UIImage imageNamed:@"launch-short3.png"]];
     self.homeScreenImageView.alpha = 1;
     [self.view addSubview:self.homeScreenImageView];
+     */
+    
+//    [self.collectionView setHidden:YES];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -41,10 +54,12 @@
     {
         [self.navigationController setNavigationBarHidden:NO animated:NO];
     }
+    [self.navigationController.navigationBar setTranslucent:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    /*
     [UIView animateWithDuration:3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         
         self.homeScreenImageView.alpha = 0;
@@ -53,6 +68,7 @@
     
         [self.homeScreenImageView removeFromSuperview];
     }];
+     */
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,11 +81,28 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 6;
+    return 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LauncherCell *cell = [cv dequeueReusableCellWithReuseIdentifier:LAUNCHER forIndexPath:indexPath];
+    
+    if (indexPath.row == 0)
+    {
+        cell.backgroundColor = nil;
+        UIImage* image = [UIImage imageNamed:@"camera.png"];
+        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+        [imageView setImage:image];
+        [cell addSubview:imageView];
+    }
+    else if (indexPath.row == 1)
+    {
+        cell.backgroundColor = nil;
+        UIImage* image = [UIImage imageNamed:@"drink"];
+        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+        [imageView setImage:image];
+        [cell addSubview:imageView];
+    }
     
     return cell;
 }
@@ -106,7 +139,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGSize size = CGSizeMake(300, 200);
+    CGSize size = CGSizeMake(200, 138);
     
     return size;
 }
@@ -114,7 +147,13 @@
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(20, 0, 40, 0);
+    return UIEdgeInsetsMake(20, 0, 100, 0);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    CGFloat spacing = 50;
+    return spacing;
 }
 
 
