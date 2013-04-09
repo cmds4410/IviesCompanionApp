@@ -33,7 +33,8 @@
     
     if(self = [self init]) {
         self.gender = gender;
-        self.weight = weight / 2.2;
+//        self.weight = weight / 2.2;
+        self.weight = weight;
         self.drinks = drinks;
         return self;
     }
@@ -42,6 +43,8 @@
 }
 
 -(float) calculateBAC {
+    
+    return  [self newBAC];
     
     NSTimeInterval secondsSpentDrinking = [self.startTime timeIntervalSinceNow];
     secondsSpentDrinking *= -1;
@@ -60,13 +63,10 @@
         bac = (BODYWATERBLOOD * self.drinks * SWEDISHCONVERSION)/(FEMALEBODYWATER * self.weight) - (FEMALEMATABOLISM * hoursSpentDrinking);
     bac = bac / 100;
     
-    
     return bac;
-     
-    return [self newBAC];
 }
 
-/*
+
 - (double) newBAC
 {
     // %BAC = (A x 5.14/W x r) - .015 x H
@@ -90,10 +90,15 @@
     {
         H = 1;
     }
-    double bac = (A * 5.14/W * r) - (0.15 * H);
+    double bac = (A * (5.14/W) * r) - (0.015 * H);
+    
+    if (bac < 0)
+    {
+        bac = 0;
+    }
     
     return bac;
 }
- */
+
 @end
 
