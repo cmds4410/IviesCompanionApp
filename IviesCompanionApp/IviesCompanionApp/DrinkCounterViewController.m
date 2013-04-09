@@ -14,7 +14,6 @@
 
 
 @implementation DrinkCounterViewController
-@synthesize drinkCounterView = _drinkCounterView;
 @synthesize stepper = _stepper;
 @synthesize drinkCounter = _drinkCounter;
 @synthesize bacActionSheet = _bacActionSheet;
@@ -101,27 +100,32 @@
 #pragma - mark UIActionSheetDegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    int genderIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:0];
-    if(genderIndex == 0) {
-        self.gender = @"Female";
+    if(buttonIndex == [self.bacActionSheet cancelButtonIndex]) {
+        int genderIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:0];
+        if(genderIndex == 0) {
+            self.gender = @"Female";
+        }
+        else if(genderIndex == 1) {
+            self.gender = @"Male";
+        }
+        else
+            self.gender = @"N/A";
+        
+        int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
+        self.weight = self.bacActionSheet.baseWeight + (WEIGHTINCREMENT * weightIndex);
+        
+        self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
+        
+        self.bacCalculator = [[widmarkCalculator alloc] initWithGender:self.gender Weight:self.weight Drinks:self.stepper.value andTime:self.beganDrinking];
     }
-    else if(genderIndex == 1) {
-        self.gender = @"Male";
-    }
-    else
-        self.gender = @"N/A";
     
-    int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
-    self.weight = 100 + 25 * (weightIndex - 1);
-    
-    self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
 }
 
 - (void)presentActionSheet {
     if(!self.bacActionSheet) {
-        self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"Details" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+        self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"Details" delegate:self cancelButtonTitle:@"Done" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     }
-    [self.bacActionSheet showInView:self.drinkCounterView];
-    [self.bacActionSheet setFrame:CGRectMake(0, 300, 320, self.drinkCounterView.frame.size.height)];
+    [self.bacActionSheet showInView:self.view];
+    [self.bacActionSheet setFrame:CGRectMake(0, self.view.frame.size.height - 255, 320, self.view.frame.size.height)];
 }
 @end

@@ -45,6 +45,10 @@
     NSTimeInterval secondsSpentDrinking = [self.startTime timeIntervalSinceNow];
     secondsSpentDrinking *= -1;
     float hoursSpentDrinking = secondsSpentDrinking / 360;
+    if (hoursSpentDrinking <1)
+    {
+        hoursSpentDrinking = 1;
+    }
     float bac;
     
     if([self.gender isEqualToString:@"Male"]) {
@@ -57,6 +61,14 @@
     
     
     return bac;
+}
+
+- (double) newBAC
+{
+    // %BAC = (A x 5.14/W x r) - .015 x H
+    
+    // A = liquid ounces of alcohol
+    double A = self.drinks * .6;
 }
 @end
 
