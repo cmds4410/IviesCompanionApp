@@ -42,6 +42,7 @@
 }
 
 -(float) calculateBAC {
+    
     NSTimeInterval secondsSpentDrinking = [self.startTime timeIntervalSinceNow];
     secondsSpentDrinking *= -1;
     float hoursSpentDrinking = secondsSpentDrinking / 360;
@@ -61,14 +62,38 @@
     
     
     return bac;
+     
+    return [self newBAC];
 }
 
+/*
 - (double) newBAC
 {
     // %BAC = (A x 5.14/W x r) - .015 x H
     
     // A = liquid ounces of alcohol
     double A = self.drinks * .6;
+    double W = self.weight;
+    double r;
+    if ([self.gender isEqualToString:@"M"])
+    {
+        r = 0.73;
+    }
+    else
+    {
+        r = 0.66;
+    }
+    NSTimeInterval secondsSpentDrinking = [self.startTime timeIntervalSinceNow];
+    secondsSpentDrinking *= -1;
+    double H = secondsSpentDrinking /360.0;
+    if (H <1)
+    {
+        H = 1;
+    }
+    double bac = (A * 5.14/W * r) - (0.15 * H);
+    
+    return bac;
 }
+ */
 @end
 
