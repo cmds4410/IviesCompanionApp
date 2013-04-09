@@ -190,7 +190,6 @@
 								<string key="NSFrame">{{123, 439}, {74, 44}}</string>
 								<reference key="NSSuperview" ref="385110566"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -670,12 +669,12 @@
 								<float key="scoringTypeFloat">29</float>
 								<int key="contentType">3</int>
 							</object>
-							<reference ref="830188249"/>
-							<reference ref="395081429"/>
-							<reference ref="230921887"/>
+							<reference ref="486526811"/>
 							<reference ref="1054480018"/>
 							<reference ref="685439462"/>
-							<reference ref="486526811"/>
+							<reference ref="395081429"/>
+							<reference ref="230921887"/>
+							<reference ref="830188249"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>

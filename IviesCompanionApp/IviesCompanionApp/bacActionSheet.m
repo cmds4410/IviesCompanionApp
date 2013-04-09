@@ -36,7 +36,6 @@
         self.bacDetailsPicker.delegate = self;
         self.bacDetailsPicker.showsSelectionIndicator = YES;
         [self addSubview:self.bacDetailsPicker];
-        NSLog(@"%@", [self subviews].description);
         
     }
     return self;
@@ -61,7 +60,7 @@
         return @"Male";
     }
     else if (component == 1) {
-        int weight = self.baseWeight + row * WEIGHTINCREMENT;
+        int weight = BASEWEIGHT + (WEIGHTINCREMENT * row);
         return [NSString stringWithFormat:@"%i", weight];
     }
     else {
