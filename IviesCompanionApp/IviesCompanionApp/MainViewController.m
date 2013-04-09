@@ -43,6 +43,9 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkgd-blue-short.png"]];
     
     [self.collectionView registerClass:[LauncherCell class] forCellWithReuseIdentifier:LAUNCHER];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
+    
 //    [self.collectionView reloadData];
     
     /*
@@ -195,7 +198,8 @@
 -(void)userDidPressKeepDrinking {
     if(self.drinkCounterVC) {
         self.drinkCounterVC.drinkCounter.text = [NSString stringWithFormat:@"%i",self.storedDrinkCount];
-        self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%.f", self.storedBAC];
+        //self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%.f", self.storedBAC];
+        self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%f", [self.drinkCounterVC calculateBAC]];
         [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
     }
     
@@ -203,7 +207,7 @@
 
 #pragma mark - DrinkCounterDelegate
 
--(void) drinkCounterWillDisappear {
+- (void)drinkCounterWillDisappear {
     self.storedDrinkCount = [self.drinkCounterVC.drinkCounter.text intValue];
     self.storedBAC = [self.drinkCounterVC.BAC.text floatValue];
     [self.navigationController popToViewController:self animated:YES];

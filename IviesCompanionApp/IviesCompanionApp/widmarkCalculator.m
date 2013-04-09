@@ -29,7 +29,7 @@
         return nil;
 }
 //Note that weight is in kilograms, hence division by 2.2
--(id)initWithGender:(NSString *)gender Weight:(int)weight Drinks:(int)drinks andTime:(NSDate *) starTime {
+-(id)initWithGender:(NSString *)gender Weight:(int)weight Drinks:(int)drinks andTime:(NSDate *) startTime {
     
     if(self = [self init]) {
         self.gender = gender;
@@ -43,6 +43,7 @@
 
 -(float) calculateBAC {
     NSTimeInterval secondsSpentDrinking = [self.startTime timeIntervalSinceNow];
+    secondsSpentDrinking *= -1;
     float hoursSpentDrinking = secondsSpentDrinking / 360;
     float bac;
     

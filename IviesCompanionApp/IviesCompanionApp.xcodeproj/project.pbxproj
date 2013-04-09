@@ -70,6 +70,17 @@
 		B3EC05981713BF3700453EF3 /* initialDrinkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EC05911713BF3700453EF3 /* initialDrinkingViewController.m */; };
 		B3EC05991713BF3700453EF3 /* initialDrinkingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05921713BF3700453EF3 /* initialDrinkingViewController.xib */; };
 		B3EC059A1713BF3700453EF3 /* widmarkCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EC05941713BF3700453EF3 /* widmarkCalculator.m */; };
+		B3EC05A61713C9BC00453EF3 /* navicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC059B1713C9BB00453EF3 /* navicon@2x.png */; };
+		B3EC05B71713CE2000453EF3 /* overlays-certified.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05B11713CE2000453EF3 /* overlays-certified.png */; };
+		B3EC05B81713CE2000453EF3 /* overlays-certified@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05B21713CE2000453EF3 /* overlays-certified@2x.png */; };
+		B3EC05B91713CE2000453EF3 /* overlays-hammered.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05B31713CE2000453EF3 /* overlays-hammered.png */; };
+		B3EC05BA1713CE2000453EF3 /* overlays-hammered@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05B41713CE2000453EF3 /* overlays-hammered@2x.png */; };
+		B3EC05BB1713CE2000453EF3 /* overlays-hash.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05B51713CE2000453EF3 /* overlays-hash.png */; };
+		B3EC05BC1713CE2000453EF3 /* overlays-hash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05B61713CE2000453EF3 /* overlays-hash@2x.png */; };
+		B3EC05BF1713CE4A00453EF3 /* overlays-killinit.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05BD1713CE4900453EF3 /* overlays-killinit.png */; };
+		B3EC05C01713CE4A00453EF3 /* overlays-killinit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05BE1713CE4900453EF3 /* overlays-killinit@2x.png */; };
+		B3EC05C31713CE7500453EF3 /* overlays-wasted.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05C11713CE7500453EF3 /* overlays-wasted.png */; };
+		B3EC05C41713CE7500453EF3 /* overlays-wasted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05C21713CE7500453EF3 /* overlays-wasted@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +161,17 @@
 		B3EC05921713BF3700453EF3 /* initialDrinkingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = initialDrinkingViewController.xib; sourceTree = "<group>"; };
 		B3EC05931713BF3700453EF3 /* widmarkCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = widmarkCalculator.h; sourceTree = "<group>"; };
 		B3EC05941713BF3700453EF3 /* widmarkCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = widmarkCalculator.m; sourceTree = "<group>"; };
+		B3EC059B1713C9BB00453EF3 /* navicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navicon@2x.png"; sourceTree = "<group>"; };
+		B3EC05B11713CE2000453EF3 /* overlays-certified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-certified.png"; sourceTree = "<group>"; };
+		B3EC05B21713CE2000453EF3 /* overlays-certified@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-certified@2x.png"; sourceTree = "<group>"; };
+		B3EC05B31713CE2000453EF3 /* overlays-hammered.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-hammered.png"; sourceTree = "<group>"; };
+		B3EC05B41713CE2000453EF3 /* overlays-hammered@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-hammered@2x.png"; sourceTree = "<group>"; };
+		B3EC05B51713CE2000453EF3 /* overlays-hash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-hash.png"; sourceTree = "<group>"; };
+		B3EC05B61713CE2000453EF3 /* overlays-hash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-hash@2x.png"; sourceTree = "<group>"; };
+		B3EC05BD1713CE4900453EF3 /* overlays-killinit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-killinit.png"; sourceTree = "<group>"; };
+		B3EC05BE1713CE4900453EF3 /* overlays-killinit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-killinit@2x.png"; sourceTree = "<group>"; };
+		B3EC05C11713CE7500453EF3 /* overlays-wasted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-wasted.png"; sourceTree = "<group>"; };
+		B3EC05C21713CE7500453EF3 /* overlays-wasted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-wasted@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +292,7 @@
 				B3D21E9A17133FE300A040C6 /* navbar@2x.png */,
 				B3D21E9B17133FE300A040C6 /* navicon-transparent.png */,
 				B3D21E9C17133FE300A040C6 /* navicon.png */,
+				B3EC059B1713C9BB00453EF3 /* navicon@2x.png */,
 				B3D21E7F17133FD400A040C6 /* arrow-down.png */,
 				B3D21E8017133FD400A040C6 /* arrow-down@2x.png */,
 				B3D21E8117133FD400A040C6 /* arrow-up.png */,
@@ -286,6 +309,16 @@
 				B3EC058817138F2A00453EF3 /* overlay-killinit@2x.png */,
 				B3D21E3717124D1400A040C6 /* overlay-wasted@2x.png */,
 				B33EF139170E6E7700874419 /* overlay-hashtag@2x.png */,
+				B3EC05BD1713CE4900453EF3 /* overlays-killinit.png */,
+				B3EC05BE1713CE4900453EF3 /* overlays-killinit@2x.png */,
+				B3EC05C11713CE7500453EF3 /* overlays-wasted.png */,
+				B3EC05C21713CE7500453EF3 /* overlays-wasted@2x.png */,
+				B3EC05B11713CE2000453EF3 /* overlays-certified.png */,
+				B3EC05B21713CE2000453EF3 /* overlays-certified@2x.png */,
+				B3EC05B31713CE2000453EF3 /* overlays-hammered.png */,
+				B3EC05B41713CE2000453EF3 /* overlays-hammered@2x.png */,
+				B3EC05B51713CE2000453EF3 /* overlays-hash.png */,
+				B3EC05B61713CE2000453EF3 /* overlays-hash@2x.png */,
 				B3D21E3B171289CB00A040C6 /* Overlays.plist */,
 			);
 			name = Pictures;
@@ -388,6 +421,17 @@
 				B3EC058A17138F2A00453EF3 /* overlay-killinit@2x.png in Resources */,
 				B3EC05971713BF3700453EF3 /* DrinkCounterViewController.xib in Resources */,
 				B3EC05991713BF3700453EF3 /* initialDrinkingViewController.xib in Resources */,
+				B3EC05A61713C9BC00453EF3 /* navicon@2x.png in Resources */,
+				B3EC05B71713CE2000453EF3 /* overlays-certified.png in Resources */,
+				B3EC05B81713CE2000453EF3 /* overlays-certified@2x.png in Resources */,
+				B3EC05B91713CE2000453EF3 /* overlays-hammered.png in Resources */,
+				B3EC05BA1713CE2000453EF3 /* overlays-hammered@2x.png in Resources */,
+				B3EC05BB1713CE2000453EF3 /* overlays-hash.png in Resources */,
+				B3EC05BC1713CE2000453EF3 /* overlays-hash@2x.png in Resources */,
+				B3EC05BF1713CE4A00453EF3 /* overlays-killinit.png in Resources */,
+				B3EC05C01713CE4A00453EF3 /* overlays-killinit@2x.png in Resources */,
+				B3EC05C31713CE7500453EF3 /* overlays-wasted.png in Resources */,
+				B3EC05C41713CE7500453EF3 /* overlays-wasted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
