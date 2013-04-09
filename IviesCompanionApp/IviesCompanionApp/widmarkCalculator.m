@@ -29,7 +29,7 @@
         return nil;
 }
 //Note that weight is in kilograms, hence division by 2.2
--(id)initWithGender:(NSString *)gender Weight:(int)weight Drinks:(int)drinks andTime:(NSDate *) starTime {
+-(id)initWithGender:(NSString *)gender Weight:(int)weight Drinks:(int)drinks andTime:(NSDate *) startTime {
     
     if(self = [self init]) {
         self.gender = gender;

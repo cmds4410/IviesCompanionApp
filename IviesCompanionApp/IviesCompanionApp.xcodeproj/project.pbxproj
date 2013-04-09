@@ -78,6 +78,7 @@
 		6A2F0E81170E61D00069161C /* FoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCell.m; sourceTree = "<group>"; };
 		6A2F0E85170E6D150069161C /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
 		6A2F0E86170E6D150069161C /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
+		6AB387531713C89D0045361B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6AC9E7F0170E703000E7427F /* FoodCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCellView.xib; sourceTree = "<group>"; };
 		B33EF134170E4E7500874419 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
 		B33EF135170E4E7500874419 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
@@ -168,6 +169,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6AB387501713C61B0045361B /* DrinkCounter */ = {
+			isa = PBXGroup;
+			children = (
+				B3EC05901713BF3700453EF3 /* initialDrinkingViewController.h */,
+				B3EC05911713BF3700453EF3 /* initialDrinkingViewController.m */,
+				B3EC05921713BF3700453EF3 /* initialDrinkingViewController.xib */,
+				B3EC058D1713BF3700453EF3 /* DrinkCounterViewController.h */,
+				B3EC058E1713BF3700453EF3 /* DrinkCounterViewController.m */,
+				B3EC058F1713BF3700453EF3 /* DrinkCounterViewController.xib */,
+				B3EC058B1713BF3700453EF3 /* bacActionSheet.h */,
+				B3EC058C1713BF3700453EF3 /* bacActionSheet.m */,
+				B3EC05931713BF3700453EF3 /* widmarkCalculator.h */,
+				B3EC05941713BF3700453EF3 /* widmarkCalculator.m */,
+			);
+			name = DrinkCounter;
+			sourceTree = "<group>";
+		};
+		6AB387511713C62E0045361B /* FoodViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6A2F0E85170E6D150069161C /* FoodViewController.h */,
+				6A2F0E86170E6D150069161C /* FoodViewController.m */,
+				6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */,
+				6A2F0E80170E61D00069161C /* FoodCell.h */,
+				6A2F0E81170E61D00069161C /* FoodCell.m */,
+				6AC9E7F0170E703000E7427F /* FoodCellView.xib */,
+			);
+			name = FoodViewController;
+			sourceTree = "<group>";
+		};
 		B3880F7D170CA64000032F40 = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +231,7 @@
 		B3880F8F170CA64000032F40 /* IviesCompanionApp */ = {
 			isa = PBXGroup;
 			children = (
+				6AB387531713C89D0045361B /* Constants.h */,
 				B3880F98170CA64000032F40 /* AppDelegate.h */,
 				B3880F99170CA64000032F40 /* AppDelegate.m */,
 				B3880FA1170CA64000032F40 /* MainViewController.h */,
@@ -212,25 +244,11 @@
 				B3D21EC81713830700A040C6 /* ModalViewController.h */,
 				B3D21EC91713830800A040C6 /* ModalViewController.m */,
 				B3D21ECA1713830B00A040C6 /* ModalViewController.xib */,
-				6A2F0E85170E6D150069161C /* FoodViewController.h */,
-				6A2F0E86170E6D150069161C /* FoodViewController.m */,
-				6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */,
-				6A2F0E80170E61D00069161C /* FoodCell.h */,
-				6A2F0E81170E61D00069161C /* FoodCell.m */,
-				6AC9E7F0170E703000E7427F /* FoodCellView.xib */,
 				B33EF134170E4E7500874419 /* PictureViewController.h */,
 				B33EF135170E4E7500874419 /* PictureViewController.m */,
 				B33EF136170E4E7500874419 /* PictureViewController.xib */,
-				B3EC058B1713BF3700453EF3 /* bacActionSheet.h */,
-				B3EC058C1713BF3700453EF3 /* bacActionSheet.m */,
-				B3EC058D1713BF3700453EF3 /* DrinkCounterViewController.h */,
-				B3EC058E1713BF3700453EF3 /* DrinkCounterViewController.m */,
-				B3EC058F1713BF3700453EF3 /* DrinkCounterViewController.xib */,
-				B3EC05901713BF3700453EF3 /* initialDrinkingViewController.h */,
-				B3EC05911713BF3700453EF3 /* initialDrinkingViewController.m */,
-				B3EC05921713BF3700453EF3 /* initialDrinkingViewController.xib */,
-				B3EC05931713BF3700453EF3 /* widmarkCalculator.h */,
-				B3EC05941713BF3700453EF3 /* widmarkCalculator.m */,
+				6AB387501713C61B0045361B /* DrinkCounter */,
+				6AB387511713C62E0045361B /* FoodViewController */,
 				B3D21E3A17124D2E00A040C6 /* Pictures */,
 				B3880F90170CA64000032F40 /* Supporting Files */,
 			);
