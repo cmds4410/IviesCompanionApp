@@ -28,12 +28,11 @@
     else
         return nil;
 }
-//Note that weight is in kilograms, hence division by 2.2
+
 -(id)initWithGender:(NSString *)gender Weight:(int)weight Drinks:(int)drinks andTime:(NSDate *) startTime {
     
     if(self = [self init]) {
         self.gender = gender;
-//        self.weight = weight / 2.2;
         self.weight = weight;
         self.drinks = drinks;
         return self;
@@ -90,7 +89,8 @@
     {
         H = 1;
     }
-    double bac = (A * (5.14/W) * r) - (0.015 * H);
+    
+    double bac = (A * (5.14 * 1.055) /(W * r) - (0.015 * H));
     
     if (bac < 0)
     {
