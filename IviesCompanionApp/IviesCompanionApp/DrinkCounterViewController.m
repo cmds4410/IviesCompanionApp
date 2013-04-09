@@ -103,16 +103,19 @@
     if(buttonIndex == [self.bacActionSheet cancelButtonIndex]) {
         int genderIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:0];
         if(genderIndex == 0) {
-            self.gender = @"Female";
+            self.gender = @"F";
         }
         else if(genderIndex == 1) {
-            self.gender = @"Male";
+            self.gender = @"M";
         }
         else
             self.gender = @"N/A";
         
         int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
-        self.weight = self.bacActionSheet.baseWeight + (WEIGHTINCREMENT * weightIndex);
+        NSLog(@"weightIndex: %i", weightIndex);
+        NSLog(@"increment: %i", WEIGHTINCREMENT);
+        NSLog(@"base weight: %i", BASEWEIGHT);
+        self.weight = BASEWEIGHT + (WEIGHTINCREMENT * weightIndex);
         
         self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
         
