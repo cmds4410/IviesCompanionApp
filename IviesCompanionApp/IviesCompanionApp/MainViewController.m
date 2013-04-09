@@ -17,7 +17,11 @@
 #define LAUNCHER @"LauncherCell"
 
 @interface MainViewController ()
+
 @property (nonatomic) UIImageView* homeScreenImageView;
+@property (nonatomic) NSArray* homeScreenButtons;
+@property (nonatomic) int collectionViewPosition;
+
 - (void)modal;
 @end
 
@@ -25,6 +29,8 @@
 
 @synthesize collectionView = _collectionView;
 @synthesize homeScreenImageView = _homeScreenImageView;
+@synthesize homeScreenButtons = _homeScreenButtons;
+@synthesize collectionViewPosition = _collectionViewPosition;
 
 @synthesize initialDrinkingVC = _initialDrinkingVC;
 @synthesize drinkCounterVC = _drinkCounterVC;
@@ -56,6 +62,16 @@
      */
     
     //    [self.collectionView setHidden:YES];
+    
+    // Path to the plist (in the application bundle)
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"Home Screen Buttons" ofType:@"plist"];
+    
+    // Build the array from the plist
+    self.homeScreenButtons = [NSArray arrayWithContentsOfFile:path];
+    
+    // initialize to 0
+    self.collectionViewPosition = 0;
     
 }
 
@@ -100,12 +116,20 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 2;
+    return self.homeScreenButtons.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     LauncherCell *cell = [cv dequeueReusableCellWithReuseIdentifier:LAUNCHER forIndexPath:indexPath];
     
+    cell.backgroundColor = nil;
+    UIImage* image = [UIImage imageNamed:[self.homeScreenButtons objectAtIndex:self.collectionViewPosition]];
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+    [imageView setImage:image];
+    [cell addSubview:imageView];
+    
+    /*
     if (indexPath.row == 0)
     {
         cell.backgroundColor = nil;
@@ -122,6 +146,7 @@
         [imageView setImage:image];
         [cell addSubview:imageView];
     }
+     */
     
     //    cell.layer.shadowColor = [UIColor blackColor].CGColor;
     //    cell.layer.shadowOffset = CGSizeMake(0, 3);
@@ -130,6 +155,14 @@
     //    cell.layer.cornerRadius = 10.0;
     //    self.activityBackgroundView.layer.borderColor = [UIColor blackColor].CGColor;
     //    self.invitationView.layer.borderWidth = 2.0;
+    
+    self.collectionViewPosition++;
+    
+    // reset
+    if (self.collectionViewPosition > self.homeScreenButtons.count)
+    {
+        self.collectionViewPosition = 0;
+    }
     
     return cell;
 }

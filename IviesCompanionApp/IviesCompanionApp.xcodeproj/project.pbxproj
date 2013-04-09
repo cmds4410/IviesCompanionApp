@@ -11,6 +11,7 @@
 		6A2F0E82170E61D00069161C /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E81170E61D00069161C /* FoodCell.m */; };
 		6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E86170E6D150069161C /* FoodViewController.m */; };
 		6AC9E7F1170E703000E7427F /* FoodCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC9E7F0170E703000E7427F /* FoodCellView.xib */; };
+		B307B1B21714DC6000298D9A /* Home Screen Buttons.plist in Resources */ = {isa = PBXBuildFile; fileRef = B307B1B11714DC6000298D9A /* Home Screen Buttons.plist */; };
 		B33EF137170E4E7500874419 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EF135170E4E7500874419 /* PictureViewController.m */; };
 		B33EF138170E4E7500874419 /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33EF136170E4E7500874419 /* PictureViewController.xib */; };
 		B33EF13A170E6E7700874419 /* overlay-hashtag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B33EF139170E6E7700874419 /* overlay-hashtag@2x.png */; };
@@ -91,6 +92,7 @@
 		6A2F0E86170E6D150069161C /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		6AB387531713C89D0045361B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6AC9E7F0170E703000E7427F /* FoodCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCellView.xib; sourceTree = "<group>"; };
+		B307B1B11714DC6000298D9A /* Home Screen Buttons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Home Screen Buttons.plist"; sourceTree = "<group>"; };
 		B33EF134170E4E7500874419 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
 		B33EF135170E4E7500874419 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
 		B33EF136170E4E7500874419 /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
@@ -221,6 +223,46 @@
 			name = FoodViewController;
 			sourceTree = "<group>";
 		};
+		B307B1B41714DC8B00298D9A /* Home Screen Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B307B1B11714DC6000298D9A /* Home Screen Buttons.plist */,
+				B3D21E9517133FE200A040C6 /* camera.png */,
+				B3D21E9617133FE200A040C6 /* camera@2x.png */,
+				B3D21E9717133FE200A040C6 /* drink.png */,
+				B3D21E9817133FE200A040C6 /* drink@2x.png */,
+			);
+			name = "Home Screen Buttons";
+			sourceTree = "<group>";
+		};
+		B307B1B51714DCAB00298D9A /* Overlays */ = {
+			isa = PBXGroup;
+			children = (
+				B3D21EAC17133FEE00A040C6 /* overlay-certified.png */,
+				B3D21EAD17133FEE00A040C6 /* overlay-hammered.png */,
+				B3D21EAE17133FEE00A040C6 /* overlay-hashtag.png */,
+				B3D21EAF17133FEE00A040C6 /* overlay-killinit.png */,
+				B3D21EB017133FEE00A040C6 /* overlay-wasted.png */,
+				B3D21E3617124D1400A040C6 /* overlay-certified@2x.png */,
+				B3EC058717138F2A00453EF3 /* overlay-hammered@2x.png */,
+				B3EC058817138F2A00453EF3 /* overlay-killinit@2x.png */,
+				B3D21E3717124D1400A040C6 /* overlay-wasted@2x.png */,
+				B33EF139170E6E7700874419 /* overlay-hashtag@2x.png */,
+				B3EC05BD1713CE4900453EF3 /* overlays-killinit.png */,
+				B3EC05BE1713CE4900453EF3 /* overlays-killinit@2x.png */,
+				B3EC05C11713CE7500453EF3 /* overlays-wasted.png */,
+				B3EC05C21713CE7500453EF3 /* overlays-wasted@2x.png */,
+				B3EC05B11713CE2000453EF3 /* overlays-certified.png */,
+				B3EC05B21713CE2000453EF3 /* overlays-certified@2x.png */,
+				B3EC05B31713CE2000453EF3 /* overlays-hammered.png */,
+				B3EC05B41713CE2000453EF3 /* overlays-hammered@2x.png */,
+				B3EC05B51713CE2000453EF3 /* overlays-hash.png */,
+				B3EC05B61713CE2000453EF3 /* overlays-hash@2x.png */,
+				B3D21E3B171289CB00A040C6 /* Overlays.plist */,
+			);
+			name = Overlays;
+			sourceTree = "<group>";
+		};
 		B3880F7D170CA64000032F40 = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +333,8 @@
 		B3D21E3A17124D2E00A040C6 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				B307B1B51714DCAB00298D9A /* Overlays */,
+				B307B1B41714DC8B00298D9A /* Home Screen Buttons */,
 				B3D21EC11713411500A040C6 /* Default.png */,
 				B3D21EBF1713411000A040C6 /* Default@2x.png */,
 				B3D21EBD171340FD00A040C6 /* Default-568h@2x.png */,
@@ -302,10 +346,6 @@
 				B3D21E9217133FE200A040C6 /* bkgd-green-long.png */,
 				B3D21E9317133FE200A040C6 /* bkgd-green-short.png */,
 				B3D21E9417133FE200A040C6 /* bkgd-green-short@2x.png */,
-				B3D21E9517133FE200A040C6 /* camera.png */,
-				B3D21E9617133FE200A040C6 /* camera@2x.png */,
-				B3D21E9717133FE200A040C6 /* drink.png */,
-				B3D21E9817133FE200A040C6 /* drink@2x.png */,
 				B3D21E9917133FE200A040C6 /* navbar.png */,
 				B3D21E9A17133FE300A040C6 /* navbar@2x.png */,
 				B3D21E9B17133FE300A040C6 /* navicon-transparent.png */,
@@ -317,27 +357,6 @@
 				B3D21E8217133FD400A040C6 /* arrow-up@2x.png */,
 				B3D21E8317133FD400A040C6 /* icon-store.png */,
 				B3D21E8417133FD400A040C6 /* icon-store@2x.png */,
-				B3D21EAC17133FEE00A040C6 /* overlay-certified.png */,
-				B3D21EAD17133FEE00A040C6 /* overlay-hammered.png */,
-				B3D21EAE17133FEE00A040C6 /* overlay-hashtag.png */,
-				B3D21EAF17133FEE00A040C6 /* overlay-killinit.png */,
-				B3D21EB017133FEE00A040C6 /* overlay-wasted.png */,
-				B3D21E3617124D1400A040C6 /* overlay-certified@2x.png */,
-				B3EC058717138F2A00453EF3 /* overlay-hammered@2x.png */,
-				B3EC058817138F2A00453EF3 /* overlay-killinit@2x.png */,
-				B3D21E3717124D1400A040C6 /* overlay-wasted@2x.png */,
-				B33EF139170E6E7700874419 /* overlay-hashtag@2x.png */,
-				B3EC05BD1713CE4900453EF3 /* overlays-killinit.png */,
-				B3EC05BE1713CE4900453EF3 /* overlays-killinit@2x.png */,
-				B3EC05C11713CE7500453EF3 /* overlays-wasted.png */,
-				B3EC05C21713CE7500453EF3 /* overlays-wasted@2x.png */,
-				B3EC05B11713CE2000453EF3 /* overlays-certified.png */,
-				B3EC05B21713CE2000453EF3 /* overlays-certified@2x.png */,
-				B3EC05B31713CE2000453EF3 /* overlays-hammered.png */,
-				B3EC05B41713CE2000453EF3 /* overlays-hammered@2x.png */,
-				B3EC05B51713CE2000453EF3 /* overlays-hash.png */,
-				B3EC05B61713CE2000453EF3 /* overlays-hash@2x.png */,
-				B3D21E3B171289CB00A040C6 /* Overlays.plist */,
 			);
 			name = Pictures;
 			sourceTree = "<group>";
@@ -450,6 +469,7 @@
 				B3EC05C01713CE4A00453EF3 /* overlays-killinit@2x.png in Resources */,
 				B3EC05C31713CE7500453EF3 /* overlays-wasted.png in Resources */,
 				B3EC05C41713CE7500453EF3 /* overlays-wasted@2x.png in Resources */,
+				B307B1B21714DC6000298D9A /* Home Screen Buttons.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
