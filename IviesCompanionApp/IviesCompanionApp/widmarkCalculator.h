@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Constants.h"
 
 @interface widmarkCalculator : NSObject
 
@@ -20,9 +21,3 @@
 
 @end
 
-#define BODYWATERBLOOD .806
-#define SWEDISHCONVERSION 1.2
-#define MALEBODYWATER .58
-#define FEMALEBODYWATER .49
-#define MALEMATABOLISM .015
-#define FEMALEMATABOLISM .017

@@ -12,6 +12,7 @@
 #import "FoodViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ModalViewController.h"
+#import "Constants.h"
 
 #define LAUNCHER @"LauncherCell"
 
@@ -37,25 +38,22 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navicon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(modal)];
     
     // TODO: Add support for 4 inch screen
-
+    
     self.collectionView.backgroundColor = nil;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkgd-blue-short.png"]];
     
     [self.collectionView registerClass:[LauncherCell class] forCellWithReuseIdentifier:LAUNCHER];
-    
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
-    
-//    [self.collectionView reloadData];
+    //    [self.collectionView reloadData];
     
     /*
-    self.homeScreenImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    [self.homeScreenImageView setImage:[UIImage imageNamed:@"launch-short3.png"]];
-    self.homeScreenImageView.alpha = 1;
-    [self.view addSubview:self.homeScreenImageView];
+     self.homeScreenImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
+     [self.homeScreenImageView setImage:[UIImage imageNamed:@"launch-short3.png"]];
+     self.homeScreenImageView.alpha = 1;
+     [self.view addSubview:self.homeScreenImageView];
      */
     
-//    [self.collectionView setHidden:YES];
+    //    [self.collectionView setHidden:YES];
     
 }
 
@@ -71,14 +69,14 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     /*
-    [UIView animateWithDuration:3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        
-        self.homeScreenImageView.alpha = 0;
-        
-    } completion:^(BOOL finished){
-    
-        [self.homeScreenImageView removeFromSuperview];
-    }];
+     [UIView animateWithDuration:3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+     
+     self.homeScreenImageView.alpha = 0;
+     
+     } completion:^(BOOL finished){
+     
+     [self.homeScreenImageView removeFromSuperview];
+     }];
      */
 }
 
@@ -123,13 +121,13 @@
         [cell addSubview:imageView];
     }
     
-//    cell.layer.shadowColor = [UIColor blackColor].CGColor;
-//    cell.layer.shadowOffset = CGSizeMake(0, 3);
-//    cell.layer.shadowRadius = 10.0;
-//    cell.layer.shadowOpacity = 0.8;
-//    cell.layer.cornerRadius = 10.0;
-//    self.activityBackgroundView.layer.borderColor = [UIColor blackColor].CGColor;
-//    self.invitationView.layer.borderWidth = 2.0;
+    //    cell.layer.shadowColor = [UIColor blackColor].CGColor;
+    //    cell.layer.shadowOffset = CGSizeMake(0, 3);
+    //    cell.layer.shadowRadius = 10.0;
+    //    cell.layer.shadowOpacity = 0.8;
+    //    cell.layer.cornerRadius = 10.0;
+    //    self.activityBackgroundView.layer.borderColor = [UIColor blackColor].CGColor;
+    //    self.invitationView.layer.borderWidth = 2.0;
     
     return cell;
 }
@@ -187,12 +185,16 @@
 
 -(void)userDidPressStartDrinking {
     
-    //self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
-    //NSLog(@"%@", self.drinkCounterVC.beganDrinking.description);
-    self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
-    self.drinkCounterVC.delegate = self;
-    [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
+    self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
     
+    if(!self.drinkCounterVC) {
+        self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
+        self.drinkCounterVC.delegate = self;
+    }
+    [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
+    if(self.drinkCounterVC.weight == 0) {
+        [self.drinkCounterVC presentActionSheet];
+    }
 }
 
 -(void)userDidPressKeepDrinking {

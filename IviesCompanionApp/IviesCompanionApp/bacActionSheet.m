@@ -30,13 +30,12 @@
     
     self = [super initWithTitle:title delegate:delegate cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitles, nil];
     if(self) {
-        self.baseWeight = BASEWEIGHT;
+        self.baseWeight = 0;
         self.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         self.bacDetailsPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 95, 320, 162)];
         self.bacDetailsPicker.delegate = self;
         self.bacDetailsPicker.showsSelectionIndicator = YES;
         [self addSubview:self.bacDetailsPicker];
-        NSLog(@"%@", [self subviews].description);
         
     }
     return self;
@@ -61,7 +60,7 @@
         return @"Male";
     }
     else if (component == 1) {
-        int weight = self.baseWeight + row * WEIGHTINCREMENT;
+        int weight = BASEWEIGHT + (WEIGHTINCREMENT * row);
         return [NSString stringWithFormat:@"%i", weight];
     }
     else {
