@@ -93,7 +93,7 @@ const float WATERMARK_ALPHA = 1;
     } completion:^(BOOL finished)
      {
          // add instructions for sharing
-         [self.navigationController setNavigationBarHidden:NO animated:YES];
+//         [self.navigationController setNavigationBarHidden:NO animated:YES];
      }];
     
 }
@@ -152,24 +152,28 @@ const float WATERMARK_ALPHA = 1;
 //            
 //            anImageView.frame = CGRectMake(0, 20, self.view.bounds.size.width, 100);
             
-            self.cameraScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, 100)];
+            self.cameraScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-160, self.view.bounds.size.width, 100)];
             self.cameraScrollView.delegate = self;
             self.cameraScrollView.pagingEnabled = YES;
-            int numberOfViews = 3;
+            int numberOfViews = self.overlays.count;
             for (int i = 0; i < numberOfViews; i++)
             {
                 CGFloat xOrigin = i * self.view.frame.size.width;
                 UIView *awesomeView = [[UIView alloc] initWithFrame:CGRectMake(xOrigin, 0, self.view.frame.size.width, self.view.frame.size.height)];
+                awesomeView.backgroundColor = [UIColor whiteColor];
+                awesomeView.alpha = 0.5;
                 //awesomeView.backgroundColor = [UIColor colorWithRed:0.5/i green:0.5 blue:0.5 alpha:1];
 //                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1.png"]];
                 UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:i]]];
                 anImageView.alpha = WATERMARK_ALPHA;
                 anImageView.contentMode = UIViewContentModeScaleAspectFit;
                 
-                anImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 100);
-                [awesomeView addSubview:anImageView];
+                anImageView.frame = CGRectMake(xOrigin, 0, self.view.bounds.size.width, 100);
+                anImageView.userInteractionEnabled = YES;
+                //[awesomeView addSubview:anImageView];
                 
-                [self.cameraScrollView addSubview:awesomeView];
+//                [self.cameraScrollView addSubview:awesomeView];
+                [self.cameraScrollView addSubview:anImageView];
             }
             self.cameraScrollView.contentSize = CGSizeMake(self.view.frame.size.width * numberOfViews, self.cameraScrollView.frame.size.height);
             //        scrollView.showsHorizontalScrollIndicator = NO;
