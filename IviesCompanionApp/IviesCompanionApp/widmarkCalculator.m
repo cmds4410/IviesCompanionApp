@@ -14,7 +14,7 @@
 @synthesize gender = _gender;
 @synthesize weight = _weight;
 @synthesize drinks = _drinks;
-@synthesize hours = _hours;
+@synthesize startTime = _startTime;
 
 -(id) init {
     
@@ -22,35 +22,44 @@
         self.gender =@"";
         self.weight = 0.0;
         self.drinks = 0;
-        self.hours = 0.0;
+        self.startTime = [[NSDate alloc] init];
         return self;
     }
     else
         return nil;
 }
+
 //Note that weight is in kilograms, hence division by 2.2
--(id)initWithGender:(NSString *)gender Weight:(int)weight Drinks:(int)drinks andHours:(float)hours {
+-(id)initWithGender:(NSString *)gender Weight:(int)weight Drinks:(int)drinks andTime:(NSDate *)startTime {
     
     if(self = [self init]) {
         self.gender = gender;
         self.weight = weight / 2.2;
         self.drinks = drinks;
+        self.startTime = startTime;
         return self;
     }
     else
         return nil;
 }
 
--(float) calculateFemaleBACWithWeight:(double)weight andDrinkCount:(int)drinks {
+-(float) calculateBAC {
 
+    NSTimeInterval secondsSpentDrinking = [self.startTime timeIntervalSinceNow];
+    float  hoursSpentDrinking = secondsSpentDrinking / 360;
+    float bac;
     
-    float bac = (BODYWATERBLOOD * self.drinks * SWEDISHCONVERSION)/(MALEBODYWATER * self.weight) - (MALEBODYWATER * self.hours);
+    if([self.gender isEqualToString:@"Male"]) {
+        bac = (BODYWATERBLOOD * self.drinks * SWEDISHCONVERSION)/(MALEBODYWATER * self.weight) - (MALEMETABOLISM * hoursSpentDrinking);
+        bac = bac / 100;
+    }
+    else
+        bac = (BODYWATERBLOOD * self.drinks * SWEDISHCONVERSION)/(FEMALEBODYWATER * self.weight) - (FEMALEMETABOLISM * hoursSpentDrinking);
+    bac = bac / 100;
+    
+    
+    return bac;
     
 }
-
--(float) calculateMaleBACWithWeight:(double)weight andDrinkCount:(int)drinks {
-    
-}
-
 @end
 

@@ -20,7 +20,6 @@
 @synthesize initialDrinkingVC = _initialDrinkingVC;
 @synthesize drinkCounterVC = _drinkCounterVC;
 @synthesize storedDrinkCount = _storedDrinkCount;
-@synthesize storedBAC = _storedBAC;
 
 - (void)viewDidLoad
 {
@@ -102,7 +101,7 @@
 -(void)userDidPressKeepDrinking {
     if(self.drinkCounterVC) {
         self.drinkCounterVC.drinkCounter.text = [NSString stringWithFormat:@"%i",self.storedDrinkCount];
-        self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%.f", self.storedBAC];
+        [self.drinkCounterVC.BAC setText:[NSString stringWithFormat:@"%.f", [self.drinkCounterVC.bacCalculator calculateBAC]]];
         [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
     }
     
@@ -112,7 +111,6 @@
 
 -(void) drinkCounterWillDisappear {
     self.storedDrinkCount = [self.drinkCounterVC.drinkCounter.text intValue];
-    self.storedBAC = [self.drinkCounterVC.BAC.text floatValue];
     [self.navigationController popToViewController:self animated:YES];
 }
 

@@ -13,11 +13,10 @@
 @property (weak, nonatomic) NSString *gender;
 @property (nonatomic) double weight;
 @property (nonatomic) int drinks;
-@property (nonatomic) float hours;
+@property (nonatomic) NSDate *startTime;
 
 
--(float) calculateFemaleBACWithWeight:(double)weight andDrinkCount:(int)drinks;
--(float) calculateMaleBACWithWeight:(double)weight andDrinkCount:(int)drinks;
+-(float) calculateBAC;
 
 @end
 
@@ -25,5 +24,5 @@
 #define SWEDISHCONVERSION 1.2
 #define MALEBODYWATER .58
 #define FEMALEBODYWATER .49
-#define MALEMATABOLISM .015
-#define FEMALEMATABOLISM .017
+#define MALEMETABOLISM .015
+#define FEMALEMETABOLISM .017

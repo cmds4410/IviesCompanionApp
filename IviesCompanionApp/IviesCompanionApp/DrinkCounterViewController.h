@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIStepper * stepper;
 @property (weak, nonatomic) IBOutlet UILabel *BAC;
 @property (strong, nonatomic) bacActionSheet *bacActionSheet;
-@property (weak, nonatomic) widmarkCalculator* bacCalculator;
+@property (strong, nonatomic) widmarkCalculator* bacCalculator;
 @property (strong, nonatomic) NSDate * beganDrinking;
 @property (nonatomic) int weight;
 @property (weak, nonatomic) NSString *gender;

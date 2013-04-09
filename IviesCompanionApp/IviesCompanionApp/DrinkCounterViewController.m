@@ -50,6 +50,7 @@
     self.BAC.lineBreakMode = 0;
     self.BAC.adjustsFontSizeToFitWidth = YES;
     self.BAC.textAlignment = 1;
+    self.bacCalculator = [[widmarkCalculator alloc] init];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
