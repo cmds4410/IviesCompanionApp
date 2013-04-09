@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModalViewController : UIViewController
+@interface ModalViewController : UIViewController <UIAlertViewDelegate>
+@property (strong, nonatomic) UIAlertView *callAlertView;
+
 - (IBAction)dismiss:(id)sender;
+- (IBAction)callDominoes:(UIButton *)sender;
+- (IBAction)callSecurity:(UIButton *)sender;
+- (IBAction)callShuttle:(UIButton *)sender;
 
 @end
