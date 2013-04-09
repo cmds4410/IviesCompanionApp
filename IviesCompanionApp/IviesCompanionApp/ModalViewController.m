@@ -85,7 +85,7 @@
             [[UIApplication sharedApplication] openURL:url];
         }
         else {
-            UIAlertView *newAlert = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"Your device does not appear to have a phone!" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            UIAlertView *newAlert = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"Your device does not appear to have a phone." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
             [newAlert show];
         }
     }

@@ -119,6 +119,7 @@
         
         self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
         
+        self.beganDrinking = [[NSDate alloc] init];
         self.bacCalculator = [[widmarkCalculator alloc] initWithGender:self.gender Weight:self.weight Drinks:self.stepper.value andTime:self.beganDrinking];
     }
     
