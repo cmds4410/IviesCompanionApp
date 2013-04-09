@@ -50,6 +50,10 @@
     self.BAC.lineBreakMode = 0;
     self.BAC.adjustsFontSizeToFitWidth = YES;
     self.BAC.textAlignment = 1;
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkgd-green-short.png"]];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {

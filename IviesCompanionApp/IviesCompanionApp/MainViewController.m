@@ -43,6 +43,9 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkgd-blue-short.png"]];
     
     [self.collectionView registerClass:[LauncherCell class] forCellWithReuseIdentifier:LAUNCHER];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
+    
 //    [self.collectionView reloadData];
     
     /*
