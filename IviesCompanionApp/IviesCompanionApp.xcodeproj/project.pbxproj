@@ -64,6 +64,12 @@
 		B3D21ECC1713830E00A040C6 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3D21ECA1713830B00A040C6 /* ModalViewController.xib */; };
 		B3EC058917138F2A00453EF3 /* overlay-hammered@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC058717138F2A00453EF3 /* overlay-hammered@2x.png */; };
 		B3EC058A17138F2A00453EF3 /* overlay-killinit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC058817138F2A00453EF3 /* overlay-killinit@2x.png */; };
+		B3EC05951713BF3700453EF3 /* bacActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EC058C1713BF3700453EF3 /* bacActionSheet.m */; };
+		B3EC05961713BF3700453EF3 /* DrinkCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EC058E1713BF3700453EF3 /* DrinkCounterViewController.m */; };
+		B3EC05971713BF3700453EF3 /* DrinkCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3EC058F1713BF3700453EF3 /* DrinkCounterViewController.xib */; };
+		B3EC05981713BF3700453EF3 /* initialDrinkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EC05911713BF3700453EF3 /* initialDrinkingViewController.m */; };
+		B3EC05991713BF3700453EF3 /* initialDrinkingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05921713BF3700453EF3 /* initialDrinkingViewController.xib */; };
+		B3EC059A1713BF3700453EF3 /* widmarkCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EC05941713BF3700453EF3 /* widmarkCalculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +140,16 @@
 		B3D21ECA1713830B00A040C6 /* ModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
 		B3EC058717138F2A00453EF3 /* overlay-hammered@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay-hammered@2x.png"; sourceTree = "<group>"; };
 		B3EC058817138F2A00453EF3 /* overlay-killinit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay-killinit@2x.png"; sourceTree = "<group>"; };
+		B3EC058B1713BF3700453EF3 /* bacActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bacActionSheet.h; sourceTree = "<group>"; };
+		B3EC058C1713BF3700453EF3 /* bacActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bacActionSheet.m; sourceTree = "<group>"; };
+		B3EC058D1713BF3700453EF3 /* DrinkCounterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkCounterViewController.h; sourceTree = "<group>"; };
+		B3EC058E1713BF3700453EF3 /* DrinkCounterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkCounterViewController.m; sourceTree = "<group>"; };
+		B3EC058F1713BF3700453EF3 /* DrinkCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrinkCounterViewController.xib; sourceTree = "<group>"; };
+		B3EC05901713BF3700453EF3 /* initialDrinkingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = initialDrinkingViewController.h; sourceTree = "<group>"; };
+		B3EC05911713BF3700453EF3 /* initialDrinkingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = initialDrinkingViewController.m; sourceTree = "<group>"; };
+		B3EC05921713BF3700453EF3 /* initialDrinkingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = initialDrinkingViewController.xib; sourceTree = "<group>"; };
+		B3EC05931713BF3700453EF3 /* widmarkCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = widmarkCalculator.h; sourceTree = "<group>"; };
+		B3EC05941713BF3700453EF3 /* widmarkCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = widmarkCalculator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +221,16 @@
 				B33EF134170E4E7500874419 /* PictureViewController.h */,
 				B33EF135170E4E7500874419 /* PictureViewController.m */,
 				B33EF136170E4E7500874419 /* PictureViewController.xib */,
+				B3EC058B1713BF3700453EF3 /* bacActionSheet.h */,
+				B3EC058C1713BF3700453EF3 /* bacActionSheet.m */,
+				B3EC058D1713BF3700453EF3 /* DrinkCounterViewController.h */,
+				B3EC058E1713BF3700453EF3 /* DrinkCounterViewController.m */,
+				B3EC058F1713BF3700453EF3 /* DrinkCounterViewController.xib */,
+				B3EC05901713BF3700453EF3 /* initialDrinkingViewController.h */,
+				B3EC05911713BF3700453EF3 /* initialDrinkingViewController.m */,
+				B3EC05921713BF3700453EF3 /* initialDrinkingViewController.xib */,
+				B3EC05931713BF3700453EF3 /* widmarkCalculator.h */,
+				B3EC05941713BF3700453EF3 /* widmarkCalculator.m */,
 				B3D21E3A17124D2E00A040C6 /* Pictures */,
 				B3880F90170CA64000032F40 /* Supporting Files */,
 			);
@@ -360,6 +386,8 @@
 				B3D21ECC1713830E00A040C6 /* ModalViewController.xib in Resources */,
 				B3EC058917138F2A00453EF3 /* overlay-hammered@2x.png in Resources */,
 				B3EC058A17138F2A00453EF3 /* overlay-killinit@2x.png in Resources */,
+				B3EC05971713BF3700453EF3 /* DrinkCounterViewController.xib in Resources */,
+				B3EC05991713BF3700453EF3 /* initialDrinkingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +406,10 @@
 				6A2F0E82170E61D00069161C /* FoodCell.m in Sources */,
 				6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */,
 				B3D21ECB1713830E00A040C6 /* ModalViewController.m in Sources */,
+				B3EC05951713BF3700453EF3 /* bacActionSheet.m in Sources */,
+				B3EC05961713BF3700453EF3 /* DrinkCounterViewController.m in Sources */,
+				B3EC05981713BF3700453EF3 /* initialDrinkingViewController.m in Sources */,
+				B3EC059A1713BF3700453EF3 /* widmarkCalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
