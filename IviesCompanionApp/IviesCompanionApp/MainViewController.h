@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "initialDrinkingViewController.h"
+#import "DrinkCounterViewController.h"
 
-@interface MainViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MainViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, initialDrinkingDelegate, DrinkCounterDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) initialDrinkingViewController *initialDrinkingVC;
+@property (strong, nonatomic) DrinkCounterViewController *drinkCounterVC;
+@property (nonatomic) int storedDrinkCount;
+@property (nonatomic) float storedBAC;
 
 @end
