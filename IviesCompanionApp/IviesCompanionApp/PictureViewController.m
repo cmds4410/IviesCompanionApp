@@ -9,18 +9,23 @@
 #import "PictureViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-const float WATERMARK_ALPHA = .75;
+const float WATERMARK_ALPHA = 1;
 
 #define kHashtag @"#IVIES2013 #IVIESCOMPANIONAPP"
 
 @interface PictureViewController ()
 - (void)actionButton;
+@property (nonatomic, strong) NSArray* overlays;
+@property (nonatomic, strong) UIScrollView* cameraScrollView;
 @end
 
 @implementation PictureViewController
 
 @synthesize imageView = _imageView;
 @synthesize scrollView = _scrollView;
+@synthesize cameraScrollView = _cameraScrollView;
+
+@synthesize overlays = _overlays;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,9 +41,27 @@ const float WATERMARK_ALPHA = .75;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkgd-green-short.png"]];
+    
+    self.wantsFullScreenLayout = YES;
+    [self.navigationController.navigationBar setTranslucent:YES];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButton)];
     
     self.scrollView.delegate = self;
+    
+    // Path to the plist (in the application bundle)
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"Overlays" ofType:@"plist"];
+    
+    // Build the array from the plist
+    self.overlays = [NSArray arrayWithContentsOfFile:path];
+    
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    
+    [self.view addGestureRecognizer:tap];
     
 }
 
@@ -51,26 +74,34 @@ const float WATERMARK_ALPHA = .75;
         [photoActionSheet showInView:self.view];
     }
     
+//    [self.navigationController.navigationBar setHidden:YES];
+//    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.imageView.alpha = 0;
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    self.imageView.alpha = 0;
+    
+    [UIView animateWithDuration:3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        self.imageView.alpha = 1;
+        
+    } completion:^(BOOL finished)
+     {
+         // add instructions for sharing
+//         [self.navigationController setNavigationBarHidden:NO animated:YES];
+     }];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void) addGestureRecognizers
-{
-    self.imageView.userInteractionEnabled = YES;
-    UIPinchGestureRecognizer *pgr = [[UIPinchGestureRecognizer alloc]
-                                     initWithTarget:self action:@selector(scalePiece:)];
-    pgr.delegate = self;
-    [self.imageView addGestureRecognizer:pgr];
-    
-    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panPiece:)];
-    [panGesture setMaximumNumberOfTouches:2];
-    [panGesture setDelegate:self];
-    [self.imageView addGestureRecognizer:panGesture];
 }
 
 - (void)actionButton
@@ -89,6 +120,18 @@ const float WATERMARK_ALPHA = .75;
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
+- (void)tap:(UITapGestureRecognizer*)gesture
+{
+    if (self.navigationController.navigationBarHidden)
+    {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    }
+    else
+    {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+}
+
 #pragma mark - UIActionSheetDelegate
 
 #pragma - mark UIActionSheetDelegate
@@ -103,35 +146,41 @@ const float WATERMARK_ALPHA = .75;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:picker animated:YES completion:^{
             // This block of code is only needed in case you want your watermark to be displayed also during the shooting process
-            UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
-            anImageView.alpha = WATERMARK_ALPHA;
-            anImageView.contentMode = UIViewContentModeScaleAspectFit;
+//            UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+//            anImageView.alpha = WATERMARK_ALPHA;
+//            anImageView.contentMode = UIViewContentModeScaleAspectFit;
+//            
+//            anImageView.frame = CGRectMake(0, 20, self.view.bounds.size.width, 100);
             
-            anImageView.frame = CGRectMake(0, 20, self.view.bounds.size.width, 100);
-            
-            UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, 100)];
-            scrollView.pagingEnabled = YES;
-            int numberOfViews = 3;
+            self.cameraScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-160, self.view.bounds.size.width, 100)];
+            self.cameraScrollView.delegate = self;
+            self.cameraScrollView.pagingEnabled = YES;
+            int numberOfViews = self.overlays.count;
             for (int i = 0; i < numberOfViews; i++)
             {
                 CGFloat xOrigin = i * self.view.frame.size.width;
                 UIView *awesomeView = [[UIView alloc] initWithFrame:CGRectMake(xOrigin, 0, self.view.frame.size.width, self.view.frame.size.height)];
+                awesomeView.backgroundColor = [UIColor whiteColor];
+                awesomeView.alpha = 0.5;
                 //awesomeView.backgroundColor = [UIColor colorWithRed:0.5/i green:0.5 blue:0.5 alpha:1];
-                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+//                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1.png"]];
+                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:i]]];
                 anImageView.alpha = WATERMARK_ALPHA;
                 anImageView.contentMode = UIViewContentModeScaleAspectFit;
                 
-                anImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 100);
-                [awesomeView addSubview:anImageView];
+                anImageView.frame = CGRectMake(xOrigin, 0, self.view.bounds.size.width, 100);
+                anImageView.userInteractionEnabled = YES;
+                //[awesomeView addSubview:anImageView];
                 
-                [scrollView addSubview:awesomeView];
+//                [self.cameraScrollView addSubview:awesomeView];
+                [self.cameraScrollView addSubview:anImageView];
             }
-            scrollView.contentSize = CGSizeMake(self.view.frame.size.width * numberOfViews, scrollView.frame.size.height);
+            self.cameraScrollView.contentSize = CGSizeMake(self.view.frame.size.width * numberOfViews, self.cameraScrollView.frame.size.height);
             //        scrollView.showsHorizontalScrollIndicator = NO;
             
-            picker.cameraOverlayView = scrollView;
+            picker.cameraOverlayView = self.cameraScrollView;
             
-            [scrollView flashScrollIndicators];
+            [self.cameraScrollView flashScrollIndicators];
         }];
         
         
@@ -163,8 +212,12 @@ const float WATERMARK_ALPHA = .75;
 
     // This is where we resize captured image
     [(UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    
+    //calculate the current page of the scrollview
+    int page = (int) (self.cameraScrollView.contentOffset.x / self.cameraScrollView.frame.size.width);
+    
     // And add the watermark on top of it
-    UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+    UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:page]]];
     
     // you may notice that the height of this frame is larger than the height of the imageview used over the camera
     // this is because the size of the frame we are "painting" the image into is a bit smaller because of the navigation bar
@@ -197,6 +250,13 @@ const float WATERMARK_ALPHA = .75;
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     return self.imageView;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+//    NSLog(@"Scroll Offset: %f", scrollView.contentOffset.x);
+//    int page = (int) (scrollView.contentOffset.x / scrollView.frame.size.width);
+//    NSLog(@"width: %d", page);
 }
 
 @end
