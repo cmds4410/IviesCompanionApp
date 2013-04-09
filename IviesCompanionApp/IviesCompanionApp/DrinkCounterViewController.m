@@ -112,7 +112,7 @@
             self.gender = @"N/A";
         
         int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
-        self.weight = self.bacActionSheet.baseWeight + (WEIGHT * weightIndex);
+        self.weight = self.bacActionSheet.baseWeight + (WEIGHTINCREMENT * weightIndex);
         
         self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
         
