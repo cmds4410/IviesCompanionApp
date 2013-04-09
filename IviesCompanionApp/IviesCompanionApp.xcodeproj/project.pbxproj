@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A1828321713913B00A9A034 /* widmarkCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1828311713913B00A9A034 /* widmarkCalculator.m */; };
 		6A2F0E7F170E5E2C0069161C /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */; };
 		6A2F0E82170E61D00069161C /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E81170E61D00069161C /* FoodCell.m */; };
 		6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E86170E6D150069161C /* FoodViewController.m */; };
@@ -37,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A1828301713913B00A9A034 /* widmarkCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = widmarkCalculator.h; sourceTree = "<group>"; };
+		6A1828311713913B00A9A034 /* widmarkCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = widmarkCalculator.m; sourceTree = "<group>"; };
 		6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FoodViewController.xib; path = IviesCompanionApp/FoodViewController.xib; sourceTree = "<group>"; };
 		6A2F0E80170E61D00069161C /* FoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodCell.h; path = IviesCompanionApp/FoodCell.h; sourceTree = "<group>"; };
 		6A2F0E81170E61D00069161C /* FoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodCell.m; path = IviesCompanionApp/FoodCell.m; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				6ADB9006170FC38E005C90A8 /* DrinkCounterViewController.xib */,
 				6A83F73A1710CBC900EAD1CA /* bacActionSheet.h */,
 				6A83F73B1710CBC900EAD1CA /* bacActionSheet.m */,
+				6A1828301713913B00A9A034 /* widmarkCalculator.h */,
+				6A1828311713913B00A9A034 /* widmarkCalculator.m */,
 			);
 			name = DrinkCounter;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				6ADB9007170FC38E005C90A8 /* DrinkCounterViewController.m in Sources */,
 				6A83F73C1710CBC900EAD1CA /* bacActionSheet.m in Sources */,
 				6A62D3AA17125DD400838F25 /* initialDrinkingViewController.m in Sources */,
+				6A1828321713913B00A9A034 /* widmarkCalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

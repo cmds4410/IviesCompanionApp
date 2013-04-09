@@ -32,10 +32,11 @@
     if(self) {
         self.baseWeight = BASEWEIGHT;
         self.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        self.bacDetailsPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 100, 320, 162)];
+        self.bacDetailsPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 95, 320, 162)];
         self.bacDetailsPicker.delegate = self;
         self.bacDetailsPicker.showsSelectionIndicator = YES;
         [self addSubview:self.bacDetailsPicker];
+        NSLog(@"%@", [self subviews].description);
         
     }
     return self;

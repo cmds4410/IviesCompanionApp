@@ -19,9 +19,10 @@
 @synthesize drinkCounter = _drinkCounter;
 @synthesize bacActionSheet = _bacActionSheet;
 @synthesize BAC = _BAC;
-@synthesize gender = _gender;
+@synthesize beganDrinking = _beganDrinking;
 @synthesize weight = _weight;
-@synthesize bacConst = _bacConst;
+@synthesize gender = _gender;
+@synthesize bacCalculator = _bacCalculator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,7 +37,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.bacConst = 0.5;
     self.stepper.value = 0;
     self.stepper.minimumValue = 0;
     self.stepper.maximumValue = 25;
@@ -50,7 +50,6 @@
     self.BAC.lineBreakMode = 0;
     self.BAC.adjustsFontSizeToFitWidth = YES;
     self.BAC.textAlignment = 1;
-    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -84,8 +83,7 @@
     if([self.BAC.text isEqualToString:@"Sobered up, huh?"]) {
         [self.BAC setText:@"Back at it. Nice."];
     }
-    float adjustedBAC = [self.drinkCounter.text floatValue] * self.bacConst;
-    [self.BAC setText:[NSString stringWithFormat:@"%.f", adjustedBAC]];
+    [self.BAC setText:[NSString stringWithFormat:@"%.f", 10.0]];
 
 }
 
@@ -113,6 +111,6 @@
         self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"Details" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     }
     [self.bacActionSheet showInView:self.drinkCounterView];
-    [self.bacActionSheet setFrame:CGRectMake(self.drinkCounterView.frame.origin.x, self.drinkCounterView.frame.origin.y + 300, 320, self.drinkCounterView.frame.size.height)];
+    [self.bacActionSheet setFrame:CGRectMake(0, 300, 320, self.drinkCounterView.frame.size.height)];
 }
 @end

@@ -91,6 +91,8 @@
 
 -(void)userDidPressStartDrinking {
     
+    //self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
+    //NSLog(@"%@", self.drinkCounterVC.beganDrinking.description);
     self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
     self.drinkCounterVC.delegate = self;
     [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
@@ -111,6 +113,7 @@
 -(void) drinkCounterWillDisappear {
     self.storedDrinkCount = [self.drinkCounterVC.drinkCounter.text intValue];
     self.storedBAC = [self.drinkCounterVC.BAC.text floatValue];
+    [self.navigationController popToViewController:self animated:YES];
 }
 
 
