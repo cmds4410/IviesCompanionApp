@@ -25,6 +25,11 @@
 @synthesize collectionView = _collectionView;
 @synthesize homeScreenImageView = _homeScreenImageView;
 
+@synthesize initialDrinkingVC = _initialDrinkingVC;
+@synthesize drinkCounterVC = _drinkCounterVC;
+@synthesize storedDrinkCount = _storedDrinkCount;
+@synthesize storedBAC = _storedBAC;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -143,9 +148,9 @@
     }
     else if(indexPath.row == 1)
     {
-        FoodViewController* foodVC = [[FoodViewController alloc] init];
-        
-        [self.navigationController pushViewController:foodVC animated:YES];
+        self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
+        self.initialDrinkingVC.delegate = self;
+        [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
     }
     
 }
@@ -173,6 +178,35 @@
 {
     CGFloat spacing = 50;
     return spacing;
+}
+
+#pragma mark - initialDrinkingDelegate
+
+-(void)userDidPressStartDrinking {
+    
+    //self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
+    //NSLog(@"%@", self.drinkCounterVC.beganDrinking.description);
+    self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
+    self.drinkCounterVC.delegate = self;
+    [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
+    
+}
+
+-(void)userDidPressKeepDrinking {
+    if(self.drinkCounterVC) {
+        self.drinkCounterVC.drinkCounter.text = [NSString stringWithFormat:@"%i",self.storedDrinkCount];
+        self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%.f", self.storedBAC];
+        [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
+    }
+    
+}
+
+#pragma mark - DrinkCounterDelegate
+
+-(void) drinkCounterWillDisappear {
+    self.storedDrinkCount = [self.drinkCounterVC.drinkCounter.text intValue];
+    self.storedBAC = [self.drinkCounterVC.BAC.text floatValue];
+    [self.navigationController popToViewController:self animated:YES];
 }
 
 
