@@ -12,7 +12,7 @@
 
 @protocol DrinkCounterDelegate <NSObject>
 
--(void) drinkCounterWillDisappear;
+- (void)drinkCounterWillDisappear;
 
 @end
 
@@ -29,9 +29,11 @@
 @property (nonatomic) int weight;
 @property (weak, nonatomic) NSString *gender;
 @property (weak, nonatomic) id <DrinkCounterDelegate> delegate;
+@property (nonatomic) int numDrinks;
 
--(void)presentActionSheet;
+- (void)presentActionSheet;
 - (IBAction)clearPressed:(UIButton *)sender;
 - (IBAction)detailsPressed:(UIButton *)sender;
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender;
+- (float)calculateBAC;
 @end

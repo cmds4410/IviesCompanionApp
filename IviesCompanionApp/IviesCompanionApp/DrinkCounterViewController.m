@@ -50,6 +50,10 @@
     self.BAC.lineBreakMode = 0;
     self.BAC.adjustsFontSizeToFitWidth = YES;
     self.BAC.textAlignment = 1;
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkgd-green-short.png"]];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -79,12 +83,19 @@
 }
 
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender {
+    self.numDrinks = self.stepper.value;
     self.drinkCounter.text = [NSString stringWithFormat:@"%.f", self.stepper.value];
     if([self.BAC.text isEqualToString:@"Sobered up, huh?"]) {
         [self.BAC setText:@"Back at it. Nice."];
     }
-    [self.BAC setText:[NSString stringWithFormat:@"%.f", 10.0]];
+    [self.BAC setText:[NSString stringWithFormat:@"%f", [self calculateBAC]]];
 
+}
+
+- (float)calculateBAC
+{
+    widmarkCalculator* widmark = [[widmarkCalculator alloc] initWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking];
+    return [widmark calculateBAC];
 }
 
 #pragma - mark UIActionSheetDegate
@@ -106,7 +117,7 @@
     self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
 }
 
--(void)presentActionSheet {
+- (void)presentActionSheet {
     if(!self.bacActionSheet) {
         self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"Details" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     }
