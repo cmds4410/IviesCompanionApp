@@ -93,7 +93,8 @@ const float WATERMARK_ALPHA = 1;
     } completion:^(BOOL finished)
      {
          // add instructions for sharing
-//         [self.navigationController setNavigationBarHidden:NO animated:YES];
+         //[self.navigationController setNavigationBarHidden:NO animated:YES];
+         [self performSelector:@selector(actionButton) withObject:self afterDelay:0.5];
      }];
     
 }
