@@ -20,7 +20,6 @@
 @interface DrinkCounterViewController : UIViewController <UIActionSheetDelegate>
 
 
-@property (weak, nonatomic) IBOutlet UIView *drinkCounterView;
 @property (weak, nonatomic) IBOutlet UILabel *drinkCounter;
 @property (weak, nonatomic) IBOutlet UIStepper * stepper;
 @property (weak, nonatomic) IBOutlet UILabel *BAC;

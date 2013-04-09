@@ -14,7 +14,6 @@
 
 
 @implementation DrinkCounterViewController
-@synthesize drinkCounterView = _drinkCounterView;
 @synthesize stepper = _stepper;
 @synthesize drinkCounter = _drinkCounter;
 @synthesize bacActionSheet = _bacActionSheet;
@@ -124,9 +123,9 @@
 
 - (void)presentActionSheet {
     if(!self.bacActionSheet) {
-        self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"Details" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+        self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"Details" delegate:self cancelButtonTitle:@"Done" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     }
-    [self.bacActionSheet showInView:self.drinkCounterView];
-    [self.bacActionSheet setFrame:CGRectMake(0, 300, 320, self.drinkCounterView.frame.size.height)];
+    [self.bacActionSheet showInView:self.view];
+    [self.bacActionSheet setFrame:CGRectMake(0, self.view.frame.size.height - 255, 320, self.view.frame.size.height)];
 }
 @end
