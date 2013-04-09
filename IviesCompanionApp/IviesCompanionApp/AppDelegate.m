@@ -16,9 +16,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Default.png"]];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         self.viewController = [[MainViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
         self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+        [self.navController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
         
     } else {
         self.viewController = [[MainViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
