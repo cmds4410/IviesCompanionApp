@@ -13,11 +13,9 @@
 @property (weak, nonatomic) NSString *gender;
 @property (nonatomic) double weight;
 @property (nonatomic) int drinks;
-@property (nonatomic) float hours;
+@property (nonatomic) NSDate *startTime;
 
-
--(float) calculateFemaleBACWithWeight:(double)weight andDrinkCount:(int)drinks;
--(float) calculateMaleBACWithWeight:(double)weight andDrinkCount:(int)drinks;
+-(float) calculateBAC;
 
 @end
 
