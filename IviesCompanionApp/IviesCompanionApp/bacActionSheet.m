@@ -30,7 +30,7 @@
     
     self = [super initWithTitle:title delegate:delegate cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitles, nil];
     if(self) {
-        self.baseWeight = BASEWEIGHT;
+        self.baseWeight = 0;
         self.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         self.bacDetailsPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 95, 320, 162)];
         self.bacDetailsPicker.delegate = self;

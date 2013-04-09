@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Constants.h"
 
 @interface bacActionSheet : UIActionSheet <UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -17,7 +18,3 @@
 
 @end
 
-#define BASEWEIGHT 80;
-#define WEIGHTINCREMENT 10;
-#define NUMBEROFWEIGHTS 49;
-#define NUMBEROFCOMPONENTS 2;

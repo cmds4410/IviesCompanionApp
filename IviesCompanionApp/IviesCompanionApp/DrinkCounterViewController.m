@@ -101,20 +101,25 @@
 #pragma - mark UIActionSheetDegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    int genderIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:0];
-    if(genderIndex == 0) {
-        self.gender = @"Female";
+    if(buttonIndex == [self.bacActionSheet cancelButtonIndex]) {
+        int genderIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:0];
+        if(genderIndex == 0) {
+            self.gender = @"Female";
+        }
+        else if(genderIndex == 1) {
+            self.gender = @"Male";
+        }
+        else
+            self.gender = @"N/A";
+        
+        int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
+        self.weight = self.bacActionSheet.baseWeight + (WEIGHT * weightIndex);
+        
+        self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
+        
+        self.bacCalculator = [[widmarkCalculator alloc] initWithGender:self.gender Weight:self.weight Drinks:self.stepper.value andTime:self.beganDrinking];
     }
-    else if(genderIndex == 1) {
-        self.gender = @"Male";
-    }
-    else
-        self.gender = @"N/A";
     
-    int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
-    self.weight = 100 + 25 * (weightIndex - 1);
-    
-    self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
 }
 
 - (void)presentActionSheet {
