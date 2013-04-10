@@ -13,11 +13,16 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ModalViewController.h"
 #import "Constants.h"
+#import "WellnessViewController.h"
 
 #define LAUNCHER @"LauncherCell"
 
 @interface MainViewController ()
+
 @property (nonatomic) UIImageView* homeScreenImageView;
+@property (nonatomic) NSArray* homeScreenButtons;
+@property (nonatomic) int collectionViewPosition;
+
 - (void)modal;
 @end
 
@@ -25,6 +30,8 @@
 
 @synthesize collectionView = _collectionView;
 @synthesize homeScreenImageView = _homeScreenImageView;
+@synthesize homeScreenButtons = _homeScreenButtons;
+@synthesize collectionViewPosition = _collectionViewPosition;
 
 @synthesize initialDrinkingVC = _initialDrinkingVC;
 @synthesize drinkCounterVC = _drinkCounterVC;
@@ -36,6 +43,8 @@
     [super viewDidLoad];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navicon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(modal)];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
     
     // TODO: Add support for 4 inch screen
     
@@ -54,6 +63,16 @@
      */
     
     //    [self.collectionView setHidden:YES];
+    
+    // Path to the plist (in the application bundle)
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"Home Screen Buttons" ofType:@"plist"];
+    
+    // Build the array from the plist
+    self.homeScreenButtons = [NSArray arrayWithContentsOfFile:path];
+    
+    // initialize to 0
+    self.collectionViewPosition = 0;
     
 }
 
@@ -98,16 +117,25 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 2;
+    return self.homeScreenButtons.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     LauncherCell *cell = [cv dequeueReusableCellWithReuseIdentifier:LAUNCHER forIndexPath:indexPath];
+    
+    /*
+    cell.backgroundColor = nil;
+    UIImage* image = [UIImage imageNamed:[self.homeScreenButtons objectAtIndex:self.collectionViewPosition]];
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+    [imageView setImage:image];
+    [cell addSubview:imageView];
+    */
     
     if (indexPath.row == 0)
     {
         cell.backgroundColor = nil;
-        UIImage* image = [UIImage imageNamed:@"camera.png"];
+        UIImage* image = [UIImage imageNamed:[self.homeScreenButtons objectAtIndex:0]];
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
         [imageView setImage:image];
         [cell addSubview:imageView];
@@ -115,11 +143,20 @@
     else if (indexPath.row == 1)
     {
         cell.backgroundColor = nil;
-        UIImage* image = [UIImage imageNamed:@"drink"];
+        UIImage* image = [UIImage imageNamed:[self.homeScreenButtons objectAtIndex:1]];
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
         [imageView setImage:image];
         [cell addSubview:imageView];
     }
+    else if (indexPath.row == 2)
+    {
+        cell.backgroundColor = nil;
+        UIImage* image = [UIImage imageNamed:[self.homeScreenButtons objectAtIndex:2]];
+        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+        [imageView setImage:image];
+        [cell addSubview:imageView];
+    }
+     
     
     //    cell.layer.shadowColor = [UIColor blackColor].CGColor;
     //    cell.layer.shadowOffset = CGSizeMake(0, 3);
@@ -128,6 +165,14 @@
     //    cell.layer.cornerRadius = 10.0;
     //    self.activityBackgroundView.layer.borderColor = [UIColor blackColor].CGColor;
     //    self.invitationView.layer.borderWidth = 2.0;
+    
+    self.collectionViewPosition++;
+    
+    // reset
+    if (self.collectionViewPosition >= self.homeScreenButtons.count)
+    {
+        self.collectionViewPosition = 0;
+    }
     
     return cell;
 }
@@ -152,6 +197,11 @@
         self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
         self.initialDrinkingVC.delegate = self;
         [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
+    }
+    else if(indexPath.row == 2)
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Bowdoin" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call Shuttle", @"Call Security", @"Wellness", nil];
+        [alert show];
     }
     
 }
@@ -213,6 +263,33 @@
     self.storedDrinkCount = [self.drinkCounterVC.drinkCounter.text intValue];
     self.storedBAC = [self.drinkCounterVC.BAC.text floatValue];
     [self.navigationController popToViewController:self animated:YES];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]])
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]];
+        }
+    }
+    
+    else if (buttonIndex == 2)
+    {
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]])
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]];
+        }
+    }
+    
+    else if (buttonIndex == 3)
+    {
+        WellnessViewController* wellness = [[WellnessViewController alloc] init];
+        [self presentViewController:wellness animated:YES completion:nil];
+    }
 }
 
 
