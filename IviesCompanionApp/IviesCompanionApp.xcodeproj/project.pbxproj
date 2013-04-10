@@ -15,6 +15,12 @@
 		B33EF137170E4E7500874419 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33EF135170E4E7500874419 /* PictureViewController.m */; };
 		B33EF138170E4E7500874419 /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33EF136170E4E7500874419 /* PictureViewController.xib */; };
 		B33EF13A170E6E7700874419 /* overlay-hashtag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B33EF139170E6E7700874419 /* overlay-hashtag@2x.png */; };
+		B3647030171500E4005B0434 /* overlays-wasted.png in Resources */ = {isa = PBXBuildFile; fileRef = B364702C171500E3005B0434 /* overlays-wasted.png */; };
+		B3647031171500E4005B0434 /* overlays-wasted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B364702D171500E3005B0434 /* overlays-wasted@2x.png */; };
+		B3647032171500E4005B0434 /* shuttle.png in Resources */ = {isa = PBXBuildFile; fileRef = B364702E171500E3005B0434 /* shuttle.png */; };
+		B3647033171500E4005B0434 /* shuttle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B364702F171500E4005B0434 /* shuttle@2x.png */; };
+		B364703717150336005B0434 /* WellnessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B364703517150336005B0434 /* WellnessViewController.m */; };
+		B364703817150336005B0434 /* WellnessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B364703617150336005B0434 /* WellnessViewController.xib */; };
 		B3880F8A170CA64000032F40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F89170CA64000032F40 /* UIKit.framework */; };
 		B3880F8C170CA64000032F40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F8B170CA64000032F40 /* Foundation.framework */; };
 		B3880F8E170CA64000032F40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F8D170CA64000032F40 /* CoreGraphics.framework */; };
@@ -80,8 +86,6 @@
 		B3EC05BC1713CE2000453EF3 /* overlays-hash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05B61713CE2000453EF3 /* overlays-hash@2x.png */; };
 		B3EC05BF1713CE4A00453EF3 /* overlays-killinit.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05BD1713CE4900453EF3 /* overlays-killinit.png */; };
 		B3EC05C01713CE4A00453EF3 /* overlays-killinit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05BE1713CE4900453EF3 /* overlays-killinit@2x.png */; };
-		B3EC05C31713CE7500453EF3 /* overlays-wasted.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05C11713CE7500453EF3 /* overlays-wasted.png */; };
-		B3EC05C41713CE7500453EF3 /* overlays-wasted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05C21713CE7500453EF3 /* overlays-wasted@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +101,13 @@
 		B33EF135170E4E7500874419 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
 		B33EF136170E4E7500874419 /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
 		B33EF139170E6E7700874419 /* overlay-hashtag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay-hashtag@2x.png"; sourceTree = "<group>"; };
+		B364702C171500E3005B0434 /* overlays-wasted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-wasted.png"; sourceTree = "<group>"; };
+		B364702D171500E3005B0434 /* overlays-wasted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-wasted@2x.png"; sourceTree = "<group>"; };
+		B364702E171500E3005B0434 /* shuttle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuttle.png; sourceTree = "<group>"; };
+		B364702F171500E4005B0434 /* shuttle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shuttle@2x.png"; sourceTree = "<group>"; };
+		B364703417150336005B0434 /* WellnessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WellnessViewController.h; sourceTree = "<group>"; };
+		B364703517150336005B0434 /* WellnessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WellnessViewController.m; sourceTree = "<group>"; };
+		B364703617150336005B0434 /* WellnessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WellnessViewController.xib; sourceTree = "<group>"; };
 		B3880F86170CA64000032F40 /* Ivies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ivies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3880F89170CA64000032F40 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B3880F8B170CA64000032F40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -173,8 +184,6 @@
 		B3EC05B61713CE2000453EF3 /* overlays-hash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-hash@2x.png"; sourceTree = "<group>"; };
 		B3EC05BD1713CE4900453EF3 /* overlays-killinit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-killinit.png"; sourceTree = "<group>"; };
 		B3EC05BE1713CE4900453EF3 /* overlays-killinit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-killinit@2x.png"; sourceTree = "<group>"; };
-		B3EC05C11713CE7500453EF3 /* overlays-wasted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-wasted.png"; sourceTree = "<group>"; };
-		B3EC05C21713CE7500453EF3 /* overlays-wasted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlays-wasted@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +240,8 @@
 				B3D21E9617133FE200A040C6 /* camera@2x.png */,
 				B3D21E9717133FE200A040C6 /* drink.png */,
 				B3D21E9817133FE200A040C6 /* drink@2x.png */,
+				B364702E171500E3005B0434 /* shuttle.png */,
+				B364702F171500E4005B0434 /* shuttle@2x.png */,
 			);
 			name = "Home Screen Buttons";
 			sourceTree = "<group>";
@@ -250,14 +261,14 @@
 				B33EF139170E6E7700874419 /* overlay-hashtag@2x.png */,
 				B3EC05BD1713CE4900453EF3 /* overlays-killinit.png */,
 				B3EC05BE1713CE4900453EF3 /* overlays-killinit@2x.png */,
-				B3EC05C11713CE7500453EF3 /* overlays-wasted.png */,
-				B3EC05C21713CE7500453EF3 /* overlays-wasted@2x.png */,
 				B3EC05B11713CE2000453EF3 /* overlays-certified.png */,
 				B3EC05B21713CE2000453EF3 /* overlays-certified@2x.png */,
 				B3EC05B31713CE2000453EF3 /* overlays-hammered.png */,
 				B3EC05B41713CE2000453EF3 /* overlays-hammered@2x.png */,
 				B3EC05B51713CE2000453EF3 /* overlays-hash.png */,
 				B3EC05B61713CE2000453EF3 /* overlays-hash@2x.png */,
+				B364702C171500E3005B0434 /* overlays-wasted.png */,
+				B364702D171500E3005B0434 /* overlays-wasted@2x.png */,
 				B3D21E3B171289CB00A040C6 /* Overlays.plist */,
 			);
 			name = Overlays;
@@ -311,6 +322,9 @@
 				B33EF134170E4E7500874419 /* PictureViewController.h */,
 				B33EF135170E4E7500874419 /* PictureViewController.m */,
 				B33EF136170E4E7500874419 /* PictureViewController.xib */,
+				B364703417150336005B0434 /* WellnessViewController.h */,
+				B364703517150336005B0434 /* WellnessViewController.m */,
+				B364703617150336005B0434 /* WellnessViewController.xib */,
 				6AB387501713C61B0045361B /* DrinkCounter */,
 				6AB387511713C62E0045361B /* FoodViewController */,
 				B3D21E3A17124D2E00A040C6 /* Pictures */,
@@ -467,9 +481,12 @@
 				B3EC05BC1713CE2000453EF3 /* overlays-hash@2x.png in Resources */,
 				B3EC05BF1713CE4A00453EF3 /* overlays-killinit.png in Resources */,
 				B3EC05C01713CE4A00453EF3 /* overlays-killinit@2x.png in Resources */,
-				B3EC05C31713CE7500453EF3 /* overlays-wasted.png in Resources */,
-				B3EC05C41713CE7500453EF3 /* overlays-wasted@2x.png in Resources */,
 				B307B1B21714DC6000298D9A /* Home Screen Buttons.plist in Resources */,
+				B3647030171500E4005B0434 /* overlays-wasted.png in Resources */,
+				B3647031171500E4005B0434 /* overlays-wasted@2x.png in Resources */,
+				B3647032171500E4005B0434 /* shuttle.png in Resources */,
+				B3647033171500E4005B0434 /* shuttle@2x.png in Resources */,
+				B364703817150336005B0434 /* WellnessViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +509,7 @@
 				B3EC05961713BF3700453EF3 /* DrinkCounterViewController.m in Sources */,
 				B3EC05981713BF3700453EF3 /* initialDrinkingViewController.m in Sources */,
 				B3EC059A1713BF3700453EF3 /* widmarkCalculator.m in Sources */,
+				B364703717150336005B0434 /* WellnessViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
