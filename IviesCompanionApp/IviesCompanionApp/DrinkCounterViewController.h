@@ -32,8 +32,9 @@
 @property (nonatomic) int numDrinks;
 
 - (void)presentActionSheet;
-- (IBAction)clearPressed:(UIButton *)sender;
+-(void)clearPressed;
 - (IBAction)detailsPressed:(UIButton *)sender;
+- (IBAction)resetStartTimePressed:(UIButton *)sender;
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender;
 - (float)calculateBAC;
 @end

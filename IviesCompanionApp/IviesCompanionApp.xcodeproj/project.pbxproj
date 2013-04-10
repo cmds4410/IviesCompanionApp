@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A126747171558BE000E1059 /* initialDrinkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A126745171558BE000E1059 /* initialDrinkingViewController.m */; };
+		6A126748171558BE000E1059 /* initialDrinkingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A126746171558BE000E1059 /* initialDrinkingViewController.xib */; };
+		6A12674A1715598C000E1059 /* initialDrinkingViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 6A126746171558BE000E1059 /* initialDrinkingViewController.xib */; };
+		6A12674C1715599F000E1059 /* initialDrinkingViewController.m in Resources */ = {isa = PBXBuildFile; fileRef = 6A126745171558BE000E1059 /* initialDrinkingViewController.m */; };
 		6A2F0E7F170E5E2C0069161C /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */; };
 		6A2F0E82170E61D00069161C /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E81170E61D00069161C /* FoodCell.m */; };
 		6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E86170E6D150069161C /* FoodViewController.m */; };
@@ -79,8 +83,6 @@
 		B3EC05951713BF3700453EF3 /* bacActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EC058C1713BF3700453EF3 /* bacActionSheet.m */; };
 		B3EC05961713BF3700453EF3 /* DrinkCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EC058E1713BF3700453EF3 /* DrinkCounterViewController.m */; };
 		B3EC05971713BF3700453EF3 /* DrinkCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3EC058F1713BF3700453EF3 /* DrinkCounterViewController.xib */; };
-		B3EC05981713BF3700453EF3 /* initialDrinkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EC05911713BF3700453EF3 /* initialDrinkingViewController.m */; };
-		B3EC05991713BF3700453EF3 /* initialDrinkingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05921713BF3700453EF3 /* initialDrinkingViewController.xib */; };
 		B3EC059A1713BF3700453EF3 /* widmarkCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EC05941713BF3700453EF3 /* widmarkCalculator.m */; };
 		B3EC05A61713C9BC00453EF3 /* navicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC059B1713C9BB00453EF3 /* navicon@2x.png */; };
 		B3EC05B71713CE2000453EF3 /* overlays-certified.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EC05B11713CE2000453EF3 /* overlays-certified.png */; };
@@ -94,6 +96,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A126744171558BE000E1059 /* initialDrinkingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = initialDrinkingViewController.h; sourceTree = "<group>"; };
+		6A126745171558BE000E1059 /* initialDrinkingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = initialDrinkingViewController.m; sourceTree = "<group>"; };
+		6A126746171558BE000E1059 /* initialDrinkingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = initialDrinkingViewController.xib; sourceTree = "<group>"; };
 		6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
 		6A2F0E80170E61D00069161C /* FoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCell.h; sourceTree = "<group>"; };
 		6A2F0E81170E61D00069161C /* FoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCell.m; sourceTree = "<group>"; };
@@ -180,9 +185,6 @@
 		B3EC058D1713BF3700453EF3 /* DrinkCounterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkCounterViewController.h; sourceTree = "<group>"; };
 		B3EC058E1713BF3700453EF3 /* DrinkCounterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkCounterViewController.m; sourceTree = "<group>"; };
 		B3EC058F1713BF3700453EF3 /* DrinkCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrinkCounterViewController.xib; sourceTree = "<group>"; };
-		B3EC05901713BF3700453EF3 /* initialDrinkingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = initialDrinkingViewController.h; sourceTree = "<group>"; };
-		B3EC05911713BF3700453EF3 /* initialDrinkingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = initialDrinkingViewController.m; sourceTree = "<group>"; };
-		B3EC05921713BF3700453EF3 /* initialDrinkingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = initialDrinkingViewController.xib; sourceTree = "<group>"; };
 		B3EC05931713BF3700453EF3 /* widmarkCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = widmarkCalculator.h; sourceTree = "<group>"; };
 		B3EC05941713BF3700453EF3 /* widmarkCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = widmarkCalculator.m; sourceTree = "<group>"; };
 		B3EC059B1713C9BB00453EF3 /* navicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navicon@2x.png"; sourceTree = "<group>"; };
@@ -215,12 +217,12 @@
 		6AB387501713C61B0045361B /* DrinkCounter */ = {
 			isa = PBXGroup;
 			children = (
-				B3EC05901713BF3700453EF3 /* initialDrinkingViewController.h */,
-				B3EC05911713BF3700453EF3 /* initialDrinkingViewController.m */,
-				B3EC05921713BF3700453EF3 /* initialDrinkingViewController.xib */,
 				B3EC058D1713BF3700453EF3 /* DrinkCounterViewController.h */,
 				B3EC058E1713BF3700453EF3 /* DrinkCounterViewController.m */,
 				B3EC058F1713BF3700453EF3 /* DrinkCounterViewController.xib */,
+				6A126744171558BE000E1059 /* initialDrinkingViewController.h */,
+				6A126745171558BE000E1059 /* initialDrinkingViewController.m */,
+				6A126746171558BE000E1059 /* initialDrinkingViewController.xib */,
 				B3EC058B1713BF3700453EF3 /* bacActionSheet.h */,
 				B3EC058C1713BF3700453EF3 /* bacActionSheet.m */,
 				B3EC05931713BF3700453EF3 /* widmarkCalculator.h */,
@@ -441,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A12674C1715599F000E1059 /* initialDrinkingViewController.m in Resources */,
 				B3880F94170CA64000032F40 /* InfoPlist.strings in Resources */,
 				B3880FA6170CA64000032F40 /* ViewController_iPhone.xib in Resources */,
 				B3880FA9170CA64000032F40 /* ViewController_iPad.xib in Resources */,
@@ -486,7 +489,6 @@
 				B3EC058917138F2A00453EF3 /* overlay-hammered@2x.png in Resources */,
 				B3EC058A17138F2A00453EF3 /* overlay-killinit@2x.png in Resources */,
 				B3EC05971713BF3700453EF3 /* DrinkCounterViewController.xib in Resources */,
-				B3EC05991713BF3700453EF3 /* initialDrinkingViewController.xib in Resources */,
 				B3EC05A61713C9BC00453EF3 /* navicon@2x.png in Resources */,
 				B3EC05B71713CE2000453EF3 /* overlays-certified.png in Resources */,
 				B3EC05B81713CE2000453EF3 /* overlays-certified@2x.png in Resources */,
@@ -507,6 +509,7 @@
 				B364704017151B41005B0434 /* schedule-short@2x.png in Resources */,
 				B364704117151B41005B0434 /* wellness.png in Resources */,
 				B364704217151B41005B0434 /* wellness@2x.png in Resources */,
+				6A126748171558BE000E1059 /* initialDrinkingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A12674A1715598C000E1059 /* initialDrinkingViewController.xib in Sources */,
 				B3880F96170CA64000032F40 /* main.m in Sources */,
 				B3880F9A170CA64000032F40 /* AppDelegate.m in Sources */,
 				B3880FA3170CA64000032F40 /* MainViewController.m in Sources */,
@@ -527,9 +531,9 @@
 				B3D21ECB1713830E00A040C6 /* ModalViewController.m in Sources */,
 				B3EC05951713BF3700453EF3 /* bacActionSheet.m in Sources */,
 				B3EC05961713BF3700453EF3 /* DrinkCounterViewController.m in Sources */,
-				B3EC05981713BF3700453EF3 /* initialDrinkingViewController.m in Sources */,
 				B3EC059A1713BF3700453EF3 /* widmarkCalculator.m in Sources */,
 				B364703717150336005B0434 /* WellnessViewController.m in Sources */,
+				6A126747171558BE000E1059 /* initialDrinkingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
