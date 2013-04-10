@@ -193,16 +193,21 @@
     }
     else if(indexPath.row == 1)
     {
-        self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
-        self.initialDrinkingVC.delegate = self;
+        if(!self.initialDrinkingVC) {
+            self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
+            self.initialDrinkingVC.delegate = self;
+        }
         [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
     }
+<<<<<<< HEAD
+=======
     else if(indexPath.row == 2)
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Bowdoin" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call Shuttle", @"Call Security", @"Wellness", nil];
         [alert show];
     }
     
+>>>>>>> origin/master
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
