@@ -281,7 +281,7 @@
         [self.drinkCounterVC presentActionSheet];
     }
     self.initialDrinkingVC.userIsDrinking = YES;
-    [self.drinkCounterVC clearPressed:[UIButton buttonWithType:UIButtonTypeCustom]];
+    [self.drinkCounterVC clearPressed];
 }
 
 -(void)userDidPressKeepDrinking {

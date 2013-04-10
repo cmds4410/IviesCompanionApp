@@ -219,10 +219,10 @@
 			children = (
 				B3EC058D1713BF3700453EF3 /* DrinkCounterViewController.h */,
 				B3EC058E1713BF3700453EF3 /* DrinkCounterViewController.m */,
+				B3EC058F1713BF3700453EF3 /* DrinkCounterViewController.xib */,
 				6A126744171558BE000E1059 /* initialDrinkingViewController.h */,
 				6A126745171558BE000E1059 /* initialDrinkingViewController.m */,
 				6A126746171558BE000E1059 /* initialDrinkingViewController.xib */,
-				B3EC058F1713BF3700453EF3 /* DrinkCounterViewController.xib */,
 				B3EC058B1713BF3700453EF3 /* bacActionSheet.h */,
 				B3EC058C1713BF3700453EF3 /* bacActionSheet.m */,
 				B3EC05931713BF3700453EF3 /* widmarkCalculator.h */,

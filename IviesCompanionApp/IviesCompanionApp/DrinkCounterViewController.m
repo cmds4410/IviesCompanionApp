@@ -67,7 +67,7 @@
 }
 
 
-- (IBAction)clearPressed:(UIButton *)sender {
+- (void) clearPressed {
     if(![self.drinkCounter.text isEqualToString:@"0"]) {
         self.BAC.text = @"Sobered up, huh?";
     }
@@ -80,6 +80,14 @@
 - (IBAction)detailsPressed:(UIButton *)sender {
     [self presentActionSheet];
     
+}
+
+- (IBAction)resetStartTimePressed:(UIButton *)sender {
+    /*implement function to enter in number of hours since you started drinking
+    and realloc-init the NSDate property using [NSDate alloc] initWithInterval or
+    whatever, so that the bac is calculated from x number of hours ago instead of
+    when the user (just) pressed Start Drinking
+    */
 }
 
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender {
