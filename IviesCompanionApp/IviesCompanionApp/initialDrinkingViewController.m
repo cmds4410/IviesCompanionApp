@@ -23,6 +23,7 @@
     if (self) {
         self.startDrinkingView = [[UIView alloc] init];
         self.keepDrinkingView = [[UIView alloc] init];
+        self.userIsDrinking = NO;
     }
     return self;
 }
@@ -30,21 +31,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.startDrinkingView = [[UIView alloc] init];
-    self.keepDrinkingView = [[UIView alloc] init];
+    // Do any additional setup after loading the view from its nib.    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"bkgd-green-short.png", @"bkgd-green-long.png")]];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    
     if(!self.userIsDrinking)
     {
         [self setView:self.startDrinkingView];
     }
     else
         [self setView:self.keepDrinkingView];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"bkgd-green-short.png", @"bkgd-green-long.png")]];
-}
-
--(void) viewWillAppear:(BOOL)animated {
-    NSLog(@"boobs");
 }
 
 - (void)didReceiveMemoryWarning

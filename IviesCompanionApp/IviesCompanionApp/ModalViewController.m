@@ -15,7 +15,7 @@
 
 @implementation ModalViewController
 
-@synthesize callAlertView = _callAlertView;
+//@synthesize callAlertView = _callAlertView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

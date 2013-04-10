@@ -12,8 +12,6 @@
 #import "FoodViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ModalViewController.h"
-#import "initialDrinkingViewController.h"
-#import "DrinkCounterViewController.h"
 #import "Constants.h"
 #import "WellnessViewController.h"
 
@@ -226,10 +224,9 @@
     else if(indexPath.row == 1)
     {
         if(!self.initialDrinkingVC) {
-            self.initialDrinkingVC = [[initialDrinkingViewController alloc] initWithNibName:@"initialDrinkingViewController.xib" bundle:nil];
+            self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
             self.initialDrinkingVC.delegate = self;
         }
-        NSLog(@"NC: %@, idVC:%@", self.navigationController, self.initialDrinkingVC);
         [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
     }
     else if(indexPath.row == 2)
@@ -283,6 +280,8 @@
     if(self.drinkCounterVC.weight == 0) {
         [self.drinkCounterVC presentActionSheet];
     }
+    self.initialDrinkingVC.userIsDrinking = YES;
+    [self.drinkCounterVC clearPressed:[UIButton buttonWithType:UIButtonTypeCustom]];
 }
 
 -(void)userDidPressKeepDrinking {

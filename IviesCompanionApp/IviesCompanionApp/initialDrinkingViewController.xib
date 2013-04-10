@@ -113,6 +113,7 @@
 						<string key="NSFrame">{{116, 355}, {88, 48}}</string>
 						<reference key="NSSuperview" ref="993432603"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -138,7 +139,7 @@
 					</object>
 					<object class="IBUIButton" id="751043604">
 						<reference key="NSNextResponder" ref="993432603"/>
-						<int key="NSvFlags">286</int>
+						<int key="NSvFlags">310</int>
 						<string key="NSFrame">{{60, 116}, {200, 200}}</string>
 						<reference key="NSSuperview" ref="993432603"/>
 						<reference key="NSWindow"/>
