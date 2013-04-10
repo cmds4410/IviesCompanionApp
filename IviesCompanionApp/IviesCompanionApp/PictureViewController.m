@@ -14,9 +14,13 @@ const float WATERMARK_ALPHA = 1;
 #define kHashtag @"#IVIES2013 #IVIESCOMPANIONAPP"
 
 @interface PictureViewController ()
+
 - (void)actionButton;
+- (void)animate;
+
 @property (nonatomic, strong) NSArray* overlays;
 @property (nonatomic, strong) UIScrollView* cameraScrollView;
+
 @end
 
 @implementation PictureViewController
@@ -83,7 +87,16 @@ const float WATERMARK_ALPHA = 1;
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)animate
+{
     self.imageView.alpha = 0;
     
     [UIView animateWithDuration:3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -93,15 +106,9 @@ const float WATERMARK_ALPHA = 1;
     } completion:^(BOOL finished)
      {
          // add instructions for sharing
-//         [self.navigationController setNavigationBarHidden:NO animated:YES];
+         //[self.navigationController setNavigationBarHidden:NO animated:YES];
+         [self performSelector:@selector(actionButton) withObject:self afterDelay:0.5];
      }];
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)actionButton
@@ -237,6 +244,8 @@ const float WATERMARK_ALPHA = 1;
     
     // Dismiss the image picker controller and look at the results
     [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    [self animate];
 
 }
 

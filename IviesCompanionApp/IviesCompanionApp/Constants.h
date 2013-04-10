@@ -20,7 +20,8 @@
 #define MALEMATABOLISM .015
 #define FEMALEMATABOLISM .017
 
-
+#define kSecurityPhoneNum 2077253314
+#define kShuttlePhoneNum 2077253337
 
 
 #endif
