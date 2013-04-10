@@ -12,6 +12,8 @@
 #import "FoodViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ModalViewController.h"
+#import "initialDrinkingViewController.h"
+#import "DrinkCounterViewController.h"
 #import "Constants.h"
 #import "WellnessViewController.h"
 
@@ -34,6 +36,7 @@
 @synthesize homeScreenImageView = _homeScreenImageView;
 @synthesize homeScreenButtons = _homeScreenButtons;
 @synthesize collectionViewPosition = _collectionViewPosition;
+
 
 @synthesize initialDrinkingVC = _initialDrinkingVC;
 @synthesize drinkCounterVC = _drinkCounterVC;
@@ -223,8 +226,11 @@
     }
     else if(indexPath.row == 1)
     {
-        self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
-        self.initialDrinkingVC.delegate = self;
+        if(!self.initialDrinkingVC) {
+            self.initialDrinkingVC = [[initialDrinkingViewController alloc] initWithNibName:@"initialDrinkingViewController.xib" bundle:nil];
+            self.initialDrinkingVC.delegate = self;
+        }
+        NSLog(@"NC: %@, idVC:%@", self.navigationController, self.initialDrinkingVC);
         [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
     }
     else if(indexPath.row == 2)
