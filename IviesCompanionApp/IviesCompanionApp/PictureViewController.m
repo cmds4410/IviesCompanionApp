@@ -8,6 +8,7 @@
 
 #import "PictureViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Constants.h"
 
 const float WATERMARK_ALPHA = 1;
 
@@ -45,7 +46,7 @@ const float WATERMARK_ALPHA = 1;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkgd-green-short.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"bkgd-green-short.png", @"bkgd-green-long.png")]];
     
     self.wantsFullScreenLayout = YES;
     [self.navigationController.navigationBar setTranslucent:YES];
