@@ -14,6 +14,7 @@
 
 
 @implementation DrinkCounterViewController
+
 @synthesize stepper = _stepper;
 @synthesize drinkCounter = _drinkCounter;
 @synthesize bacActionSheet = _bacActionSheet;
@@ -112,9 +113,6 @@
             self.gender = @"N/A";
         
         int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
-        NSLog(@"weightIndex: %i", weightIndex);
-        NSLog(@"increment: %i", WEIGHTINCREMENT);
-        NSLog(@"base weight: %i", BASEWEIGHT);
         self.weight = BASEWEIGHT + (WEIGHTINCREMENT * weightIndex);
         
         self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];

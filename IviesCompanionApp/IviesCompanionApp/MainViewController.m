@@ -148,11 +148,12 @@
     }
     else if(indexPath.row == 1)
     {
-        self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
-        self.initialDrinkingVC.delegate = self;
+        if(!self.initialDrinkingVC) {
+            self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
+            self.initialDrinkingVC.delegate = self;
+        }
         [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
     }
-    
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -185,7 +186,6 @@
 -(void)userDidPressStartDrinking {
     
     self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
-    
     if(!self.drinkCounterVC) {
         self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
         self.drinkCounterVC.delegate = self;
