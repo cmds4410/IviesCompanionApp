@@ -32,6 +32,7 @@
     
     
     // Do any additional setup after loading the view from its nib.
+    self.imageView.image = [UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"schedule-short.png", @"schedule-long.png")];
 }
 
 - (void)didReceiveMemoryWarning

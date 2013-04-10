@@ -24,6 +24,8 @@
 @property (nonatomic) int collectionViewPosition;
 
 - (void)modal;
+- (void)scroll;
+
 @end
 
 @implementation MainViewController
@@ -50,7 +52,7 @@
     
     self.collectionView.backgroundColor = nil;
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkgd-blue-short.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"bkgd-blue-short.png", @"bkgd-blue-long.png")]];
     
     [self.collectionView registerClass:[LauncherCell class] forCellWithReuseIdentifier:LAUNCHER];
     //    [self.collectionView reloadData];
@@ -83,6 +85,8 @@
         [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
     [self.navigationController.navigationBar setTranslucent:NO];
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -97,12 +101,29 @@
      [self.homeScreenImageView removeFromSuperview];
      }];
      */
+    
+    // only do this on first appear
+    if (!animated)
+    {
+        self.view.userInteractionEnabled = NO;
+        
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+        
+        [self performSelector:@selector(scroll) withObject:self afterDelay:.6];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scroll
+{
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
+    self.view.userInteractionEnabled = YES;
 }
 
 - (void)modal
@@ -156,6 +177,14 @@
         [imageView setImage:image];
         [cell addSubview:imageView];
     }
+    else if (indexPath.row == 3)
+    {
+        cell.backgroundColor = nil;
+        UIImage* image = [UIImage imageNamed:[self.homeScreenButtons objectAtIndex:3]];
+        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+        [imageView setImage:image];
+        [cell addSubview:imageView];
+    }
      
     
     //    cell.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -199,8 +228,13 @@
     }
     else if(indexPath.row == 2)
     {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Bowdoin" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call Shuttle", @"Call Security", @"Wellness", nil];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Bowdoin" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call Shuttle", @"Call Security", nil];
         [alert show];
+    }
+    else if(indexPath.row == 3)
+    {
+        WellnessViewController* wellness = [[WellnessViewController alloc] init];
+        [self presentViewController:wellness animated:YES completion:nil];
     }
     
 }
@@ -273,6 +307,11 @@
         {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]];
         }
+        else
+        {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Uh Oh" message:@"This isn't a phone, bro" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles: nil];
+            [alert show];
+        }
     }
     
     else if (buttonIndex == 2)
@@ -281,12 +320,11 @@
         {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]];
         }
-    }
-    
-    else if (buttonIndex == 3)
-    {
-        WellnessViewController* wellness = [[WellnessViewController alloc] init];
-        [self presentViewController:wellness animated:YES completion:nil];
+        else
+        {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Uh Oh" message:@"This isn't a phone, bro" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles: nil];
+            [alert show];
+        }
     }
 }
 

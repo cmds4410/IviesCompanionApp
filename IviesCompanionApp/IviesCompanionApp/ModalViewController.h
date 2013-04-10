@@ -12,5 +12,6 @@
 @property (strong, nonatomic) UIAlertView *callAlertView;
 
 - (IBAction)dismiss:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
