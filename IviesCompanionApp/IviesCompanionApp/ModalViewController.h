@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModalViewController : UIViewController <UIAlertViewDelegate>
-@property (strong, nonatomic) UIAlertView *callAlertView;
-
-- (IBAction)dismiss:(id)sender;
+@interface ModalViewController : UIViewController
+- (void)dismiss;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

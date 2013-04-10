@@ -18,6 +18,9 @@
 @end
 
 @interface initialDrinkingViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIView *startDrinkingView;
+@property (strong, nonatomic) IBOutlet UIView *keepDrinkingView;
+@property (nonatomic) BOOL userIsDrinking;
 
 @property (nonatomic) BOOL userIsDrinking;
 @property (strong, nonatomic) IBOutlet UIView *startDrinkingView;
