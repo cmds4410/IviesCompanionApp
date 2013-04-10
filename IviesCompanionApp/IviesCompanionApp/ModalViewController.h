@@ -10,5 +10,6 @@
 
 @interface ModalViewController : UIViewController
 - (IBAction)dismiss:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
