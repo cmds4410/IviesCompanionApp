@@ -15,6 +15,8 @@
 
 @implementation ModalViewController
 
+//@synthesize callAlertView = _callAlertView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,8 +29,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view from its nib.
     self.imageView.image = [UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"schedule-short.png", @"schedule-long.png")];
+    
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+    
+    UISwipeGestureRecognizer* swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+    
+    [self.view addGestureRecognizer:tap];
+    [self.view addGestureRecognizer:swipe];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,7 +49,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)dismiss:(id)sender
+- (void)dismiss
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

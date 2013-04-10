@@ -14,6 +14,7 @@
 
 
 @implementation DrinkCounterViewController
+
 @synthesize stepper = _stepper;
 @synthesize drinkCounter = _drinkCounter;
 @synthesize bacActionSheet = _bacActionSheet;
@@ -66,7 +67,7 @@
 }
 
 
-- (IBAction)clearPressed:(UIButton *)sender {
+- (void) clearPressed {
     if(![self.drinkCounter.text isEqualToString:@"0"]) {
         self.BAC.text = @"Sobered up, huh?";
     }
@@ -79,6 +80,14 @@
 - (IBAction)detailsPressed:(UIButton *)sender {
     [self presentActionSheet];
     
+}
+
+- (IBAction)resetStartTimePressed:(UIButton *)sender {
+    /*implement function to enter in number of hours since you started drinking
+    and realloc-init the NSDate property using [NSDate alloc] initWithInterval or
+    whatever, so that the bac is calculated from x number of hours ago instead of
+    when the user (just) pressed Start Drinking
+    */
 }
 
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender {
@@ -112,13 +121,11 @@
             self.gender = @"N/A";
         
         int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
-        NSLog(@"weightIndex: %i", weightIndex);
-        NSLog(@"increment: %i", WEIGHTINCREMENT);
-        NSLog(@"base weight: %i", BASEWEIGHT);
         self.weight = BASEWEIGHT + (WEIGHTINCREMENT * weightIndex);
         
         self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
         
+        self.beganDrinking = [[NSDate alloc] init];
         self.bacCalculator = [[widmarkCalculator alloc] initWithGender:self.gender Weight:self.weight Drinks:self.stepper.value andTime:self.beganDrinking];
     }
     
