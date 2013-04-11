@@ -107,6 +107,7 @@
     if (!animated)
     {
         self.view.userInteractionEnabled = NO;
+        self.collectionView.userInteractionEnabled = NO;
         
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
         
@@ -125,6 +126,7 @@
 {
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
     self.view.userInteractionEnabled = YES;
+    self.collectionView.userInteractionEnabled = YES;
 }
 
 - (void)modal

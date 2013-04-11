@@ -11,5 +11,6 @@
 @interface ModalViewController : UIViewController
 - (void)dismiss;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 
 @end

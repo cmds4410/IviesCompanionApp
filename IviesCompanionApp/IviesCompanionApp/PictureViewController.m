@@ -160,23 +160,23 @@ const float WATERMARK_ALPHA = 1;
 //            
 //            anImageView.frame = CGRectMake(0, 20, self.view.bounds.size.width, 100);
             
-            self.cameraScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-160, self.view.bounds.size.width, 100)];
+            self.cameraScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-200, self.view.bounds.size.width, 140)];
             self.cameraScrollView.delegate = self;
             self.cameraScrollView.pagingEnabled = YES;
             int numberOfViews = self.overlays.count;
             for (int i = 0; i < numberOfViews; i++)
             {
                 CGFloat xOrigin = i * self.view.frame.size.width;
-                UIView *awesomeView = [[UIView alloc] initWithFrame:CGRectMake(xOrigin, 0, self.view.frame.size.width, self.view.frame.size.height)];
-                awesomeView.backgroundColor = [UIColor whiteColor];
-                awesomeView.alpha = 0.5;
+//                UIView *awesomeView = [[UIView alloc] initWithFrame:CGRectMake(xOrigin, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//                awesomeView.backgroundColor = [UIColor whiteColor];
+//                awesomeView.alpha = 0.5;
                 //awesomeView.backgroundColor = [UIColor colorWithRed:0.5/i green:0.5 blue:0.5 alpha:1];
 //                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1.png"]];
                 UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:i]]];
                 anImageView.alpha = WATERMARK_ALPHA;
                 anImageView.contentMode = UIViewContentModeScaleAspectFit;
                 
-                anImageView.frame = CGRectMake(xOrigin, 0, self.view.bounds.size.width, 100);
+                anImageView.frame = CGRectMake(xOrigin, 0, self.view.bounds.size.width, 140);
                 anImageView.userInteractionEnabled = YES;
                 //[awesomeView addSubview:anImageView];
                 
@@ -216,7 +216,7 @@ const float WATERMARK_ALPHA = 1;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     // supports retina
-    UIGraphicsBeginImageContextWithOptions(self.view.frame.size, NO, 0.0);
+    UIGraphicsBeginImageContextWithOptions([UIScreen mainScreen].bounds.size, NO, 0.0);
 
     // This is where we resize captured image
     [(UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
@@ -225,20 +225,47 @@ const float WATERMARK_ALPHA = 1;
     int page = (int) (self.cameraScrollView.contentOffset.x / self.cameraScrollView.frame.size.width);
     
     // And add the watermark on top of it
-    UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:page]]];
+    
+    
+//    UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:page]]];
     
     // you may notice that the height of this frame is larger than the height of the imageview used over the camera
     // this is because the size of the frame we are "painting" the image into is a bit smaller because of the navigation bar
-    anImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 135);
-    anImageView.contentMode = UIViewContentModeScaleAspectFit;
-    anImageView.alpha = WATERMARK_ALPHA;
+    
+    //anImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 135);
+    //anImageView.frame = CGRectMake(0, self.view.bounds.size.height-160, self.view.bounds.size.width, 100);
+    //anImageView.frame = [[[self.cameraScrollView subviews] objectAtIndex:page] frame];
+    
+//    anImageView.frame = CGRectMake(0, self.view.frame.size.height-200, self.view.frame.size.width, 140);
+    
+//    anImageView.frame = self.overlayImageView.frame;
+//    anImageView.contentMode = UIViewContentModeScaleAspectFit;
+//    anImageView.alpha = WATERMARK_ALPHA;
+    
 //    [self.imageView addSubview:anImageView];
     //[[UIImage imageNamed:@"overlay1.png"] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, 100) blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
 //    [anImageView.image drawInRect:anImageView.frame blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
-    [anImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    //[self.cameraScrollView.superview convertPoint:self.cameraScrollView.frame.origin toView:nil];
+    
+    //anImageView.frame = self.cameraScrollView.frame;
+    
+//    [anImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    
+    /*
+    [self.overlayImageView setImage:[UIImage imageNamed:[self.overlays objectAtIndex:page]]];
+    self.overlayImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.overlayImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    */
+    
+    //[[UIImage imageNamed:[self.overlays objectAtIndex:page]] drawInRect:CGRectMake(0, self.view.frame.size.height-123, self.view.frame.size.width, 68) blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
+    UIImage *overlayImage = [UIImage imageNamed:[self.overlays objectAtIndex:page]];
+    [overlayImage drawInRect:CGRectMake(0, self.cameraScrollView.center.y - 0.5*overlayImage.size.height + self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, overlayImage.size.height) blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
     
     // Save the results directly to the image view property
     self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    
 //    [self.scrollView addSubview:self.imageView];
     
     UIGraphicsEndImageContext();

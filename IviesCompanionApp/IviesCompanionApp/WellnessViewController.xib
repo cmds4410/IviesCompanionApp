@@ -39,11 +39,11 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIScrollView" id="426430638">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">310</int>
+						<int key="NSvFlags">286</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUITextView" id="175706800">
 								<reference key="NSNextResponder" ref="426430638"/>
-								<int key="NSvFlags">286</int>
+								<int key="NSvFlags">279</int>
 								<string key="NSFrame">{{-6, 0}, {320, 498}}</string>
 								<reference key="NSSuperview" ref="426430638"/>
 								<reference key="NSWindow"/>
