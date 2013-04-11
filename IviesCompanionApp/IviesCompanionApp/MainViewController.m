@@ -25,6 +25,7 @@
 
 - (void)modal;
 - (void)scroll;
+- (void)EULA;
 
 @end
 
@@ -107,15 +108,12 @@
     if (!animated)
     {
         self.view.userInteractionEnabled = NO;
+        self.collectionView.userInteractionEnabled = NO;
         
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
         
         [self performSelector:@selector(scroll) withObject:self afterDelay:.6];
-        //Show eulaAlertView to get user permission for app access
-        NSString* eula =@"The information offered in this app is not a substitute for sound judgement or medical advice. Consult the app's Wellness Section if you're concerned for yourself or a friend. If you think you have an emergency, call Security!";
-        UIAlertView *eulaAlert = [[UIAlertView alloc] initWithTitle:@"Drinking Companion agreement" message:eula delegate:self cancelButtonTitle:@"I understand" otherButtonTitles:nil, nil];
-        eulaAlert.tag = 1;
-        [eulaAlert show];
+        
     }
     
 }
@@ -130,6 +128,19 @@
 {
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
     self.view.userInteractionEnabled = YES;
+    self.collectionView.userInteractionEnabled = YES;
+    //Show eulaAlertView to get user permission for app access
+    
+    [self performSelector:@selector(EULA) withObject:self afterDelay:0.5];
+    
+}
+
+- (void)EULA
+{
+    NSString* eula =@"The information offered in this app is not a substitute for sound judgement or medical advice. Consult the app's Wellness Section if you're concerned for yourself or a friend. If you think you have an emergency, call Security!";
+    UIAlertView *eulaAlert = [[UIAlertView alloc] initWithTitle:@"Drinking Companion Agreement" message:eula delegate:self cancelButtonTitle:@"I understand" otherButtonTitles:nil, nil];
+    eulaAlert.tag = 1;
+    [eulaAlert show];
 }
 
 - (void)modal
@@ -290,7 +301,7 @@
     [self.drinkCounterVC clearFields];
     self.drinkCounterVC.drinkCounter.text = @"0";
     self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%f",[self.drinkCounterVC.bacCalculator calculateBACWithGender:self.drinkCounterVC.gender Weight:self.drinkCounterVC.weight Drinks:self.drinkCounterVC.numDrinks andTime:self.drinkCounterVC.beganDrinking]];
-    self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
+    //self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
 }
 
 -(void)userDidPressKeepDrinking {

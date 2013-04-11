@@ -32,7 +32,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"bkgd-green-short.png", @"bkgd-green-long.png")]];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -43,6 +42,7 @@
     }
     else
         [self setView:self.keepDrinkingView];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"tally-back-short.png", @"tally-back-long.png")]];
 }
 
 - (void)didReceiveMemoryWarning

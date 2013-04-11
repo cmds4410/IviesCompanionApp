@@ -79,8 +79,8 @@ const float WATERMARK_ALPHA = 1;
         [photoActionSheet showInView:self.view];
     }
     
-//    [self.navigationController.navigationBar setHidden:YES];
-//    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    //    [self.navigationController.navigationBar setHidden:YES];
+    //    [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.imageView.alpha = 0;
     
 }
@@ -116,15 +116,15 @@ const float WATERMARK_ALPHA = 1;
 {
     NSString *textToShare = kHashtag;
     UIImage *imageToShare = self.imageView.image;
+    //    NSURL *url = [NSURL URLWithString:@"http://www.yashesh87.wordpress.com"];
     NSArray *activityItems = [[NSArray alloc]  initWithObjects:textToShare, imageToShare,nil];
     
-    //UIActivity *activity = [[UIActivity alloc] init];
+    UIActivity *activity = [[UIActivity alloc] init];
     
-    //NSArray *applicationActivities = [[NSArray alloc] initWithObjects:activity, nil];
+    NSArray *applicationActivities = [[NSArray alloc] initWithObjects:activity, nil];
     UIActivityViewController *activityVC =
     [[UIActivityViewController alloc] initWithActivityItems:activityItems
-                                      applicationActivities:nil];
-    activityVC.excludedActivityTypes = [NSArray arrayWithObjects:UIActivityTypeAssignToContact,UIActivityTypeMessage,UIActivityTypePrint,UIActivityTypePostToWeibo, UIActivityTypeMail, nil];
+                                      applicationActivities:applicationActivities];
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
@@ -154,13 +154,13 @@ const float WATERMARK_ALPHA = 1;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:picker animated:YES completion:^{
             // This block of code is only needed in case you want your watermark to be displayed also during the shooting process
-//            UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
-//            anImageView.alpha = WATERMARK_ALPHA;
-//            anImageView.contentMode = UIViewContentModeScaleAspectFit;
-//            
-//            anImageView.frame = CGRectMake(0, 20, self.view.bounds.size.width, 100);
+            //            UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+            //            anImageView.alpha = WATERMARK_ALPHA;
+            //            anImageView.contentMode = UIViewContentModeScaleAspectFit;
+            //
+            //            anImageView.frame = CGRectMake(0, 20, self.view.bounds.size.width, 100);
             
-            self.cameraScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-160, self.view.bounds.size.width, 100)];
+            self.cameraScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
             self.cameraScrollView.delegate = self;
             self.cameraScrollView.pagingEnabled = YES;
             int numberOfViews = self.overlays.count;
@@ -171,7 +171,7 @@ const float WATERMARK_ALPHA = 1;
                 awesomeView.backgroundColor = [UIColor whiteColor];
                 awesomeView.alpha = 0.5;
                 //awesomeView.backgroundColor = [UIColor colorWithRed:0.5/i green:0.5 blue:0.5 alpha:1];
-//                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1.png"]];
+                //                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1.png"]];
                 UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:i]]];
                 anImageView.alpha = WATERMARK_ALPHA;
                 anImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -180,7 +180,7 @@ const float WATERMARK_ALPHA = 1;
                 anImageView.userInteractionEnabled = YES;
                 //[awesomeView addSubview:anImageView];
                 
-//                [self.cameraScrollView addSubview:awesomeView];
+                //                [self.cameraScrollView addSubview:awesomeView];
                 [self.cameraScrollView addSubview:anImageView];
             }
             self.cameraScrollView.contentSize = CGSizeMake(self.view.frame.size.width * numberOfViews, self.cameraScrollView.frame.size.height);
@@ -203,7 +203,7 @@ const float WATERMARK_ALPHA = 1;
     {
         [self.navigationController popViewControllerAnimated:YES];
     }
-        
+    
 }
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
@@ -216,8 +216,8 @@ const float WATERMARK_ALPHA = 1;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     // supports retina
-    UIGraphicsBeginImageContextWithOptions(self.view.frame.size, NO, 0.0);
-
+    UIGraphicsBeginImageContextWithOptions(self.imageView.frame.size, NO, 0.0);
+    
     // This is where we resize captured image
     [(UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     
@@ -232,14 +232,14 @@ const float WATERMARK_ALPHA = 1;
     anImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 135);
     anImageView.contentMode = UIViewContentModeScaleAspectFit;
     anImageView.alpha = WATERMARK_ALPHA;
-//    [self.imageView addSubview:anImageView];
+    //    [self.imageView addSubview:anImageView];
     //[[UIImage imageNamed:@"overlay1.png"] drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, 100) blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
-//    [anImageView.image drawInRect:anImageView.frame blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
+    //    [anImageView.image drawInRect:anImageView.frame blendMode:kCGBlendModeNormal alpha:WATERMARK_ALPHA];
     [anImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
     
     // Save the results directly to the image view property
     self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-//    [self.scrollView addSubview:self.imageView];
+    //    [self.scrollView addSubview:self.imageView];
     
     UIGraphicsEndImageContext();
     
@@ -247,7 +247,7 @@ const float WATERMARK_ALPHA = 1;
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     [self animate];
-
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -264,6 +264,9 @@ const float WATERMARK_ALPHA = 1;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    //    NSLog(@"Scroll Offset: %f", scrollView.contentOffset.x);
+    //    int page = (int) (scrollView.contentOffset.x / scrollView.frame.size.width);
+    //    NSLog(@"width: %d", page);
 }
 
 @end
