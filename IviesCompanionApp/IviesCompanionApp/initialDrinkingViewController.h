@@ -11,6 +11,7 @@
 
 @protocol initialDrinkingDelegate <NSObject>
 
+//the startDrinkingQualifier is either 0 or 1. 0 will signal the delgate to 
 -(void)userDidPressStartDrinking;
 -(void)userDidPressKeepDrinking;
 

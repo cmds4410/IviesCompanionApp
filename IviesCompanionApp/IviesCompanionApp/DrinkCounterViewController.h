@@ -30,12 +30,11 @@
 @property (weak, nonatomic) NSString *gender;
 @property (weak, nonatomic) id <DrinkCounterDelegate> delegate;
 @property (nonatomic) int numDrinks;
+@property (nonatomic) int hoursSinceUserStartedDrinking;
 
 - (void)presentActionSheet;
--(void)clearPressed;
+-(void)clearFields;
 - (IBAction)detailsPressed:(UIButton *)sender;
-- (IBAction)resetStartTimePressed:(UIButton *)sender;
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender;
-- (float)calculateBAC;
 @end
 

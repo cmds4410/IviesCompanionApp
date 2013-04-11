@@ -19,10 +19,11 @@
 -(id) init {
     
     if(self = [super init]) {
-        self.gender =@"";
-        self.weight = 0.0;
-        self.drinks = 0;
         self.startTime = [[NSDate alloc] init];
+        self.gender = @"Female";
+        self.weight = 0;
+        self.drinks = 0;
+        self.startTime = nil;
         return self;
     }
     else
@@ -35,41 +36,23 @@
         self.gender = gender;
         self.weight = weight;
         self.drinks = drinks;
+        self.startTime = startTime;
         return self;
     }
     else
         return nil;
 }
-
--(float) calculateBAC {
-    
-    return  [self newBAC];
-    
-    NSTimeInterval secondsSpentDrinking = [self.startTime timeIntervalSinceNow];
-    secondsSpentDrinking *= -1;
-    float hoursSpentDrinking = secondsSpentDrinking / 360;
-    if (hoursSpentDrinking <1)
-    {
-        hoursSpentDrinking = 1;
-    }
-    float bac;
-    
-    if([self.gender isEqualToString:@"Male"]) {
-        bac = (BODYWATERBLOOD * self.drinks * SWEDISHCONVERSION)/(MALEBODYWATER * self.weight) - (MALEMATABOLISM * hoursSpentDrinking);
-        bac = bac / 100;
-    }
-    else
-        bac = (BODYWATERBLOOD * self.drinks * SWEDISHCONVERSION)/(FEMALEBODYWATER * self.weight) - (FEMALEMATABOLISM * hoursSpentDrinking);
-    bac = bac / 100;
-    
-    return bac;
+-(double) calculateBACWithGender:(NSString *)gender Weight:(int)weight Drinks:(int)drinks andTime:(NSDate *) startTime {
+    self.gender = gender;
+    self.weight = weight;
+    self.drinks = drinks;
+    self.startTime = startTime;
+    return [self calculateBAC];
 }
 
 
-- (double) newBAC
+- (double) calculateBAC
 {
-    // %BAC = (A x 5.14/W x r) - .015 x H
-    
     // A = liquid ounces of alcohol
     double A = self.drinks * .6;
     double W = self.weight;
@@ -82,15 +65,17 @@
     {
         r = 0.66;
     }
+    //We need to make sure that we're not getting negative numbers out of this
+    //
     NSTimeInterval secondsSpentDrinking = [self.startTime timeIntervalSinceNow];
     secondsSpentDrinking *= -1;
-    double H = secondsSpentDrinking /360.0;
+    double H = secondsSpentDrinking /3600.0;
     if (H <1)
     {
-        H = 1;
+        H = 0;
     }
-    
-    double bac = (A * (5.14 * 1.055) /(W * r) - (0.015 * H));
+    NSLog(@"Drinks:%f, Weight:%f Gender:%@ TimeBegan:%@, SecondsSpentDrinking:%f",A,W,self.gender, self.startTime, secondsSpentDrinking);
+    double bac = A * (5.14 * 1.055) /(W * r) - (0.015 * H);
     
     if (bac < 0)
     {

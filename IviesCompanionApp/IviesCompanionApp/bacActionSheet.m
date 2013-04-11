@@ -63,10 +63,11 @@
         int weight = BASEWEIGHT + (WEIGHTINCREMENT * row);
         return [NSString stringWithFormat:@"%i", weight];
     }
-    else {
-        NSLog(@"Something wrong with picker");
-        return @"N/A";
+    else if (component == 2) {
+        return [NSString stringWithFormat:@"%i", row];
     }
+    else
+        return nil;
 }
 
 #pragma - mark UIPickerViewDataSource
@@ -83,6 +84,9 @@
     }
     else if (component == 1) {
         return NUMBEROFWEIGHTS;
+    }
+    else if (component ==2) {
+        return NUMBEROFHOURS;
     }
     else
         return 0;
