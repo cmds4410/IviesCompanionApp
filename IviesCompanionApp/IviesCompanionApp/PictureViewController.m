@@ -116,15 +116,15 @@ const float WATERMARK_ALPHA = 1;
 {
     NSString *textToShare = kHashtag;
     UIImage *imageToShare = self.imageView.image;
-    //    NSURL *url = [NSURL URLWithString:@"http://www.yashesh87.wordpress.com"];
     NSArray *activityItems = [[NSArray alloc]  initWithObjects:textToShare, imageToShare,nil];
     
-    UIActivity *activity = [[UIActivity alloc] init];
+    //UIActivity *activity = [[UIActivity alloc] init];
     
-    NSArray *applicationActivities = [[NSArray alloc] initWithObjects:activity, nil];
+    //NSArray *applicationActivities = [[NSArray alloc] initWithObjects:activity, nil];
     UIActivityViewController *activityVC =
     [[UIActivityViewController alloc] initWithActivityItems:activityItems
-                                      applicationActivities:applicationActivities];
+                                      applicationActivities:nil];
+    activityVC.excludedActivityTypes = [NSArray arrayWithObjects:UIActivityTypeAssignToContact,UIActivityTypeMessage,UIActivityTypePrint,UIActivityTypePostToWeibo, UIActivityTypeMail, nil];
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 

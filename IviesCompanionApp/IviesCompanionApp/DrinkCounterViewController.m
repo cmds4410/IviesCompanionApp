@@ -87,7 +87,6 @@
     self.numDrinks = self.stepper.value;
     self.drinkCounter.text = [NSString stringWithFormat:@"%i", self.numDrinks];
     [self.BAC setText:[NSString stringWithFormat:@"%f", [self.bacCalculator calculateBACWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking]]];
-
 }
 
 #pragma - mark UIActionSheetDegate
