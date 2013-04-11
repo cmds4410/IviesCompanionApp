@@ -23,6 +23,7 @@
 @synthesize weight = _weight;
 @synthesize gender = _gender;
 @synthesize bacCalculator = _bacCalculator;
+@synthesize hoursSinceUserStartedDrinking = _hoursSinceUserStartedDrinking;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +51,8 @@
     self.BAC.lineBreakMode = 0;
     self.BAC.adjustsFontSizeToFitWidth = YES;
     self.BAC.textAlignment = 1;
+    self.hoursSinceUserStartedDrinking = 0;
+    self.bacCalculator = [[widmarkCalculator alloc] init];
     
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"bkgd-green-short.png", @"bkgd-green-long.png")]];
@@ -67,49 +70,32 @@
 }
 
 
-- (void) clearPressed {
-    if(![self.drinkCounter.text isEqualToString:@"0"]) {
-        self.BAC.text = @"Sobered up, huh?";
-    }
-    else
-        self.BAC.text = @"0.0";
-    self.drinkCounter.text = @"0";
+- (void) clearFields {
+    self.beganDrinking = nil;
+    self.numDrinks = 0;
+    self.drinkCounter.text = @"";
+    self.BAC.text = @"";
     self.stepper.value = 0;
 }
 
 - (IBAction)detailsPressed:(UIButton *)sender {
     [self presentActionSheet];
-    
 }
 
-- (IBAction)resetStartTimePressed:(UIButton *)sender {
-    /*implement function to enter in number of hours since you started drinking
-    and realloc-init the NSDate property using [NSDate alloc] initWithInterval or
-    whatever, so that the bac is calculated from x number of hours ago instead of
-    when the user (just) pressed Start Drinking
-    */
-}
 
 - (IBAction)incrementedDrinkCounter:(UIStepper *)sender {
     self.numDrinks = self.stepper.value;
-    self.drinkCounter.text = [NSString stringWithFormat:@"%.f", self.stepper.value];
-    if([self.BAC.text isEqualToString:@"Sobered up, huh?"]) {
-        [self.BAC setText:@"Back at it. Nice."];
-    }
-    [self.BAC setText:[NSString stringWithFormat:@"%f", [self calculateBAC]]];
+    self.drinkCounter.text = [NSString stringWithFormat:@"%i", self.numDrinks];
+    [self.BAC setText:[NSString stringWithFormat:@"%f", [self.bacCalculator calculateBACWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking]]];
 
-}
-
-- (float)calculateBAC
-{
-    widmarkCalculator* widmark = [[widmarkCalculator alloc] initWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking];
-    return [widmark calculateBAC];
 }
 
 #pragma - mark UIActionSheetDegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
     if(buttonIndex == [self.bacActionSheet cancelButtonIndex]) {
+        //Aquire which gender and weight rows were selected and
+        //set gender and weight properties appropriately 
         int genderIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:0];
         if(genderIndex == 0) {
             self.gender = @"F";
@@ -119,14 +105,21 @@
         }
         else
             self.gender = @"N/A";
-        
         int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
         self.weight = BASEWEIGHT + (WEIGHTINCREMENT * weightIndex);
-        
-        self.BAC.text = [NSString stringWithFormat:@"G: %@, W: %@", self.gender, [NSString stringWithFormat:@"%i", self.weight]];
-        
-        self.beganDrinking = [[NSDate alloc] init];
-        self.bacCalculator = [[widmarkCalculator alloc] initWithGender:self.gender Weight:self.weight Drinks:self.stepper.value andTime:self.beganDrinking];
+        int hoursSinceStartedDrinkingIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:2];
+        //Determine whether the hoursSinceStartedDrinking selected is different than
+        //it has been.
+        if(hoursSinceStartedDrinkingIndex != self.hoursSinceUserStartedDrinking) {
+            //If it is, then reset the date
+            self.hoursSinceUserStartedDrinking = hoursSinceStartedDrinkingIndex;
+            float secondsSinceUserStartedDrinking = self.hoursSinceUserStartedDrinking * 3600;
+            NSTimeInterval timeInterval = secondsSinceUserStartedDrinking;
+            self.beganDrinking = [NSDate dateWithTimeIntervalSinceNow:(-1) * timeInterval];
+        }
+        self.bacCalculator = [[widmarkCalculator alloc] initWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking];
+        self.drinkCounter.text = [NSString stringWithFormat:@"%i", self.numDrinks];
+        self.BAC.text = [NSString stringWithFormat:@"%f", [self.bacCalculator calculateBAC]];
     }
     
 }

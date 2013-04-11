@@ -277,18 +277,20 @@
         self.drinkCounterVC.delegate = self;
     }
     [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
-    if(self.drinkCounterVC.weight == 0) {
+    if(self.initialDrinkingVC.userIsDrinking != YES) {
         [self.drinkCounterVC presentActionSheet];
+        self.initialDrinkingVC.userIsDrinking = YES;
     }
-    self.initialDrinkingVC.userIsDrinking = YES;
-    [self.drinkCounterVC clearPressed];
+    [self.drinkCounterVC clearFields];
+    self.drinkCounterVC.drinkCounter.text = @"0";
+    self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%f",[self.drinkCounterVC.bacCalculator calculateBACWithGender:self.drinkCounterVC.gender Weight:self.drinkCounterVC.weight Drinks:self.drinkCounterVC.numDrinks andTime:self.drinkCounterVC.beganDrinking]];
+    self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
 }
 
 -(void)userDidPressKeepDrinking {
     if(self.drinkCounterVC) {
         self.drinkCounterVC.drinkCounter.text = [NSString stringWithFormat:@"%i",self.storedDrinkCount];
-        //self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%.f", self.storedBAC];
-        self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%f", [self.drinkCounterVC calculateBAC]];
+        self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%f", [self.drinkCounterVC.bacCalculator calculateBACWithGender:self.drinkCounterVC.gender Weight:self.drinkCounterVC.weight Drinks:self.drinkCounterVC.numDrinks andTime:self.drinkCounterVC.beganDrinking]];
         [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
     }
     

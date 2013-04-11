@@ -202,19 +202,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">startDrinkingButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="587094836"/>
-					</object>
-					<int key="connectionID">58</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">keepDrinkingButton</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="751043604"/>
 					</object>
 					<int key="connectionID">59</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">startDrinkingButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="496453667"/>
+					</object>
+					<int key="connectionID">64</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -313,7 +313,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">59</int>
+			<int key="maxID">64</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -321,10 +321,15 @@
 					<string key="className">initialDrinkingViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="alreadyStartedDrinkingPressed:">UIButton</string>
 						<string key="keepDrinkingPressed:">UIButton</string>
 						<string key="startDrinkingPressed:">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="alreadyStartedDrinkingPressed:">
+							<string key="name">alreadyStartedDrinkingPressed:</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBActionInfo" key="keepDrinkingPressed:">
 							<string key="name">keepDrinkingPressed:</string>
 							<string key="candidateClassName">UIButton</string>
