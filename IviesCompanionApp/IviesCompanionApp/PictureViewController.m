@@ -264,9 +264,6 @@ const float WATERMARK_ALPHA = 1;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    NSLog(@"Scroll Offset: %f", scrollView.contentOffset.x);
-//    int page = (int) (scrollView.contentOffset.x / scrollView.frame.size.width);
-//    NSLog(@"width: %d", page);
 }
 
 @end

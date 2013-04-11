@@ -61,6 +61,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     self.drinkCounter.text = [NSString stringWithFormat:@"%i", (int)self.stepper.value];
+    NSLog(@"Bac at %@: %f", self.beganDrinking, [self.bacCalculator calculateBAC]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,12 +107,12 @@
             self.gender = @"N/A";
         int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
         self.weight = BASEWEIGHT + (WEIGHTINCREMENT * weightIndex);
-        int hoursSinceStartedDrinkingIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:2];
+        int hoursSinceUserStartedDrinkingIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:2];
         //Determine whether the hoursSinceStartedDrinking selected is different than
         //it has been.
-        if(hoursSinceStartedDrinkingIndex != self.hoursSinceUserStartedDrinking) {
+        if(hoursSinceUserStartedDrinkingIndex != self.hoursSinceUserStartedDrinking) {
             //If it is, then reset the date
-            self.hoursSinceUserStartedDrinking = hoursSinceStartedDrinkingIndex;
+            self.hoursSinceUserStartedDrinking = hoursSinceUserStartedDrinkingIndex;
             float secondsSinceUserStartedDrinking = self.hoursSinceUserStartedDrinking * 3600;
             NSTimeInterval timeInterval = secondsSinceUserStartedDrinking;
             self.beganDrinking = [NSDate dateWithTimeIntervalSinceNow:(-1) * timeInterval];

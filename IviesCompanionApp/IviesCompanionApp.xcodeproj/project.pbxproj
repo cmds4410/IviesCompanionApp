@@ -27,6 +27,9 @@
 		6A27787817166D0100D6F899 /* tally-short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786817166D0100D6F899 /* tally-short.png */; };
 		6A27787917166D0100D6F899 /* tally-shortlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786917166D0100D6F899 /* tally-shortlow.png */; };
 		6A27787A17166D0100D6F899 /* tally-start.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786A17166D0100D6F899 /* tally-start.png */; };
+		6A277881171697DF00D6F899 /* BowdoinCompanion in Resources */ = {isa = PBXBuildFile; fileRef = 6A277880171697DF00D6F899 /* BowdoinCompanion */; };
+		6A277883171698C700D6F899 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A277882171698C000D6F899 /* close.png */; };
+		6A277885171698D300D6F899 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A277884171698CE00D6F899 /* close@2x.png */; };
 		6A2F0E7F170E5E2C0069161C /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */; };
 		6A2F0E82170E61D00069161C /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E81170E61D00069161C /* FoodCell.m */; };
 		6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E86170E6D150069161C /* FoodViewController.m */; };
@@ -131,6 +134,9 @@
 		6A27786817166D0100D6F899 /* tally-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-short.png"; sourceTree = "<group>"; };
 		6A27786917166D0100D6F899 /* tally-shortlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-shortlow.png"; sourceTree = "<group>"; };
 		6A27786A17166D0100D6F899 /* tally-start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-start.png"; sourceTree = "<group>"; };
+		6A277880171697DF00D6F899 /* BowdoinCompanion */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BowdoinCompanion; sourceTree = "<group>"; };
+		6A277882171698C000D6F899 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		6A277884171698CE00D6F899 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
 		6A2F0E80170E61D00069161C /* FoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCell.h; sourceTree = "<group>"; };
 		6A2F0E81170E61D00069161C /* FoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCell.m; sourceTree = "<group>"; };
@@ -394,6 +400,7 @@
 				B364703417150336005B0434 /* WellnessViewController.h */,
 				B364703517150336005B0434 /* WellnessViewController.m */,
 				B364703617150336005B0434 /* WellnessViewController.xib */,
+				6A277880171697DF00D6F899 /* BowdoinCompanion */,
 				6AB387501713C61B0045361B /* DrinkCounter */,
 				6AB387511713C62E0045361B /* FoodViewController */,
 				B3D21E3A17124D2E00A040C6 /* Pictures */,
@@ -421,6 +428,8 @@
 				B3D21EC11713411500A040C6 /* Default.png */,
 				B3D21EBF1713411000A040C6 /* Default@2x.png */,
 				B3D21EBD171340FD00A040C6 /* Default-568h@2x.png */,
+				6A277882171698C000D6F899 /* close.png */,
+				6A277884171698CE00D6F899 /* close@2x.png */,
 				B3D21EC51713415D00A040C6 /* icon.png */,
 				6A27785A17166CC800D6F899 /* DrinkCounterImages */,
 				B3D21EC31713414600A040C6 /* icon@2x.png */,
@@ -582,6 +591,9 @@
 				6A27787817166D0100D6F899 /* tally-short.png in Resources */,
 				6A27787917166D0100D6F899 /* tally-shortlow.png in Resources */,
 				6A27787A17166D0100D6F899 /* tally-start.png in Resources */,
+				6A277881171697DF00D6F899 /* BowdoinCompanion in Resources */,
+				6A277883171698C700D6F899 /* close.png in Resources */,
+				6A277885171698D300D6F899 /* close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
