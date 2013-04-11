@@ -42,7 +42,7 @@
     }
     else
         [self setView:self.keepDrinkingView];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"bkgd-green-short.png", @"bkgd-green-long.png")]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"tally-back-short.png", @"tally-back-long.png")]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -116,7 +116,7 @@
         NSString* eula =@"The information offered in this app is not a substitute for sound judgement or medical advice. Consult the app's Wellness Section if you're concerned for yourself or a friend. If you think you have an emergency, call Security!";
         UIAlertView *eulaAlert = [[UIAlertView alloc] initWithTitle:@"Drinking Companion agreement" message:eula delegate:self cancelButtonTitle:@"I understand" otherButtonTitles:nil, nil];
         eulaAlert.tag = 1;
-        [eulaAlert show];
+        //[eulaAlert show];
     }
     
 }

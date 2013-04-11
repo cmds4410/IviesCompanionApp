@@ -13,20 +13,20 @@
 		6A12674C1715599F000E1059 /* initialDrinkingViewController.m in Resources */ = {isa = PBXBuildFile; fileRef = 6A126745171558BE000E1059 /* initialDrinkingViewController.m */; };
 		6A27786B17166D0100D6F899 /* tally-bac-high.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27785B17166D0100D6F899 /* tally-bac-high.png */; };
 		6A27786C17166D0100D6F899 /* tally-bac-low.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27785C17166D0100D6F899 /* tally-bac-low.png */; };
-		6A27786D17166D0100D6F899 /* tally-back-long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27785D17166D0100D6F899 /* tally-back-long.png */; };
-		6A27786E17166D0100D6F899 /* tally-back-short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27785E17166D0100D6F899 /* tally-back-short.png */; };
-		6A27786F17166D0100D6F899 /* tally-back-shortlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27785F17166D0100D6F899 /* tally-back-shortlow.png */; };
-		6A27787017166D0100D6F899 /* tally-button-high.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786017166D0100D6F899 /* tally-button-high.png */; };
-		6A27787117166D0100D6F899 /* tally-button-low.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786117166D0100D6F899 /* tally-button-low.png */; };
-		6A27787217166D0100D6F899 /* tally-details-high.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786217166D0100D6F899 /* tally-details-high.png */; };
-		6A27787317166D0100D6F899 /* tally-details-low.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786317166D0100D6F899 /* tally-details-low.png */; };
-		6A27787417166D0100D6F899 /* tally-drinks-high.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786417166D0100D6F899 /* tally-drinks-high.png */; };
-		6A27787517166D0100D6F899 /* tally-drinks-low.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786517166D0100D6F899 /* tally-drinks-low.png */; };
-		6A27787617166D0100D6F899 /* tally-keep.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786617166D0100D6F899 /* tally-keep.png */; };
-		6A27787717166D0100D6F899 /* tally-long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786717166D0100D6F899 /* tally-long.png */; };
-		6A27787817166D0100D6F899 /* tally-short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786817166D0100D6F899 /* tally-short.png */; };
-		6A27787917166D0100D6F899 /* tally-shortlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786917166D0100D6F899 /* tally-shortlow.png */; };
-		6A27787A17166D0100D6F899 /* tally-start.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786A17166D0100D6F899 /* tally-start.png */; };
+		6A27786D17166D0100D6F899 /* tally-back-long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27785D17166D0100D6F899 /* tally-back-long@2x.png */; };
+		6A27786E17166D0100D6F899 /* tally-back-short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27785E17166D0100D6F899 /* tally-back-short@2x.png */; };
+		6A27786F17166D0100D6F899 /* tally-back-short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27785F17166D0100D6F899 /* tally-back-short.png */; };
+		6A27787017166D0100D6F899 /* tally-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786017166D0100D6F899 /* tally-button@2x.png */; };
+		6A27787117166D0100D6F899 /* tally-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786117166D0100D6F899 /* tally-button.png */; };
+		6A27787217166D0100D6F899 /* tally-details@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786217166D0100D6F899 /* tally-details@2x.png */; };
+		6A27787317166D0100D6F899 /* tally-details.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786317166D0100D6F899 /* tally-details.png */; };
+		6A27787417166D0100D6F899 /* tally-drinks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786417166D0100D6F899 /* tally-drinks@2x.png */; };
+		6A27787517166D0100D6F899 /* tally-drinks.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786517166D0100D6F899 /* tally-drinks.png */; };
+		6A27787617166D0100D6F899 /* tally-keep@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786617166D0100D6F899 /* tally-keep@2x.png */; };
+		6A27787717166D0100D6F899 /* tally-long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786717166D0100D6F899 /* tally-long@2x.png */; };
+		6A27787817166D0100D6F899 /* tally-short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786817166D0100D6F899 /* tally-short@2x.png */; };
+		6A27787917166D0100D6F899 /* tally-short.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786917166D0100D6F899 /* tally-short.png */; };
+		6A27787A17166D0100D6F899 /* tally-start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A27786A17166D0100D6F899 /* tally-start@2x.png */; };
 		6A2F0E7F170E5E2C0069161C /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */; };
 		6A2F0E82170E61D00069161C /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E81170E61D00069161C /* FoodCell.m */; };
 		6A2F0E87170E6D150069161C /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F0E86170E6D150069161C /* FoodViewController.m */; };
@@ -117,20 +117,20 @@
 		6A126746171558BE000E1059 /* initialDrinkingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = initialDrinkingViewController.xib; sourceTree = "<group>"; };
 		6A27785B17166D0100D6F899 /* tally-bac-high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-bac-high.png"; sourceTree = "<group>"; };
 		6A27785C17166D0100D6F899 /* tally-bac-low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-bac-low.png"; sourceTree = "<group>"; };
-		6A27785D17166D0100D6F899 /* tally-back-long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-back-long.png"; sourceTree = "<group>"; };
-		6A27785E17166D0100D6F899 /* tally-back-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-back-short.png"; sourceTree = "<group>"; };
-		6A27785F17166D0100D6F899 /* tally-back-shortlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-back-shortlow.png"; sourceTree = "<group>"; };
-		6A27786017166D0100D6F899 /* tally-button-high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-button-high.png"; sourceTree = "<group>"; };
-		6A27786117166D0100D6F899 /* tally-button-low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-button-low.png"; sourceTree = "<group>"; };
-		6A27786217166D0100D6F899 /* tally-details-high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-details-high.png"; sourceTree = "<group>"; };
-		6A27786317166D0100D6F899 /* tally-details-low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-details-low.png"; sourceTree = "<group>"; };
-		6A27786417166D0100D6F899 /* tally-drinks-high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-drinks-high.png"; sourceTree = "<group>"; };
-		6A27786517166D0100D6F899 /* tally-drinks-low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-drinks-low.png"; sourceTree = "<group>"; };
-		6A27786617166D0100D6F899 /* tally-keep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-keep.png"; sourceTree = "<group>"; };
-		6A27786717166D0100D6F899 /* tally-long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-long.png"; sourceTree = "<group>"; };
-		6A27786817166D0100D6F899 /* tally-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-short.png"; sourceTree = "<group>"; };
-		6A27786917166D0100D6F899 /* tally-shortlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-shortlow.png"; sourceTree = "<group>"; };
-		6A27786A17166D0100D6F899 /* tally-start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-start.png"; sourceTree = "<group>"; };
+		6A27785D17166D0100D6F899 /* tally-back-long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-back-long@2x.png"; sourceTree = "<group>"; };
+		6A27785E17166D0100D6F899 /* tally-back-short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-back-short@2x.png"; sourceTree = "<group>"; };
+		6A27785F17166D0100D6F899 /* tally-back-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-back-short.png"; sourceTree = "<group>"; };
+		6A27786017166D0100D6F899 /* tally-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-button@2x.png"; sourceTree = "<group>"; };
+		6A27786117166D0100D6F899 /* tally-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-button.png"; sourceTree = "<group>"; };
+		6A27786217166D0100D6F899 /* tally-details@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-details@2x.png"; sourceTree = "<group>"; };
+		6A27786317166D0100D6F899 /* tally-details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-details.png"; sourceTree = "<group>"; };
+		6A27786417166D0100D6F899 /* tally-drinks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-drinks@2x.png"; sourceTree = "<group>"; };
+		6A27786517166D0100D6F899 /* tally-drinks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-drinks.png"; sourceTree = "<group>"; };
+		6A27786617166D0100D6F899 /* tally-keep@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-keep@2x.png"; sourceTree = "<group>"; };
+		6A27786717166D0100D6F899 /* tally-long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-long@2x.png"; sourceTree = "<group>"; };
+		6A27786817166D0100D6F899 /* tally-short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-short@2x.png"; sourceTree = "<group>"; };
+		6A27786917166D0100D6F899 /* tally-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-short.png"; sourceTree = "<group>"; };
+		6A27786A17166D0100D6F899 /* tally-start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tally-start@2x.png"; sourceTree = "<group>"; };
 		6A2F0E7D170E5E2C0069161C /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
 		6A2F0E80170E61D00069161C /* FoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCell.h; sourceTree = "<group>"; };
 		6A2F0E81170E61D00069161C /* FoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCell.m; sourceTree = "<group>"; };
@@ -251,20 +251,20 @@
 			children = (
 				6A27785B17166D0100D6F899 /* tally-bac-high.png */,
 				6A27785C17166D0100D6F899 /* tally-bac-low.png */,
-				6A27785D17166D0100D6F899 /* tally-back-long.png */,
-				6A27785E17166D0100D6F899 /* tally-back-short.png */,
-				6A27785F17166D0100D6F899 /* tally-back-shortlow.png */,
-				6A27786017166D0100D6F899 /* tally-button-high.png */,
-				6A27786117166D0100D6F899 /* tally-button-low.png */,
-				6A27786217166D0100D6F899 /* tally-details-high.png */,
-				6A27786317166D0100D6F899 /* tally-details-low.png */,
-				6A27786417166D0100D6F899 /* tally-drinks-high.png */,
-				6A27786517166D0100D6F899 /* tally-drinks-low.png */,
-				6A27786617166D0100D6F899 /* tally-keep.png */,
-				6A27786717166D0100D6F899 /* tally-long.png */,
-				6A27786817166D0100D6F899 /* tally-short.png */,
-				6A27786917166D0100D6F899 /* tally-shortlow.png */,
-				6A27786A17166D0100D6F899 /* tally-start.png */,
+				6A27785D17166D0100D6F899 /* tally-back-long@2x.png */,
+				6A27785E17166D0100D6F899 /* tally-back-short@2x.png */,
+				6A27785F17166D0100D6F899 /* tally-back-short.png */,
+				6A27786017166D0100D6F899 /* tally-button@2x.png */,
+				6A27786117166D0100D6F899 /* tally-button.png */,
+				6A27786217166D0100D6F899 /* tally-details@2x.png */,
+				6A27786317166D0100D6F899 /* tally-details.png */,
+				6A27786417166D0100D6F899 /* tally-drinks@2x.png */,
+				6A27786517166D0100D6F899 /* tally-drinks.png */,
+				6A27786617166D0100D6F899 /* tally-keep@2x.png */,
+				6A27786717166D0100D6F899 /* tally-long@2x.png */,
+				6A27786817166D0100D6F899 /* tally-short@2x.png */,
+				6A27786917166D0100D6F899 /* tally-short.png */,
+				6A27786A17166D0100D6F899 /* tally-start@2x.png */,
 			);
 			name = DrinkCounterImages;
 			sourceTree = "<group>";
@@ -568,20 +568,20 @@
 				6A126748171558BE000E1059 /* initialDrinkingViewController.xib in Resources */,
 				6A27786B17166D0100D6F899 /* tally-bac-high.png in Resources */,
 				6A27786C17166D0100D6F899 /* tally-bac-low.png in Resources */,
-				6A27786D17166D0100D6F899 /* tally-back-long.png in Resources */,
-				6A27786E17166D0100D6F899 /* tally-back-short.png in Resources */,
-				6A27786F17166D0100D6F899 /* tally-back-shortlow.png in Resources */,
-				6A27787017166D0100D6F899 /* tally-button-high.png in Resources */,
-				6A27787117166D0100D6F899 /* tally-button-low.png in Resources */,
-				6A27787217166D0100D6F899 /* tally-details-high.png in Resources */,
-				6A27787317166D0100D6F899 /* tally-details-low.png in Resources */,
-				6A27787417166D0100D6F899 /* tally-drinks-high.png in Resources */,
-				6A27787517166D0100D6F899 /* tally-drinks-low.png in Resources */,
-				6A27787617166D0100D6F899 /* tally-keep.png in Resources */,
-				6A27787717166D0100D6F899 /* tally-long.png in Resources */,
-				6A27787817166D0100D6F899 /* tally-short.png in Resources */,
-				6A27787917166D0100D6F899 /* tally-shortlow.png in Resources */,
-				6A27787A17166D0100D6F899 /* tally-start.png in Resources */,
+				6A27786D17166D0100D6F899 /* tally-back-long@2x.png in Resources */,
+				6A27786E17166D0100D6F899 /* tally-back-short@2x.png in Resources */,
+				6A27786F17166D0100D6F899 /* tally-back-short.png in Resources */,
+				6A27787017166D0100D6F899 /* tally-button@2x.png in Resources */,
+				6A27787117166D0100D6F899 /* tally-button.png in Resources */,
+				6A27787217166D0100D6F899 /* tally-details@2x.png in Resources */,
+				6A27787317166D0100D6F899 /* tally-details.png in Resources */,
+				6A27787417166D0100D6F899 /* tally-drinks@2x.png in Resources */,
+				6A27787517166D0100D6F899 /* tally-drinks.png in Resources */,
+				6A27787617166D0100D6F899 /* tally-keep@2x.png in Resources */,
+				6A27787717166D0100D6F899 /* tally-long@2x.png in Resources */,
+				6A27787817166D0100D6F899 /* tally-short@2x.png in Resources */,
+				6A27787917166D0100D6F899 /* tally-short.png in Resources */,
+				6A27787A17166D0100D6F899 /* tally-start@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

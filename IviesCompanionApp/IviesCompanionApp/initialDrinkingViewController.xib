@@ -41,7 +41,6 @@
 						<string key="NSFrame">{{60, 136}, {200, 200}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -60,6 +59,10 @@
 						<object class="NSColor" key="IBUINormalTitleShadowColor" id="822990744">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
+						</object>
+						<object class="NSCustomResource" key="IBUINormalImage" id="353439434">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">tally-start@2x.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="413384337">
 							<int key="type">2</int>
@@ -110,10 +113,9 @@
 					<object class="IBUIButton" id="496453667">
 						<reference key="NSNextResponder" ref="993432603"/>
 						<int key="NSvFlags">310</int>
-						<string key="NSFrame">{{116, 355}, {100, 100}}</string>
+						<string key="NSFrame">{{116, 375}, {100, 100}}</string>
 						<reference key="NSSuperview" ref="993432603"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -127,6 +129,7 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="822990744"/>
+						<reference key="IBUINormalImage" ref="353439434"/>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<int key="type">2</int>
 							<double key="pointSize">12</double>
@@ -140,7 +143,7 @@
 					<object class="IBUIButton" id="751043604">
 						<reference key="NSNextResponder" ref="993432603"/>
 						<int key="NSvFlags">310</int>
-						<string key="NSFrame">{{60, 116}, {200, 200}}</string>
+						<string key="NSFrame">{{73, 155}, {200, 199}}</string>
 						<reference key="NSSuperview" ref="993432603"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="496453667"/>
@@ -157,11 +160,15 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="822990744"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">tally-keep@2x.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="413384337"/>
 						<reference key="IBUIFont" ref="441908301"/>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 528}</string>
+				<string key="NSFrameSize">{320, 568}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="751043604"/>
@@ -202,19 +209,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">keepDrinkingButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="751043604"/>
-					</object>
-					<int key="connectionID">59</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">startDrinkingButton</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="496453667"/>
 					</object>
 					<int key="connectionID">64</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">keepDrinkingButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="751043604"/>
+					</object>
+					<int key="connectionID">59</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -281,8 +288,8 @@
 						<int key="objectID">39</int>
 						<reference key="object" ref="993432603"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="751043604"/>
 							<reference ref="496453667"/>
+							<reference ref="751043604"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -369,6 +376,10 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="tally-keep@2x.png">{400, 400}</string>
+			<string key="tally-start@2x.png">{400, 400}</string>
+		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>
