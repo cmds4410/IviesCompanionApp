@@ -4,42 +4,16 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "IviesCompanionApp/DrinkCounterViewController.m"
-         timestampString = "387359654.266501"
+         filePath = "IviesCompanionApp/bacActionSheet.m"
+         timestampString = "387363250.44733"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "120"
-         endingLineNumber = "120"
-         landmarkName = "-actionSheet:willDismissWithButtonIndex:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "IviesCompanionApp/MainViewController.m"
-         timestampString = "387355825.792076"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "293"
-         endingLineNumber = "293"
-         landmarkName = "-userDidPressStartDrinking"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "IviesCompanionApp/DrinkCounterViewController.m"
-         timestampString = "387359654.266501"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "69"
-         endingLineNumber = "69"
-         landmarkName = "-viewWillAppear:"
+         startingLineNumber = "97"
+         endingLineNumber = "97"
+         landmarkName = "-pickerView:widthForComponent:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

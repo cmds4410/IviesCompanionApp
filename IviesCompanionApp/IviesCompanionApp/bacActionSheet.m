@@ -32,11 +32,10 @@
     if(self) {
         self.baseWeight = 0;
         self.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        self.bacDetailsPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 95, 320, 162)];
+        self.bacDetailsPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 95, 320, self.frame.size.height)];
         self.bacDetailsPicker.delegate = self;
         self.bacDetailsPicker.showsSelectionIndicator = YES;
         [self addSubview:self.bacDetailsPicker];
-        
     }
     return self;
 }
@@ -61,10 +60,13 @@
     }
     else if (component == 1) {
         int weight = BASEWEIGHT + (WEIGHTINCREMENT * row);
-        return [NSString stringWithFormat:@"%i", weight];
+        return [NSString stringWithFormat:@"%ilbs", weight];
     }
     else if (component == 2) {
-        return [NSString stringWithFormat:@"%i", row];
+        if(row == 0) {
+            return @"now";
+        }
+        return [NSString stringWithFormat:@"%i hrs ago", row];
     }
     else
         return nil;
@@ -90,6 +92,17 @@
     }
     else
         return 0;
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    if (component == 0) {
+        return 95;
+    }
+    else if (component == 1) {
+        return 80;
+    }
+    else
+        return 130;
 }
 
 @end

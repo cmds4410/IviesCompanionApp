@@ -129,6 +129,6 @@
         self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"Details" delegate:self cancelButtonTitle:@"Done" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     }
     [self.bacActionSheet showInView:self.view];
-    [self.bacActionSheet setFrame:CGRectMake(0, self.view.frame.size.height - 255, 320, self.view.frame.size.height)];
+    [self.bacActionSheet setFrame:CGRectMake(0, self.view.frame.size.height - 300, 320, self.view.frame.size.height)];
 }
 @end
