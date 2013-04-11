@@ -37,8 +37,8 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIButton" id="587094836">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">310</int>
-						<string key="NSFrame">{{60, 136}, {200, 200}}</string>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{60, 131}, {200, 200}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -60,9 +60,9 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUINormalImage" id="353439434">
+						<object class="NSCustomResource" key="IBUINormalImage" id="105340844">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">tally-start@2x.png</string>
+							<string key="NSResourceName">tally-start.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="413384337">
 							<int key="type">2</int>
@@ -112,8 +112,8 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIButton" id="496453667">
 						<reference key="NSNextResponder" ref="993432603"/>
-						<int key="NSvFlags">310</int>
-						<string key="NSFrame">{{116, 375}, {100, 100}}</string>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{110, 305}, {100, 100}}</string>
 						<reference key="NSSuperview" ref="993432603"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -129,7 +129,7 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="822990744"/>
-						<reference key="IBUINormalImage" ref="353439434"/>
+						<reference key="IBUINormalImage" ref="105340844"/>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<int key="type">2</int>
 							<double key="pointSize">12</double>
@@ -142,8 +142,8 @@
 					</object>
 					<object class="IBUIButton" id="751043604">
 						<reference key="NSNextResponder" ref="993432603"/>
-						<int key="NSvFlags">310</int>
-						<string key="NSFrame">{{73, 155}, {200, 199}}</string>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{60, 90}, {200, 199}}</string>
 						<reference key="NSSuperview" ref="993432603"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="496453667"/>
@@ -162,7 +162,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="822990744"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">tally-keep@2x.png</string>
+							<string key="NSResourceName">tally-keep.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="413384337"/>
 						<reference key="IBUIFont" ref="441908301"/>
@@ -377,8 +377,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="tally-keep@2x.png">{400, 400}</string>
-			<string key="tally-start@2x.png">{400, 400}</string>
+			<string key="tally-keep.png">{200, 200}</string>
+			<string key="tally-start.png">{200, 200}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

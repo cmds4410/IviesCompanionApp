@@ -61,10 +61,7 @@
     }
     else if (component == 1) {
         int weight = BASEWEIGHT + (WEIGHTINCREMENT * row);
-        return [NSString stringWithFormat:@"%i", weight];
-    }
-    else if (component == 2) {
-        return [NSString stringWithFormat:@"%i", row];
+        return [NSString stringWithFormat:@"%i lbs", weight];
     }
     else
         return nil;
@@ -85,11 +82,17 @@
     else if (component == 1) {
         return NUMBEROFWEIGHTS;
     }
-    else if (component ==2) {
-        return NUMBEROFHOURS;
-    }
     else
         return 0;
 }
+
+/*-(CGFloat) pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    if(component == 0) {
+        return 95;
+    }
+    else if (component == 1) {
+        return 90;
+    }
+}*/
 
 @end
