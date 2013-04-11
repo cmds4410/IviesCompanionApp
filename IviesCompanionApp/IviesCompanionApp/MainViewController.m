@@ -111,6 +111,11 @@
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
         
         [self performSelector:@selector(scroll) withObject:self afterDelay:.6];
+        //Show eulaAlertView to get user permission for app access
+        NSString* eula =@"The information offered in this app is not a substitute for sound judgement or medical advice. Consult the app's Wellness Section if you're concerned for yourself or a friend. If you think you have an emergency, call Security!";
+        UIAlertView *eulaAlert = [[UIAlertView alloc] initWithTitle:@"Drinking Companion agreement" message:eula delegate:self cancelButtonTitle:@"I understand" otherButtonTitles:nil, nil];
+        eulaAlert.tag = 1;
+        [eulaAlert show];
     }
     
 }
@@ -147,12 +152,12 @@
     LauncherCell *cell = [cv dequeueReusableCellWithReuseIdentifier:LAUNCHER forIndexPath:indexPath];
     
     /*
-    cell.backgroundColor = nil;
-    UIImage* image = [UIImage imageNamed:[self.homeScreenButtons objectAtIndex:self.collectionViewPosition]];
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
-    [imageView setImage:image];
-    [cell addSubview:imageView];
-    */
+     cell.backgroundColor = nil;
+     UIImage* image = [UIImage imageNamed:[self.homeScreenButtons objectAtIndex:self.collectionViewPosition]];
+     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+     [imageView setImage:image];
+     [cell addSubview:imageView];
+     */
     
     if (indexPath.row == 0)
     {
@@ -186,7 +191,7 @@
         [imageView setImage:image];
         [cell addSubview:imageView];
     }
-     
+    
     
     //    cell.layer.shadowColor = [UIColor blackColor].CGColor;
     //    cell.layer.shadowOffset = CGSizeMake(0, 3);
@@ -213,12 +218,12 @@
     if (indexPath.row == 0)
     {
         //MainViewController* m = [[MainViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-//        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-//        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        //        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+        //        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         PictureViewController* pictureViewController = [[PictureViewController alloc] init];
         
         
-//        [self presentViewController:picker animated:YES completion:nil];
+        //        [self presentViewController:picker animated:YES completion:nil];
         [self.navigationController pushViewController:pictureViewController animated:YES];
     }
     else if(indexPath.row == 1)
@@ -232,6 +237,7 @@
     else if(indexPath.row == 2)
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Bowdoin" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call Shuttle", @"Call Security", nil];
+        alert.tag = 0;
         [alert show];
     }
     else if(indexPath.row == 3)
@@ -308,30 +314,36 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
-    {
-        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]])
+    if(alertView.tag == 0) {
+        //This is the Security/Shuttle tag
+        if (buttonIndex == 1)
         {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]];
+            if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]])
+            {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]];
+            }
+            else
+            {
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Uh Oh" message:@"This isn't a phone, bro" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles: nil];
+                [alert show];
+            }
         }
-        else
+        
+        else if (buttonIndex == 2)
         {
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Uh Oh" message:@"This isn't a phone, bro" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles: nil];
-            [alert show];
+            if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]])
+            {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]];
+            }
+            else
+            {
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Uh Oh" message:@"This isn't a phone, bro" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles: nil];
+                [alert show];
+            }
         }
     }
-    
-    else if (buttonIndex == 2)
-    {
-        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]])
-        {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]];
-        }
-        else
-        {
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Uh Oh" message:@"This isn't a phone, bro" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles: nil];
-            [alert show];
-        }
+    //This is the EULA tag
+    if(alertView.tag == 1) {
     }
 }
 
