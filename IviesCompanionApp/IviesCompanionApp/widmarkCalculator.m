@@ -72,10 +72,11 @@
     double H = secondsSpentDrinking /3600.0;
     if (H <1)
     {
-        H = 0;
+        H = 1;
     }
-    NSLog(@"Drinks:%f, Weight:%f Gender:%@ TimeBegan:%@, SecondsSpentDrinking:%f",A,W,self.gender, self.startTime, secondsSpentDrinking);
+    //Gotta figure out which one to use. They're both close on estimates but neither are any good on reduced BAC/hour
     double bac = A * (5.14 * 1.055) /(W * r) - (0.015 * H);
+    //double bac = (.9672 * A)/ (.535 * (W / 2.2)) - (.015 * H);
     
     if (bac < 0)
     {

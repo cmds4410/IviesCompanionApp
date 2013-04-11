@@ -110,7 +110,7 @@
 					<object class="IBUIButton" id="496453667">
 						<reference key="NSNextResponder" ref="993432603"/>
 						<int key="NSvFlags">310</int>
-						<string key="NSFrame">{{116, 355}, {88, 48}}</string>
+						<string key="NSFrame">{{116, 355}, {100, 100}}</string>
 						<reference key="NSSuperview" ref="993432603"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -321,15 +321,10 @@
 					<string key="className">initialDrinkingViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="alreadyStartedDrinkingPressed:">UIButton</string>
 						<string key="keepDrinkingPressed:">UIButton</string>
 						<string key="startDrinkingPressed:">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="alreadyStartedDrinkingPressed:">
-							<string key="name">alreadyStartedDrinkingPressed:</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
 						<object class="IBActionInfo" key="keepDrinkingPressed:">
 							<string key="name">keepDrinkingPressed:</string>
 							<string key="candidateClassName">UIButton</string>
