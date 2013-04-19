@@ -768,14 +768,14 @@
 		B3880FAD170CA64000032F40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Connor Smith (NHN86X7388)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Connor Smith (NHN86X7388)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tristan McCormick (U35E3CJT63)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tristan McCormick (U35E3CJT63)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IviesCompanionApp/IviesCompanionApp-Prefix.pch";
 				INFOPLIST_FILE = "IviesCompanionApp/IviesCompanionApp-Info.plist";
 				PRODUCT_NAME = Ivies;
-				PROVISIONING_PROFILE = "DCD6C3DC-88C8-4987-B1E8-CC9084F30B80";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DCD6C3DC-88C8-4987-B1E8-CC9084F30B80";
+				PROVISIONING_PROFILE = "A03D88C1-94F1-40D7-8AF6-C68616AA56A3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A03D88C1-94F1-40D7-8AF6-C68616AA56A3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -784,14 +784,14 @@
 		B3880FAE170CA64000032F40 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Connor Smith (NHN86X7388)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Connor Smith (NHN86X7388)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: TRISTAN MCCORMICK (2AMQ2N9968)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: TRISTAN MCCORMICK (2AMQ2N9968)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IviesCompanionApp/IviesCompanionApp-Prefix.pch";
 				INFOPLIST_FILE = "IviesCompanionApp/IviesCompanionApp-Info.plist";
 				PRODUCT_NAME = Ivies;
-				PROVISIONING_PROFILE = "DCD6C3DC-88C8-4987-B1E8-CC9084F30B80";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DCD6C3DC-88C8-4987-B1E8-CC9084F30B80";
+				PROVISIONING_PROFILE = "6538094A-C9BD-4FE2-9C11-6F42193ECA7B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6538094A-C9BD-4FE2-9C11-6F42193ECA7B";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

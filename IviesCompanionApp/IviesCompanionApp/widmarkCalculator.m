@@ -53,7 +53,7 @@
 
 - (double) calculateBAC
 {
-    // A = liquid ounces of alcohol
+    // A = liquid ounces of alcohol. What is this multiplication doing? Because it looks like 
     double A = self.drinks * .6;
     double W = self.weight;
     double r;
@@ -72,10 +72,11 @@
     double H = secondsSpentDrinking /3600.0;
     if (H <1)
     {
-        H = 1;
+        H = 0;
     }
     //Gotta figure out which one to use. They're both close on estimates but neither are any good on reduced BAC/hour
-    double bac = A * (5.14 * 1.055) /(W * r) - (0.015 * H);
+    double bac = (A * 5.14) / (W * r) - (0.015 * H);
+    NSLog(@"A: %f W: %f r: %f H: %f BAC: %f", A, W, r, H, bac);
     //double bac = (.9672 * A)/ (.535 * (W / 2.2)) - (.015 * H);
     
     if (!(bac >= 0))

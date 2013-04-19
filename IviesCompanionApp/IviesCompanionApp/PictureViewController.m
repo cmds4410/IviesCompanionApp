@@ -12,7 +12,7 @@
 
 const float WATERMARK_ALPHA = 1;
 
-#define kHashtag @"#IVIES2013 #IVIESCOMPANIONAPP"
+#define kHashtag @"#Ivies2013 @IviesApp"
 
 @interface PictureViewController ()
 
@@ -116,7 +116,7 @@ const float WATERMARK_ALPHA = 1;
 {
     NSString *textToShare = kHashtag;
     UIImage *imageToShare = self.imageView.image;
-    //    NSURL *url = [NSURL URLWithString:@"http://www.yashesh87.wordpress.com"];
+
     NSArray *activityItems = [[NSArray alloc]  initWithObjects:textToShare, imageToShare,nil];
     
     UIActivity *activity = [[UIActivity alloc] init];
@@ -125,6 +125,7 @@ const float WATERMARK_ALPHA = 1;
     UIActivityViewController *activityVC =
     [[UIActivityViewController alloc] initWithActivityItems:activityItems
                                       applicationActivities:applicationActivities];
+    activityVC.excludedActivityTypes = [NSArray arrayWithObjects:UIActivityTypeAssignToContact, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeMessage, UIActivityTypeMail, nil];
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
@@ -140,63 +141,77 @@ const float WATERMARK_ALPHA = 1;
     }
 }
 
-#pragma mark - UIActionSheetDelegate
+- (void)presentCameraRoll
+{
+    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:nil];
+}
 
-#pragma - mark UIActionSheetDelegate
-//Maybe add checks to make sure camera is available?
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)presentCamera
 {
     UIImagePickerController* picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:^{
+        // This block of code is only needed in case you want your watermark to be displayed also during the shooting process
+        //            UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
+        //            anImageView.alpha = WATERMARK_ALPHA;
+        //            anImageView.contentMode = UIViewContentModeScaleAspectFit;
+        //
+        //            anImageView.frame = CGRectMake(0, 20, self.view.bounds.size.width, 100);
+        
+        self.cameraScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
+        self.cameraScrollView.delegate = self;
+        self.cameraScrollView.pagingEnabled = YES;
+        int numberOfViews = self.overlays.count;
+        for (int i = 0; i < numberOfViews; i++)
+        {
+            CGFloat xOrigin = i * self.view.frame.size.width;
+            UIView *awesomeView = [[UIView alloc] initWithFrame:CGRectMake(xOrigin, 0, self.view.frame.size.width, self.view.frame.size.height)];
+            awesomeView.backgroundColor = [UIColor whiteColor];
+            awesomeView.alpha = 0.5;
+            //awesomeView.backgroundColor = [UIColor colorWithRed:0.5/i green:0.5 blue:0.5 alpha:1];
+            //                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1.png"]];
+            UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:i]]];
+            anImageView.alpha = WATERMARK_ALPHA;
+            anImageView.contentMode = UIViewContentModeScaleAspectFit;
+            
+            anImageView.frame = CGRectMake(xOrigin, 0, self.view.bounds.size.width, 100);
+            anImageView.userInteractionEnabled = YES;
+            //[awesomeView addSubview:anImageView];
+            
+            //                [self.cameraScrollView addSubview:awesomeView];
+            [self.cameraScrollView addSubview:anImageView];
+        }
+        self.cameraScrollView.contentSize = CGSizeMake(self.view.frame.size.width * numberOfViews, self.cameraScrollView.frame.size.height);
+        //        scrollView.showsHorizontalScrollIndicator = NO;
+        
+        picker.cameraOverlayView = self.cameraScrollView;
+        
+        //auto scroll
+        [self.cameraScrollView scrollRectToVisible:CGRectMake(1000, 0, self.view.bounds.size.width, 100) animated:YES];
+        
+        //[self.cameraScrollView flashScrollIndicators];
+    }];
+}
+
+#pragma mark - UIActionSheetDelegate
+
+//Maybe add checks to make sure camera is available?
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
     if (buttonIndex == 0 && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:picker animated:YES completion:^{
-            // This block of code is only needed in case you want your watermark to be displayed also during the shooting process
-            //            UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1"]];
-            //            anImageView.alpha = WATERMARK_ALPHA;
-            //            anImageView.contentMode = UIViewContentModeScaleAspectFit;
-            //
-            //            anImageView.frame = CGRectMake(0, 20, self.view.bounds.size.width, 100);
-            
-            self.cameraScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
-            self.cameraScrollView.delegate = self;
-            self.cameraScrollView.pagingEnabled = YES;
-            int numberOfViews = self.overlays.count;
-            for (int i = 0; i < numberOfViews; i++)
-            {
-                CGFloat xOrigin = i * self.view.frame.size.width;
-                UIView *awesomeView = [[UIView alloc] initWithFrame:CGRectMake(xOrigin, 0, self.view.frame.size.width, self.view.frame.size.height)];
-                awesomeView.backgroundColor = [UIColor whiteColor];
-                awesomeView.alpha = 0.5;
-                //awesomeView.backgroundColor = [UIColor colorWithRed:0.5/i green:0.5 blue:0.5 alpha:1];
-                //                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"overlay1.png"]];
-                UIImageView *anImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.overlays objectAtIndex:i]]];
-                anImageView.alpha = WATERMARK_ALPHA;
-                anImageView.contentMode = UIViewContentModeScaleAspectFit;
-                
-                anImageView.frame = CGRectMake(xOrigin, 0, self.view.bounds.size.width, 100);
-                anImageView.userInteractionEnabled = YES;
-                //[awesomeView addSubview:anImageView];
-                
-                //                [self.cameraScrollView addSubview:awesomeView];
-                [self.cameraScrollView addSubview:anImageView];
-            }
-            self.cameraScrollView.contentSize = CGSizeMake(self.view.frame.size.width * numberOfViews, self.cameraScrollView.frame.size.height);
-            //        scrollView.showsHorizontalScrollIndicator = NO;
-            
-            picker.cameraOverlayView = self.cameraScrollView;
-            
-            [self.cameraScrollView flashScrollIndicators];
-        }];
-        
-        
+        [self presentCamera];
     }
     else if (buttonIndex == 1 && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:picker animated:YES completion:nil];
+        
     }
     
     else

@@ -15,7 +15,5 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) initialDrinkingViewController *initialDrinkingVC;
 @property (strong, nonatomic) DrinkCounterViewController *drinkCounterVC;
-@property (nonatomic) int storedDrinkCount;
-@property (nonatomic) float storedBAC;
 
 @end

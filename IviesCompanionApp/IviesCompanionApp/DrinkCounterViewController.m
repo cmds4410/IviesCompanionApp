@@ -57,10 +57,38 @@
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"tally-short.png", @"tally-long.png")]];
     
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:kDefaultsDate])
+    {
+        self.beganDrinking = [defaults objectForKey:kDefaultsDate];
+        NSLog(@"self.beganDrinking: %@", self.beganDrinking);
+    }
+    if ([defaults integerForKey:kDefaultsNumDrinks])
+    {
+        self.numDrinks = [defaults integerForKey:kDefaultsNumDrinks];
+        NSLog(@"self.numDrinks: %d", self.numDrinks);
+        [self.drinkCounter setText:[NSString stringWithFormat:@"%i", self.numDrinks]];
+        self.stepper.value = self.numDrinks;
+    }
+    if ([defaults integerForKey:kDefaultsWeight])
+    {
+        self.weight = [defaults integerForKey:kDefaultsWeight];
+        NSLog(@"weight: %d", self.weight);
+    }
+    if ([defaults objectForKey:kDefaultsGender])
+    {
+        self.gender = [defaults objectForKey:kDefaultsGender];
+        NSLog(@"self.gender: %@", self.gender);
+    }
+    [self.BAC setText:[NSString stringWithFormat:@"%f", [self.bacCalculator calculateBACWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking]]];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    self.drinkCounter.text = [NSString stringWithFormat:@"%i", (int)self.stepper.value];
+    if (self.numDrinks == 0)
+    {
+        [self.drinkCounter setText:[NSString stringWithFormat:@"%i", self.numDrinks]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,6 +115,10 @@
     self.numDrinks = self.stepper.value;
     self.drinkCounter.text = [NSString stringWithFormat:@"%i", self.numDrinks];
     [self.BAC setText:[NSString stringWithFormat:@"%f", [self.bacCalculator calculateBACWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking]]];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:self.numDrinks forKey:kDefaultsNumDrinks];
+    [defaults synchronize];
 
 }
 
@@ -119,10 +151,16 @@
         }*/
         //self.bacCalculator = [[widmarkCalculator alloc] initWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking];
         self.drinkCounter.text = [NSString stringWithFormat:@"%i", self.numDrinks];
-        if(!self.bacCalculator.startTime) {
-        self.bacCalculator.startTime = [[NSDate alloc] init];
-        }
-        self.BAC.text = [NSString stringWithFormat:@"%f", [self.bacCalculator calculateBAC]];
+        
+//        if(!self.bacCalculator.startTime) {
+//            self.bacCalculator.startTime = [[NSDate alloc] init];
+//        }
+        
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:self.gender forKey:kDefaultsGender];
+        [defaults setInteger:self.weight forKey:kDefaultsWeight];
+        
+        self.BAC.text = [NSString stringWithFormat:@"%f", [self.bacCalculator calculateBACWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking]];
     }
     
 }

@@ -39,8 +39,6 @@
 
 @synthesize initialDrinkingVC = _initialDrinkingVC;
 @synthesize drinkCounterVC = _drinkCounterVC;
-@synthesize storedDrinkCount = _storedDrinkCount;
-@synthesize storedBAC = _storedBAC;
 
 - (void)viewDidLoad
 {
@@ -131,7 +129,12 @@
     self.collectionView.userInteractionEnabled = YES;
     //Show eulaAlertView to get user permission for app access
     
-    [self performSelector:@selector(EULA) withObject:self afterDelay:0.5];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if(![defaults boolForKey:kDefaultEULA]) {
+        [self performSelector:@selector(EULA) withObject:self afterDelay:0.5];
+        [defaults setBool:YES forKey:kDefaultEULA];
+    }
+    
     
 }
 
@@ -288,15 +291,26 @@
 
 -(void)userDidPressStartDrinking {
     
-    self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
+    
+    
     if(!self.drinkCounterVC) {
         self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
         self.drinkCounterVC.delegate = self;
     }
+    
+    self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.drinkCounterVC.beganDrinking forKey:kDefaultsDate];
+    [defaults synchronize];
+    
     [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
     if(self.initialDrinkingVC.userIsDrinking != YES) {
         [self.drinkCounterVC presentActionSheet];
         self.initialDrinkingVC.userIsDrinking = YES;
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setBool:self.initialDrinkingVC.userIsDrinking forKey:kDefaultsUserIsDrinking];
+        [defaults synchronize];
     }
     [self.drinkCounterVC clearFields];
     self.drinkCounterVC.drinkCounter.text = @"0";
@@ -305,8 +319,19 @@
 }
 
 -(void)userDidPressKeepDrinking {
+    if(!self.drinkCounterVC) {
+        self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
+        self.drinkCounterVC.delegate = self;
+    }
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:kDefaultsDate])
+    {
+        self.drinkCounterVC.beganDrinking = [defaults objectForKey:kDefaultsDate];
+    }
+    
     if(self.drinkCounterVC) {
-        self.drinkCounterVC.drinkCounter.text = [NSString stringWithFormat:@"%i",self.storedDrinkCount];
+        self.drinkCounterVC.drinkCounter.text = [NSString stringWithFormat:@"%i",self.drinkCounterVC.numDrinks];
         self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%f", [self.drinkCounterVC.bacCalculator calculateBACWithGender:self.drinkCounterVC.gender Weight:self.drinkCounterVC.weight Drinks:self.drinkCounterVC.numDrinks andTime:self.drinkCounterVC.beganDrinking]];
         [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
     }
@@ -316,8 +341,6 @@
 #pragma mark - DrinkCounterDelegate
 
 - (void)drinkCounterWillDisappear {
-    self.storedDrinkCount = [self.drinkCounterVC.drinkCounter.text intValue];
-    self.storedBAC = [self.drinkCounterVC.BAC.text floatValue];
     [self.navigationController popToViewController:self animated:YES];
 }
 

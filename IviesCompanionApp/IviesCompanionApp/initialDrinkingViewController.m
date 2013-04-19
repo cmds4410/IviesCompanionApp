@@ -7,6 +7,7 @@
 //
 
 #import "initialDrinkingViewController.h"
+#import "Constants.h"
 
 @interface initialDrinkingViewController ()
 
@@ -23,7 +24,7 @@
     if (self) {
         self.startDrinkingView = [[UIView alloc] init];
         self.keepDrinkingView = [[UIView alloc] init];
-        self.userIsDrinking = NO;
+//        self.userIsDrinking = NO;
     }
     return self;
 }
@@ -35,6 +36,13 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated {
+    
+    //check nsusers
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey:kDefaultsUserIsDrinking])
+    {
+        self.userIsDrinking = [defaults boolForKey:kDefaultsUserIsDrinking];
+    }
     
     if(!self.userIsDrinking)
     {

@@ -26,5 +26,13 @@
 
 #define ASSET_BY_SCREEN_HEIGHT(regular, longScreen) (([[UIScreen mainScreen] bounds].size.height <= 480.0) ? regular : longScreen)
 
+#define kDefaultsUserIsDrinking @"userIsDrinking"
+#define kDefaultsGender @"gender"
+#define kDefaultsWeight @"weight"
+#define kDefaultsNumDrinks @"numDrinks"
+#define kDefaultsDate @"date"
+#define kDefaultEULA @"eula"
+
+
 
 #endif
