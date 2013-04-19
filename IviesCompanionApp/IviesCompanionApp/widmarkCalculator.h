@@ -16,7 +16,8 @@
 @property (nonatomic) int drinks;
 @property (nonatomic) NSDate *startTime;
 
--(float) calculateBAC;
+-(double) calculateBAC;
+-(double) calculateBACWithGender:(NSString *)gender Weight:(int)weight Drinks:(int)drinks andTime:(NSDate *) startTime;
 -(id)initWithGender:(NSString *)gender Weight:(int)weight Drinks:(int)drinks andTime:(NSDate *) startTime;
 
 @end

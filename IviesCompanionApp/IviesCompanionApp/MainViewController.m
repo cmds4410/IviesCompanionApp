@@ -25,6 +25,7 @@
 
 - (void)modal;
 - (void)scroll;
+- (void)EULA;
 
 @end
 
@@ -38,8 +39,6 @@
 
 @synthesize initialDrinkingVC = _initialDrinkingVC;
 @synthesize drinkCounterVC = _drinkCounterVC;
-@synthesize storedDrinkCount = _storedDrinkCount;
-@synthesize storedBAC = _storedBAC;
 
 - (void)viewDidLoad
 {
@@ -107,10 +106,12 @@
     if (!animated)
     {
         self.view.userInteractionEnabled = NO;
+        self.collectionView.userInteractionEnabled = NO;
         
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
         
         [self performSelector:@selector(scroll) withObject:self afterDelay:.6];
+        
     }
     
 }
@@ -125,6 +126,24 @@
 {
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
     self.view.userInteractionEnabled = YES;
+    self.collectionView.userInteractionEnabled = YES;
+    //Show eulaAlertView to get user permission for app access
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if(![defaults boolForKey:kDefaultEULA]) {
+        [self performSelector:@selector(EULA) withObject:self afterDelay:0.5];
+        [defaults setBool:YES forKey:kDefaultEULA];
+    }
+    
+    
+}
+
+- (void)EULA
+{
+    NSString* eula =@"The information offered in this app is not a substitute for sound judgement or medical advice. Consult the app's Wellness Section if you're concerned for yourself or a friend. If you think you have an emergency, call Security!";
+    UIAlertView *eulaAlert = [[UIAlertView alloc] initWithTitle:@"Drinking Companion Agreement" message:eula delegate:self cancelButtonTitle:@"I understand" otherButtonTitles:nil, nil];
+    eulaAlert.tag = 1;
+    [eulaAlert show];
 }
 
 - (void)modal
@@ -147,12 +166,12 @@
     LauncherCell *cell = [cv dequeueReusableCellWithReuseIdentifier:LAUNCHER forIndexPath:indexPath];
     
     /*
-    cell.backgroundColor = nil;
-    UIImage* image = [UIImage imageNamed:[self.homeScreenButtons objectAtIndex:self.collectionViewPosition]];
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
-    [imageView setImage:image];
-    [cell addSubview:imageView];
-    */
+     cell.backgroundColor = nil;
+     UIImage* image = [UIImage imageNamed:[self.homeScreenButtons objectAtIndex:self.collectionViewPosition]];
+     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+     [imageView setImage:image];
+     [cell addSubview:imageView];
+     */
     
     if (indexPath.row == 0)
     {
@@ -186,7 +205,7 @@
         [imageView setImage:image];
         [cell addSubview:imageView];
     }
-     
+    
     
     //    cell.layer.shadowColor = [UIColor blackColor].CGColor;
     //    cell.layer.shadowOffset = CGSizeMake(0, 3);
@@ -213,12 +232,12 @@
     if (indexPath.row == 0)
     {
         //MainViewController* m = [[MainViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-//        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-//        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        //        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+        //        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         PictureViewController* pictureViewController = [[PictureViewController alloc] init];
         
         
-//        [self presentViewController:picker animated:YES completion:nil];
+        //        [self presentViewController:picker animated:YES completion:nil];
         [self.navigationController pushViewController:pictureViewController animated:YES];
     }
     else if(indexPath.row == 1)
@@ -232,6 +251,7 @@
     else if(indexPath.row == 2)
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Bowdoin" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call Shuttle", @"Call Security", nil];
+        alert.tag = 0;
         [alert show];
     }
     else if(indexPath.row == 3)
@@ -271,24 +291,48 @@
 
 -(void)userDidPressStartDrinking {
     
-    self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
+    
+    
     if(!self.drinkCounterVC) {
         self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
         self.drinkCounterVC.delegate = self;
     }
+    
+    self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.drinkCounterVC.beganDrinking forKey:kDefaultsDate];
+    [defaults synchronize];
+    
     [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
-    if(self.drinkCounterVC.weight == 0) {
+    if(self.initialDrinkingVC.userIsDrinking != YES) {
         [self.drinkCounterVC presentActionSheet];
+        self.initialDrinkingVC.userIsDrinking = YES;
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setBool:self.initialDrinkingVC.userIsDrinking forKey:kDefaultsUserIsDrinking];
+        [defaults synchronize];
     }
-    self.initialDrinkingVC.userIsDrinking = YES;
-    [self.drinkCounterVC clearPressed];
+    [self.drinkCounterVC clearFields];
+    self.drinkCounterVC.drinkCounter.text = @"0";
+    self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%f",[self.drinkCounterVC.bacCalculator calculateBACWithGender:self.drinkCounterVC.gender Weight:self.drinkCounterVC.weight Drinks:self.drinkCounterVC.numDrinks andTime:self.drinkCounterVC.beganDrinking]];
+    //self.drinkCounterVC.beganDrinking = [[NSDate alloc] init];
 }
 
 -(void)userDidPressKeepDrinking {
+    if(!self.drinkCounterVC) {
+        self.drinkCounterVC = [[DrinkCounterViewController alloc] init];
+        self.drinkCounterVC.delegate = self;
+    }
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:kDefaultsDate])
+    {
+        self.drinkCounterVC.beganDrinking = [defaults objectForKey:kDefaultsDate];
+    }
+    
     if(self.drinkCounterVC) {
-        self.drinkCounterVC.drinkCounter.text = [NSString stringWithFormat:@"%i",self.storedDrinkCount];
-        //self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%.f", self.storedBAC];
-        self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%f", [self.drinkCounterVC calculateBAC]];
+        self.drinkCounterVC.drinkCounter.text = [NSString stringWithFormat:@"%i",self.drinkCounterVC.numDrinks];
+        self.drinkCounterVC.BAC.text = [NSString stringWithFormat:@"%f", [self.drinkCounterVC.bacCalculator calculateBACWithGender:self.drinkCounterVC.gender Weight:self.drinkCounterVC.weight Drinks:self.drinkCounterVC.numDrinks andTime:self.drinkCounterVC.beganDrinking]];
         [self.navigationController pushViewController:self.drinkCounterVC animated:YES];
     }
     
@@ -297,8 +341,6 @@
 #pragma mark - DrinkCounterDelegate
 
 - (void)drinkCounterWillDisappear {
-    self.storedDrinkCount = [self.drinkCounterVC.drinkCounter.text intValue];
-    self.storedBAC = [self.drinkCounterVC.BAC.text floatValue];
     [self.navigationController popToViewController:self animated:YES];
 }
 
@@ -306,30 +348,36 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
-    {
-        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]])
+    if(alertView.tag == 0) {
+        //This is the Security/Shuttle tag
+        if (buttonIndex == 1)
         {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]];
+            if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]])
+            {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kShuttlePhoneNum]]];
+            }
+            else
+            {
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Uh Oh" message:@"This isn't a phone, bro" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles: nil];
+                [alert show];
+            }
         }
-        else
+        
+        else if (buttonIndex == 2)
         {
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Uh Oh" message:@"This isn't a phone, bro" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles: nil];
-            [alert show];
+            if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]])
+            {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]];
+            }
+            else
+            {
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Uh Oh" message:@"This isn't a phone, bro" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles: nil];
+                [alert show];
+            }
         }
     }
-    
-    else if (buttonIndex == 2)
-    {
-        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]])
-        {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%d",kSecurityPhoneNum]]];
-        }
-        else
-        {
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Uh Oh" message:@"This isn't a phone, bro" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles: nil];
-            [alert show];
-        }
+    //This is the EULA tag
+    if(alertView.tag == 1) {
     }
 }
 
