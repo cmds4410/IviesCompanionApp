@@ -20,7 +20,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>Bowdoin.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.TristanMakes.IviesCompanion</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

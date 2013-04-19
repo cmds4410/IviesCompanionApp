@@ -7,6 +7,7 @@
 //
 
 #import "initialDrinkingViewController.h"
+#import "Constants.h"
 
 @interface initialDrinkingViewController ()
 
@@ -23,7 +24,7 @@
     if (self) {
         self.startDrinkingView = [[UIView alloc] init];
         self.keepDrinkingView = [[UIView alloc] init];
-        self.userIsDrinking = NO;
+//        self.userIsDrinking = NO;
     }
     return self;
 }
@@ -36,13 +37,20 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     
+    //check nsusers
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey:kDefaultsUserIsDrinking])
+    {
+        self.userIsDrinking = [defaults boolForKey:kDefaultsUserIsDrinking];
+    }
+    
     if(!self.userIsDrinking)
     {
         [self setView:self.startDrinkingView];
     }
     else
         [self setView:self.keepDrinkingView];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"bkgd-green-short.png", @"bkgd-green-long.png")]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"tally-back-short.png", @"tally-back-long.png")]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,4 +66,5 @@
 - (IBAction)keepDrinkingPressed:(UIButton *)sender {
     [self.delegate userDidPressKeepDrinking];
 }
+
 @end

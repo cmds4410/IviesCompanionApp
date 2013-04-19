@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ModalViewController : UIViewController
-- (void)dismiss;
+- (IBAction)dismiss;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

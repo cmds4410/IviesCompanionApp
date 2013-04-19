@@ -61,12 +61,10 @@
     }
     else if (component == 1) {
         int weight = BASEWEIGHT + (WEIGHTINCREMENT * row);
-        return [NSString stringWithFormat:@"%i", weight];
+        return [NSString stringWithFormat:@"%i lbs", weight];
     }
-    else {
-        NSLog(@"Something wrong with picker");
-        return @"N/A";
-    }
+    else
+        return nil;
 }
 
 #pragma - mark UIPickerViewDataSource
@@ -87,5 +85,14 @@
     else
         return 0;
 }
+
+/*-(CGFloat) pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    if(component == 0) {
+        return 95;
+    }
+    else if (component == 1) {
+        return 90;
+    }
+}*/
 
 @end

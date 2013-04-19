@@ -13,6 +13,7 @@
 #define WEIGHTINCREMENT 10
 #define NUMBEROFWEIGHTS 33
 #define NUMBEROFCOMPONENTS 2
+#define NUMBEROFHOURS 15
 #define BODYWATERBLOOD .806
 #define SWEDISHCONVERSION 1.2
 #define MALEBODYWATER .58
@@ -24,6 +25,14 @@
 #define kShuttlePhoneNum 2077253337
 
 #define ASSET_BY_SCREEN_HEIGHT(regular, longScreen) (([[UIScreen mainScreen] bounds].size.height <= 480.0) ? regular : longScreen)
+
+#define kDefaultsUserIsDrinking @"userIsDrinking"
+#define kDefaultsGender @"gender"
+#define kDefaultsWeight @"weight"
+#define kDefaultsNumDrinks @"numDrinks"
+#define kDefaultsDate @"date"
+#define kDefaultEULA @"eula"
+
 
 
 #endif
