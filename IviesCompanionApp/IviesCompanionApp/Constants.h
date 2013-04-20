@@ -33,6 +33,8 @@
 #define kDefaultsDate @"date"
 #define kDefaultEULA @"eula"
 
+#define kHashtag @"#Ivies2013 @IviesApp"
+
 
 
 #endif
