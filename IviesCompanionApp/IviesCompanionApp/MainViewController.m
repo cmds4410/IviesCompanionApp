@@ -246,6 +246,9 @@
             self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
             self.initialDrinkingVC.delegate = self;
         }
+        if([self.drinkCounterVC.BAC.text floatValue] == 0) {
+            self.initialDrinkingVC.userIsDrinking = FALSE;
+        }
         [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
     }
     else if(indexPath.row == 2)
