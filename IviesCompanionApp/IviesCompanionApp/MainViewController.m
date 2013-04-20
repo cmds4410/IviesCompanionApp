@@ -246,8 +246,13 @@
             self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
             self.initialDrinkingVC.delegate = self;
         }
-        if([self.drinkCounterVC.BAC.text floatValue] == 0) {
-            self.initialDrinkingVC.userIsDrinking = FALSE;
+        if ([self.drinkCounterVC.bacCalculator calculateBAC] == 0)
+        {
+        //if([self.drinkCounterVC.BAC.text floatValue] == 0) {
+            self.initialDrinkingVC.userIsDrinking = NO;
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setBool:NO forKey:kDefaultsUserIsDrinking];
+            [defaults synchronize];
         }
         [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
     }
