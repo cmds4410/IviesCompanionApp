@@ -56,7 +56,8 @@
     self.bacCalculator = [[widmarkCalculator alloc] init];
     
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"tally-short.png", @"tally-long.png")]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"bkgd-green-short.png", @"bkgd-green-long.png")]];
+    [self.timerLabel setBackgroundColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.7]];
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:kDefaultsDate])
@@ -93,10 +94,15 @@
 }
 //Create the timer set to however long since the user started drinking
 -(void) updateTimer {
+    NSLog(@"self.beganDrinking = %@", self.beganDrinking);
     self.timeSinceUserStartedDrinking = (-1) * [self.beganDrinking timeIntervalSinceNow];
     int hoursSinceUserStartedDrinking = self.timeSinceUserStartedDrinking / 3600;
     int minuteRemainder = (self.timeSinceUserStartedDrinking / 60) % 60;
     int secondsRemainder = self.timeSinceUserStartedDrinking % 60;
+    NSLog(@"self.timeSinceUserStartedDrinking = %d", self.timeSinceUserStartedDrinking);
+    NSLog(@"hoursSinceUserStartedDrinking: %d", hoursSinceUserStartedDrinking);
+    NSLog(@"minuteRemainder: %d", minuteRemainder);
+    NSLog(@"secondsRemainder: %d", secondsRemainder);
     //STuPIDHacK
     if(secondsRemainder < 10) {
         NSString *formattedTime =[NSString stringWithFormat:@"%i:%i:0%i", hoursSinceUserStartedDrinking, minuteRemainder, secondsRemainder];
@@ -114,6 +120,7 @@
     {
         [self.drinkCounter setText:[NSString stringWithFormat:@"%i", self.numDrinks]];
     }
+    [self updateTimer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -124,7 +131,7 @@
 
 
 - (void) clearFields {
-    self.beganDrinking = nil;
+    //self.beganDrinking = nil;
     self.numDrinks = 0;
     self.drinkCounter.text = @"";
     self.BAC.text = @"";

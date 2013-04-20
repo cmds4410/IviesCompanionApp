@@ -12,8 +12,6 @@
 
 const float WATERMARK_ALPHA = 1;
 
-#define kHashtag @"#Ivies2013 @IviesApp"
-
 @interface PictureViewController ()
 
 - (void)actionButton;
@@ -111,7 +109,7 @@ const float WATERMARK_ALPHA = 1;
      {
          // add instructions for sharing
          //[self.navigationController setNavigationBarHidden:NO animated:YES];
-         [self performSelector:@selector(actionButton) withObject:self afterDelay:0.5];
+         [self performSelector:@selector(actionButton) withObject:self afterDelay:0.0];
      }];
 }
 
