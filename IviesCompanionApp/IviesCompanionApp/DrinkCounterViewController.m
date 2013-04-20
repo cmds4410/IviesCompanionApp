@@ -23,7 +23,8 @@
 @synthesize weight = _weight;
 @synthesize gender = _gender;
 @synthesize bacCalculator = _bacCalculator;
-@synthesize hoursSinceUserStartedDrinking = _hoursSinceUserStartedDrinking;
+@synthesize timeSinceUserStartedDrinking = _timeSinceUserStartedDrinking;
+@synthesize timer = _timer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,7 +52,7 @@
     self.BAC.lineBreakMode = 0;
     self.BAC.adjustsFontSizeToFitWidth = YES;
     self.BAC.textAlignment = 1;
-    self.hoursSinceUserStartedDrinking = 0;
+    self.timeSinceUserStartedDrinking = 0;
     self.bacCalculator = [[widmarkCalculator alloc] init];
     
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:24.0/255.0 green:156.0/255.0 blue:254.0/255.0 alpha:0.3]];
@@ -81,6 +82,30 @@
         NSLog(@"self.gender: %@", self.gender);
     }
     [self.BAC setText:[NSString stringWithFormat:@"%f", [self.bacCalculator calculateBACWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking]]];
+    
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+    
+    NSRunLoop *runLoop;
+    [runLoop addTimer:self.timer forMode:NSRunLoopCommonModes];
+    [runLoop run];
+    
+}
+//Create the timer set to however long since the user started drinking
+-(void) updateTimer {
+    self.timeSinceUserStartedDrinking = (-1) * [self.beganDrinking timeIntervalSinceNow];
+    int hoursSinceUserStartedDrinking = self.timeSinceUserStartedDrinking / 3600;
+    int minuteRemainder = (self.timeSinceUserStartedDrinking / 60) % 60;
+    int secondsRemainder = self.timeSinceUserStartedDrinking % 60;
+    //STuPIDHacK
+    if(secondsRemainder < 10) {
+        NSString *formattedTime =[NSString stringWithFormat:@"%i:%i:0%i", hoursSinceUserStartedDrinking, minuteRemainder, secondsRemainder];
+        [self.timerLabel setText:formattedTime];
+    }
+    else {
+        NSString *formattedTime =[NSString stringWithFormat:@"%i:%i:%i", hoursSinceUserStartedDrinking, minuteRemainder, secondsRemainder];
+        [self.timerLabel setText:formattedTime];
+    }
     
 }
 
@@ -119,7 +144,7 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setInteger:self.numDrinks forKey:kDefaultsNumDrinks];
     [defaults synchronize];
-
+    
 }
 
 #pragma - mark UIActionSheetDegate
@@ -127,7 +152,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
     if(buttonIndex == [self.bacActionSheet cancelButtonIndex]) {
         //Aquire which gender and weight rows were selected and
-        //set gender and weight properties appropriately 
+        //set gender and weight properties appropriately
         int genderIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:0];
         if(genderIndex == 0) {
             self.gender = @"F";
@@ -139,22 +164,7 @@
             self.gender = @"N/A";
         int weightIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:1];
         self.weight = BASEWEIGHT + (WEIGHTINCREMENT * weightIndex);
-        //int hoursSinceStartedDrinkingIndex = [self.bacActionSheet.bacDetailsPicker selectedRowInComponent:2];
-        //Determine whether the hoursSinceStartedDrinking selected is different than
-        //it has been.
-        /*if(hoursSinceStartedDrinkingIndex != self.hoursSinceUserStartedDrinking) {
-            //If it is, then reset the date
-            self.hoursSinceUserStartedDrinking = hoursSinceStartedDrinkingIndex;
-            float secondsSinceUserStartedDrinking = self.hoursSinceUserStartedDrinking * 3600;
-            NSTimeInterval timeInterval = secondsSinceUserStartedDrinking;
-            self.beganDrinking = [NSDate dateWithTimeIntervalSinceNow:(-1) * timeInterval];
-        }*/
-        //self.bacCalculator = [[widmarkCalculator alloc] initWithGender:self.gender Weight:self.weight Drinks:self.numDrinks andTime:self.beganDrinking];
         self.drinkCounter.text = [NSString stringWithFormat:@"%i", self.numDrinks];
-        
-//        if(!self.bacCalculator.startTime) {
-//            self.bacCalculator.startTime = [[NSDate alloc] init];
-//        }
         
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:self.gender forKey:kDefaultsGender];
