@@ -69,7 +69,7 @@ const float WATERMARK_ALPHA = 1;
 }
 
 -(void) viewWillAppear:(BOOL)animated {
-    /*
+    
     if(!self.imageView.image) {
         UIActionSheet* photoActionSheet = [[UIActionSheet alloc] initWithTitle:@"PictureSource" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photos", nil];
         //    photoActionSheet.actionSheetStyle
@@ -77,12 +77,12 @@ const float WATERMARK_ALPHA = 1;
         // Show the sheet
         [photoActionSheet showInView:self.view];
     }
-    */
+    
     
     //    [self.navigationController.navigationBar setHidden:YES];
     //    [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.imageView.alpha = 0;
-    [self presentCamera];
+//    [self presentCamera];
     
 }
 
@@ -222,7 +222,7 @@ const float WATERMARK_ALPHA = 1;
     }
     else if (buttonIndex == 1 && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
-        
+        [self presentCameraRoll];
     }
     
     else
@@ -234,7 +234,7 @@ const float WATERMARK_ALPHA = 1;
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
 {
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma - mark UIImagePickerControllerDelegate
@@ -279,7 +279,7 @@ const float WATERMARK_ALPHA = 1;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self.navigationController popViewControllerAnimated:NO];
+//    [self.navigationController popViewControllerAnimated:NO];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
