@@ -211,7 +211,7 @@ const float WATERMARK_ALPHA = 1;
     }
     else if (buttonIndex == 1 && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
-        
+        [self presentCameraRoll];
     }
     
     else
