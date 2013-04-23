@@ -14,6 +14,7 @@
 #import "ModalViewController.h"
 #import "Constants.h"
 #import "WellnessViewController.h"
+#import "NewWellnessViewController.h"
 
 #define LAUNCHER @"LauncherCell"
 
@@ -264,8 +265,9 @@
     }
     else if(indexPath.row == 3)
     {
-        WellnessViewController* wellness = [[WellnessViewController alloc] init];
-        [self presentViewController:wellness animated:YES completion:nil];
+        NewWellnessViewController* new = [[NewWellnessViewController alloc] init];
+//        [self presentViewController:new animated:YES completion:nil];
+        [self.navigationController pushViewController:new animated:YES];
     }
     
 }

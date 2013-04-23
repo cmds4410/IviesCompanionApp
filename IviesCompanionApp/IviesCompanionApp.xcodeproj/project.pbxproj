@@ -41,9 +41,9 @@
 		B3647033171500E4005B0434 /* shuttle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B364702F171500E4005B0434 /* shuttle@2x.png */; };
 		B364703717150336005B0434 /* WellnessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B364703517150336005B0434 /* WellnessViewController.m */; };
 		B364703817150336005B0434 /* WellnessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B364703617150336005B0434 /* WellnessViewController.xib */; };
-		B364703E17151B41005B0434 /* schedule-long.png in Resources */ = {isa = PBXBuildFile; fileRef = B364703917151B40005B0434 /* schedule-long.png */; };
-		B364703F17151B41005B0434 /* schedule-short.png in Resources */ = {isa = PBXBuildFile; fileRef = B364703A17151B40005B0434 /* schedule-short.png */; };
-		B364704017151B41005B0434 /* schedule-short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B364703B17151B41005B0434 /* schedule-short@2x.png */; };
+		B364703E17151B41005B0434 /* schedule-old-long.png in Resources */ = {isa = PBXBuildFile; fileRef = B364703917151B40005B0434 /* schedule-old-long.png */; };
+		B364703F17151B41005B0434 /* schedule-old-short.png in Resources */ = {isa = PBXBuildFile; fileRef = B364703A17151B40005B0434 /* schedule-old-short.png */; };
+		B364704017151B41005B0434 /* schedule-old-short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B364703B17151B41005B0434 /* schedule-old-short@2x.png */; };
 		B364704117151B41005B0434 /* wellness-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B364703C17151B41005B0434 /* wellness-old.png */; };
 		B364704217151B41005B0434 /* wellness-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B364703D17151B41005B0434 /* wellness-old@2x.png */; };
 		B3880F8A170CA64000032F40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3880F89170CA64000032F40 /* UIKit.framework */; };
@@ -57,6 +57,14 @@
 		B3880FA9170CA64000032F40 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3880FA7170CA64000032F40 /* ViewController_iPad.xib */; };
 		B3880FB2170CA97400032F40 /* LauncherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3880FB1170CA97400032F40 /* LauncherCell.m */; };
 		B3880FB8170CAAE500032F40 /* LauncherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3880FB7170CAAE500032F40 /* LauncherCell.xib */; };
+		B39390351725918300FA0FAD /* wellness-info-long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B39390321725918300FA0FAD /* wellness-info-long@2x.png */; };
+		B39390361725918300FA0FAD /* wellness-info-short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B39390331725918300FA0FAD /* wellness-info-short@2x.png */; };
+		B39390371725918300FA0FAD /* wellness-info-short.png in Resources */ = {isa = PBXBuildFile; fileRef = B39390341725918300FA0FAD /* wellness-info-short.png */; };
+		B393903B172592A700FA0FAD /* NewWellnessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3939039172592A700FA0FAD /* NewWellnessViewController.m */; };
+		B393903C172592A700FA0FAD /* NewWellnessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B393903A172592A700FA0FAD /* NewWellnessViewController.xib */; };
+		B39390401725979C00FA0FAD /* schedule-long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B393903D1725979C00FA0FAD /* schedule-long@2x.png */; };
+		B39390411725979C00FA0FAD /* schedule-short.png in Resources */ = {isa = PBXBuildFile; fileRef = B393903E1725979C00FA0FAD /* schedule-short.png */; };
+		B39390421725979C00FA0FAD /* schedule-short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B393903F1725979C00FA0FAD /* schedule-short@2x.png */; };
 		B3B1FD581716B89C008DE4F4 /* waiting-shortlow2.png in Resources */ = {isa = PBXBuildFile; fileRef = B3B1FD4F1716B898008DE4F4 /* waiting-shortlow2.png */; };
 		B3B1FD591716B89C008DE4F4 /* waiting-short2.png in Resources */ = {isa = PBXBuildFile; fileRef = B3B1FD501716B899008DE4F4 /* waiting-short2.png */; };
 		B3B1FD5A1716B89C008DE4F4 /* waiting-long2.png in Resources */ = {isa = PBXBuildFile; fileRef = B3B1FD511716B899008DE4F4 /* waiting-long2.png */; };
@@ -167,9 +175,9 @@
 		B364703417150336005B0434 /* WellnessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WellnessViewController.h; sourceTree = "<group>"; };
 		B364703517150336005B0434 /* WellnessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WellnessViewController.m; sourceTree = "<group>"; };
 		B364703617150336005B0434 /* WellnessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WellnessViewController.xib; sourceTree = "<group>"; };
-		B364703917151B40005B0434 /* schedule-long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule-long.png"; sourceTree = "<group>"; };
-		B364703A17151B40005B0434 /* schedule-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule-short.png"; sourceTree = "<group>"; };
-		B364703B17151B41005B0434 /* schedule-short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule-short@2x.png"; sourceTree = "<group>"; };
+		B364703917151B40005B0434 /* schedule-old-long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule-old-long.png"; sourceTree = "<group>"; };
+		B364703A17151B40005B0434 /* schedule-old-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule-old-short.png"; sourceTree = "<group>"; };
+		B364703B17151B41005B0434 /* schedule-old-short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule-old-short@2x.png"; sourceTree = "<group>"; };
 		B364703C17151B41005B0434 /* wellness-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wellness-old.png"; sourceTree = "<group>"; };
 		B364703D17151B41005B0434 /* wellness-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wellness-old@2x.png"; sourceTree = "<group>"; };
 		B3880F86170CA64000032F40 /* Ivies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ivies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +197,15 @@
 		B3880FB0170CA97400032F40 /* LauncherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LauncherCell.h; sourceTree = "<group>"; };
 		B3880FB1170CA97400032F40 /* LauncherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LauncherCell.m; sourceTree = "<group>"; };
 		B3880FB7170CAAE500032F40 /* LauncherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LauncherCell.xib; sourceTree = "<group>"; };
+		B39390321725918300FA0FAD /* wellness-info-long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wellness-info-long@2x.png"; sourceTree = "<group>"; };
+		B39390331725918300FA0FAD /* wellness-info-short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wellness-info-short@2x.png"; sourceTree = "<group>"; };
+		B39390341725918300FA0FAD /* wellness-info-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wellness-info-short.png"; sourceTree = "<group>"; };
+		B3939038172592A700FA0FAD /* NewWellnessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWellnessViewController.h; sourceTree = "<group>"; };
+		B3939039172592A700FA0FAD /* NewWellnessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWellnessViewController.m; sourceTree = "<group>"; };
+		B393903A172592A700FA0FAD /* NewWellnessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewWellnessViewController.xib; sourceTree = "<group>"; };
+		B393903D1725979C00FA0FAD /* schedule-long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule-long@2x.png"; sourceTree = "<group>"; };
+		B393903E1725979C00FA0FAD /* schedule-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule-short.png"; sourceTree = "<group>"; };
+		B393903F1725979C00FA0FAD /* schedule-short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule-short@2x.png"; sourceTree = "<group>"; };
 		B3B1FD4F1716B898008DE4F4 /* waiting-shortlow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "waiting-shortlow2.png"; sourceTree = "<group>"; };
 		B3B1FD501716B899008DE4F4 /* waiting-short2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "waiting-short2.png"; sourceTree = "<group>"; };
 		B3B1FD511716B899008DE4F4 /* waiting-long2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "waiting-long2.png"; sourceTree = "<group>"; };
@@ -445,6 +462,9 @@
 				B364703417150336005B0434 /* WellnessViewController.h */,
 				B364703517150336005B0434 /* WellnessViewController.m */,
 				B364703617150336005B0434 /* WellnessViewController.xib */,
+				B3939038172592A700FA0FAD /* NewWellnessViewController.h */,
+				B3939039172592A700FA0FAD /* NewWellnessViewController.m */,
+				B393903A172592A700FA0FAD /* NewWellnessViewController.xib */,
 				6AB387501713C61B0045361B /* DrinkCounter */,
 				6AB387511713C62E0045361B /* FoodViewController */,
 				B3D21E3A17124D2E00A040C6 /* Pictures */,
@@ -467,6 +487,9 @@
 		B3D21E3A17124D2E00A040C6 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				B39390321725918300FA0FAD /* wellness-info-long@2x.png */,
+				B39390331725918300FA0FAD /* wellness-info-short@2x.png */,
+				B39390341725918300FA0FAD /* wellness-info-short.png */,
 				B307B1B51714DCAB00298D9A /* Overlays */,
 				B307B1B41714DC8B00298D9A /* Home Screen Buttons */,
 				B3D21EC11713411500A040C6 /* Default.png */,
@@ -475,9 +498,12 @@
 				B3D21EC51713415D00A040C6 /* icon.png */,
 				6A27785A17166CC800D6F899 /* DrinkCounterImages */,
 				B3D21EC31713414600A040C6 /* icon@2x.png */,
-				B364703917151B40005B0434 /* schedule-long.png */,
-				B364703A17151B40005B0434 /* schedule-short.png */,
-				B364703B17151B41005B0434 /* schedule-short@2x.png */,
+				B393903D1725979C00FA0FAD /* schedule-long@2x.png */,
+				B393903E1725979C00FA0FAD /* schedule-short.png */,
+				B393903F1725979C00FA0FAD /* schedule-short@2x.png */,
+				B364703917151B40005B0434 /* schedule-old-long.png */,
+				B364703A17151B40005B0434 /* schedule-old-short.png */,
+				B364703B17151B41005B0434 /* schedule-old-short@2x.png */,
 				B3D21E8F17133FE200A040C6 /* bkgd-blue-long.png */,
 				B3D21E9017133FE200A040C6 /* bkgd-blue-short.png */,
 				B3D21E9117133FE200A040C6 /* bkgd-blue-short@2x.png */,
@@ -611,9 +637,9 @@
 				B3647032171500E4005B0434 /* shuttle.png in Resources */,
 				B3647033171500E4005B0434 /* shuttle@2x.png in Resources */,
 				B364703817150336005B0434 /* WellnessViewController.xib in Resources */,
-				B364703E17151B41005B0434 /* schedule-long.png in Resources */,
-				B364703F17151B41005B0434 /* schedule-short.png in Resources */,
-				B364704017151B41005B0434 /* schedule-short@2x.png in Resources */,
+				B364703E17151B41005B0434 /* schedule-old-long.png in Resources */,
+				B364703F17151B41005B0434 /* schedule-old-short.png in Resources */,
+				B364704017151B41005B0434 /* schedule-old-short@2x.png in Resources */,
 				B364704117151B41005B0434 /* wellness-old.png in Resources */,
 				B364704217151B41005B0434 /* wellness-old@2x.png in Resources */,
 				6A126748171558BE000E1059 /* initialDrinkingViewController.xib in Resources */,
@@ -650,6 +676,13 @@
 				B3B1FD6E1716B932008DE4F4 /* wellness@2x.png in Resources */,
 				B3B1FD6F1716B932008DE4F4 /* close-text.png in Resources */,
 				B3B1FD701716B932008DE4F4 /* close-button.png in Resources */,
+				B39390351725918300FA0FAD /* wellness-info-long@2x.png in Resources */,
+				B39390361725918300FA0FAD /* wellness-info-short@2x.png in Resources */,
+				B39390371725918300FA0FAD /* wellness-info-short.png in Resources */,
+				B393903C172592A700FA0FAD /* NewWellnessViewController.xib in Resources */,
+				B39390401725979C00FA0FAD /* schedule-long@2x.png in Resources */,
+				B39390411725979C00FA0FAD /* schedule-short.png in Resources */,
+				B39390421725979C00FA0FAD /* schedule-short@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +707,7 @@
 				B3EC059A1713BF3700453EF3 /* widmarkCalculator.m in Sources */,
 				B364703717150336005B0434 /* WellnessViewController.m in Sources */,
 				6A126747171558BE000E1059 /* initialDrinkingViewController.m in Sources */,
+				B393903B172592A700FA0FAD /* NewWellnessViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
