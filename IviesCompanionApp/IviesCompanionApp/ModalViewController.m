@@ -30,10 +30,10 @@
 {
     [super viewDidLoad];
     
-    
     // Do any additional setup after loading the view from its nib.
     
-    //[self.navigationController.navigationBar setTranslucent:YES];
+//    [self.navigationController.navigationBar setHidden:NO];
+//    [self.navigationController.navigationBar setTranslucent:YES];
     
     self.imageView.image = [UIImage imageNamed:ASSET_BY_SCREEN_HEIGHT(@"schedule-short.png", @"schedule-long.png")];
     
