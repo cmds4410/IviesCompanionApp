@@ -99,6 +99,7 @@
     int hoursSinceUserStartedDrinking = self.timeSinceUserStartedDrinking / 3600;
     int minuteRemainder = (self.timeSinceUserStartedDrinking / 60) % 60;
     int secondsRemainder = self.timeSinceUserStartedDrinking % 60;
+<<<<<<< HEAD
     //STuPIdHacK
     if(secondsRemainder < 10 && minuteRemainder < 10) {
         NSString *formattedTime =[NSString stringWithFormat:@"%i:0%i:0%i", hoursSinceUserStartedDrinking, minuteRemainder, secondsRemainder];
@@ -109,6 +110,14 @@
         [self.timerLabel setText:formattedTime];
     }
     else if(minuteRemainder > 10 && secondsRemainder < 10) {
+=======
+    NSLog(@"self.timeSinceUserStartedDrinking = %d", self.timeSinceUserStartedDrinking);
+    NSLog(@"hoursSinceUserStartedDrinking: %d", hoursSinceUserStartedDrinking);
+    NSLog(@"minuteRemainder: %d", minuteRemainder);
+    NSLog(@"secondsRemainder: %d", secondsRemainder);
+    //STuPIDHacK
+    if(secondsRemainder < 10) {
+>>>>>>> origin/Connor
         NSString *formattedTime =[NSString stringWithFormat:@"%i:%i:0%i", hoursSinceUserStartedDrinking, minuteRemainder, secondsRemainder];
         [self.timerLabel setText:formattedTime];
     }

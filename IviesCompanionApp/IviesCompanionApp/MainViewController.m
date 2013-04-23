@@ -14,6 +14,7 @@
 #import "ModalViewController.h"
 #import "Constants.h"
 #import "WellnessViewController.h"
+#import "NewWellnessViewController.h"
 
 #define LAUNCHER @"LauncherCell"
 
@@ -246,8 +247,13 @@
             self.initialDrinkingVC = [[initialDrinkingViewController alloc] init];
             self.initialDrinkingVC.delegate = self;
         }
-        if([self.drinkCounterVC.BAC.text floatValue] == 0) {
-            self.initialDrinkingVC.userIsDrinking = FALSE;
+        if ([self.drinkCounterVC.bacCalculator calculateBAC] == 0)
+        {
+        //if([self.drinkCounterVC.BAC.text floatValue] == 0) {
+            self.initialDrinkingVC.userIsDrinking = NO;
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setBool:NO forKey:kDefaultsUserIsDrinking];
+            [defaults synchronize];
         }
         [self.navigationController pushViewController:self.initialDrinkingVC animated:YES];
     }
@@ -259,8 +265,9 @@
     }
     else if(indexPath.row == 3)
     {
-        WellnessViewController* wellness = [[WellnessViewController alloc] init];
-        [self presentViewController:wellness animated:YES completion:nil];
+        NewWellnessViewController* new = [[NewWellnessViewController alloc] init];
+//        [self presentViewController:new animated:YES completion:nil];
+        [self.navigationController pushViewController:new animated:YES];
     }
     
 }
