@@ -2,10 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>overlays-hash.png</string>
-	<string>overlays-certified.png</string>
+	<string>overlay-hashtagIvies@2x-2014.png</string>
+	<string>overlay-certified@2x-2014.png</string>
 	<string>overlays-wasted.png</string>
 	<string>overlays-killinit.png</string>
+	<string>overlay-iviesSelfie@2x.png</string>
 	<string>overlays-hammered.png</string>
 </array>
 </plist>
