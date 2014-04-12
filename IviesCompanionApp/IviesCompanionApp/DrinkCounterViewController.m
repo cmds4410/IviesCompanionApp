@@ -190,7 +190,12 @@
     if(!self.bacActionSheet) {
         self.bacActionSheet = [[bacActionSheet alloc] initWithTitle:@"Details" delegate:self cancelButtonTitle:@"Done" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     }
-    [self.bacActionSheet showInView:self.view];
+    UIWindow* window = [[[UIApplication sharedApplication] delegate] window];
+    if ([window.subviews containsObject:self.view]) {
+        [self.bacActionSheet showInView:self.view];
+    } else {
+        [self.bacActionSheet showInView:window];
+    }
     [self.bacActionSheet setFrame:CGRectMake(0, self.view.frame.size.height - 255, 320, self.view.frame.size.height)];
 }
 @end

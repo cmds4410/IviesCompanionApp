@@ -75,7 +75,12 @@ const float WATERMARK_ALPHA = 1;
         //    photoActionSheet.actionSheetStyle
         
         // Show the sheet
-        [photoActionSheet showInView:self.view];
+        UIWindow* window = [[[UIApplication sharedApplication] delegate] window];
+        if ([window.subviews containsObject:self.view]) {
+            [photoActionSheet showInView:self.view];
+        } else {
+            [photoActionSheet showInView:window];
+        }
     }
     
     
